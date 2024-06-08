@@ -30,7 +30,7 @@ html {
   display: flex;
   list-style: none;
   gap: 20px;
-  font-size: 15px;
+  font-size: 18px;
 }
 
 .nav-container ul li {
@@ -42,20 +42,20 @@ html {
 
 .nav-container ul li:hover,
 .nav-container .icons i:hover {
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(246, 232, 232, 0.5);
 }
 
 .logo {
-  width: 120px;
-  height: 30px;
+  width: 140px;
+  height: 40px;
   cursor: pointer;
   filter: brightness(0) invert(1);
 }
 
 .nav-container .icons {
   display: flex;
-  font-size: 25px;
-  gap: 10px;
+  font-size: 35px;
+  gap: 20px;
   cursor: pointer;
 }
 
@@ -166,4 +166,8 @@ html {
   opacity: 0;
   transform: translateY(50px);
   transition: 3s;
+}
+
+.page-footer_1{
+  font-size: 18px;
 }
