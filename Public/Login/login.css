@@ -1,0 +1,49 @@
+body {
+    background-image: url(Images/bg_login.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: 0.85;
+}
+
+.logo {
+    width: 140px;
+    height: 40px;
+}
+
+.card {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+}
+
+.form-group i {
+    color: rgb(70, 70, 70);
+    font-size: 14px;
+}
+
+.form-group {
+    margin-top: 10px;
+}
+
+.subtittle {
+    color: rgb(127, 127, 127);
+}
+
+.card-header {
+    background-color: rgb(70, 70, 70);
+    ;
+    color: white;
+}
+
+.btn-primary {
+    background-color: rgb(70, 70, 70);
+    border-color: rgb(156, 156, 156);
+    font-size: 20px;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #004085;
+}
+
+.footer {
+    color: rgb(0, 0, 0);
+}
