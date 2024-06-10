@@ -1,5 +1,5 @@
 body {
-    background-image: url(Images/bg_login.jpg);
+    background-image: url(/Public/Images/bg_login.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     opacity: 0.85;
