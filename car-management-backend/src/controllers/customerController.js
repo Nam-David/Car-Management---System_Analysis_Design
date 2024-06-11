@@ -28,4 +28,19 @@ const createCustomer = async (req, res) => {
     }
 };
 
-module.exports = { createCustomer };
+const checkDiscount = async (req, res) => {
+    try {
+        const { Citizen_ID } = req.params;
+        const isEligible = await CustomerModel.checkDiscountEligibility(Citizen_ID);
+        if (isEligible) {
+            res.status(200).json({ message: 'Khách hàng đủ điều kiện cho ưu đãi!' });
+        } else {
+            res.status(200).json({ message: 'Khách hàng không đủ điều kiện cho ưu đãi' });
+        }
+    } catch (error) {
+        console.error('Lỗi khi kiểm tra ưu đãi:', error);
+        res.status(500).json({ message: 'Lỗi server' });
+    }
+};
+
+module.exports = { createCustomer, checkDiscount };

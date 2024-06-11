@@ -9,4 +9,14 @@ const addCustomer = async (customerData) => {
     return result.rowCount > 0; // Trả về true nếu thêm thành công
 };
 
-module.exports = { addCustomer };
+const checkDiscountEligibility = async (Citizen_ID) => {
+    const DISCOUNT_THRESHOLD = 1; // Số lần giao dịch tối thiểu để được giảm giá
+    const result = await pool.query(
+        'SELECT COUNT(*) FROM dataTRANSACTION WHERE Citizen_ID = $1',
+        [Citizen_ID]
+    );
+    const transactionCount = result.rows[0].count;
+    return transactionCount >= DISCOUNT_THRESHOLD; // Replace DISCOUNT_THRESHOLD with the minimum number of transactions for a discount
+};
+
+module.exports = { addCustomer, checkDiscountEligibility };
