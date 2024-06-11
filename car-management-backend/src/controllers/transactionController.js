@@ -17,11 +17,13 @@ const createTransaction = async (req, res) => {
         const Transaction_Date = new Date();
         const Payment_Date = new Date();
         Payment_Date.setDate(Transaction_Date.getDate() + 7);
+        const Warranty_Date = new Date();
+        Warranty_Date.setDate(Transaction_Date.getDate() + 730);
 
         // Insert into dataTRANSACTION table
         await pool.query(
             'INSERT INTO dataTRANSACTION (Transaction_ID, Citizen_ID, Model_Car_ID, Transaction_Date, Payment_Date, Status_Of_Purchasing) VALUES ($1, $2, $3, $4, $5, $6)',
-            [Transaction_ID, Citizen_ID, Model_Car_ID, Transaction_Date, Payment_Date, 'Deposited']
+            [Transaction_ID, Citizen_ID, Model_Car_ID, Transaction_Date, Payment_Date, Warranty_Date, 'Deposited']
         );
 
         // Insert into dataACCOUTING table
