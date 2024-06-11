@@ -18,13 +18,15 @@ CREATE TABLE dataCAR (
 	Lauching_Year INT NOT NULL
 );
 
-CREATE TABLE dataCUSTOMER (
-	Citizen_ID VARCHAR (255) PRIMARY KEY,
-	Email VARCHAR (255) NOT NULL UNIQUE, 
-	Customer_Name VARCHAR (255) NOT NULL,
-	Phone_No VARCHAR (10) NOT NULL UNIQUE,
-	Address VARCHAR (255) NOT NULL UNIQUE
-);
+CREATE TABLE dataCUSTOMER  (
+    Citizen_ID VARCHAR (255),
+    Email VARCHAR (255) NOT NULL UNIQUE, 
+    Customer_Name VARCHAR (255) NOT NULL,
+    Phone_No VARCHAR (10) NOT NULL UNIQUE,
+    Address VARCHAR (255) NOT NULL UNIQUE,
+    Number_Transaction INT NOT NULL,
+    PRIMARY KEY (Citizen_ID)
+)
 
 CREATE TABLE dataAGENCY (
 	Agency_ID VARCHAR (255) PRIMARY KEY,
@@ -47,14 +49,19 @@ CREATE TABLE dataEMPLOYEE (
 
 
 CREATE TABLE dataTRANSACTION (
-	Transaction_ID VARCHAR (255) PRIMARY KEY,
-	Citizen_ID VARCHAR (255) NOT NULL REFERENCES dataCUSTOMER(Citizen_ID), -- Added references 
-	Model_Car_ID VARCHAR (255) NOT NULL REFERENCES dataCAR(Model_Car_ID),  -- Added references
-	Transaction_Date DATE NOT NULL,
-	Number_Transaction INT DEFAULT 1,
-	Payment_Date DATE NOT NULL,
-	Status_Of_Purchasing VARCHAR (255) NOT NULL
-);
+    Transaction_ID VARCHAR (255),
+    Citizen_ID VARCHAR (255) NOT NULL UNIQUE,
+    Model_Car_ID VARCHAR (255) NOT NULL UNIQUE,
+
+    Transaction_Date DATE NOT NULL,
+    Payment_Date DATE NOT NULL,
+    Warranty_Valid_Date DATE NOT NULL,
+    Status_Of_Purchasing VARCHAR (255) NOT NULL,   --store 3 status (chưa cọc, đã cọc, đã thanh toán)
+
+    PRIMARY KEY (Transaction_ID),
+    FOREIGN KEY (Citizen_ID) REFERENCES dataCUSTOMER(Citizen_ID),
+    FOREIGN KEY (Model_Car_ID) REFERENCES dataCAR(Model_Car_ID)
+)
 	
 CREATE TABLE dataACCOUTING (
 	Transaction_ID VARCHAR (255) NOT NULL REFERENCES dataTRANSACTION(Transaction_ID),
