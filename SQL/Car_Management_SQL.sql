@@ -1,3 +1,10 @@
+DROP TABLE dataACCOUTING;
+DROP TABLE  dataTRANSACTION;
+DROP TABLE  dataEMPLOYEE;
+DROP TABLE  dataAGENCY;
+DROP TABLE dataCUSTOMER;
+DROP TABLE  dataCAR; 
+
 CREATE TABLE dataCAR (
 	Model_Car_ID VARCHAR (255),
 	Model_Car_Name VARCHAR (255) NOT NULL, 
@@ -10,7 +17,6 @@ CREATE TABLE dataCAR (
 	Lauching_Year INT NOT NULL,
 	PRIMARY KEY (Model_Car_ID)
 )
---DROP TABLE dataCAR 
 
 CREATE TABLE dataCUSTOMER  (
 	Citizen_ID VARCHAR (255),
@@ -18,9 +24,9 @@ CREATE TABLE dataCUSTOMER  (
 	Customer_Name VARCHAR (255) NOT NULL,
 	Phone_No VARCHAR (10) NOT NULL UNIQUE,
 	Address VARCHAR (255) NOT NULL UNIQUE,
+	Number_Transaction INT NOT NULL,
 	PRIMARY KEY (Citizen_ID)
 )
---DROP TABLE dataCUSTOMER
 
 CREATE TABLE dataAGENCY  (
 	Agency_ID VARCHAR (255),
@@ -28,10 +34,9 @@ CREATE TABLE dataAGENCY  (
 	Agency_Brand  VARCHAR (255) NOT NULL UNIQUE,
 	Phone_No VARCHAR (10) NOT NULL UNIQUE,
 	Address VARCHAR (255) NOT NULL UNIQUE,
-	Pass_Word VARCHAR (255) NOT NULL UNIQUE,
+	Pass_Word VARCHAR (255) NOT NULL,
 	PRIMARY KEY (Agency_ID)
 )
---DROP TABLE dataAGENCY
 
 CREATE TABLE dataEMPLOYEE  (
 	Employee_CitizenID  VARCHAR (255),
@@ -51,14 +56,14 @@ CREATE TABLE dataTRANSACTION (
 	Model_Car_ID VARCHAR (255) NOT NULL UNIQUE,
 
 	Transaction_Date DATE NOT NULL,
-	Number_Transaction INT DEFAULT 1,
+	Payment_Date DATE NOT NULL,
+	Warranty_Valid_Date DATE NOT NULL,
 	Status_Of_Purchasing VARCHAR (255) NOT NULL,   --store 3 status (chưa cọc, đã cọc, đã thanh toán)
 	
 	PRIMARY KEY (Transaction_ID),
 	FOREIGN KEY (Citizen_ID) REFERENCES dataCUSTOMER(Citizen_ID),
 	FOREIGN KEY (Model_Car_ID) REFERENCES dataCAR(Model_Car_ID)
 )
---DROP TABLE dataTRANSACTION
 	
 CREATE TABLE dataACCOUTING (
 	Transaction_ID VARCHAR (255) NOT NULL UNIQUE,
@@ -70,7 +75,6 @@ CREATE TABLE dataACCOUTING (
 	FOREIGN KEY (Transaction_ID) REFERENCES dataTRANSACTION(Transaction_ID),
 	CONSTRAINT PK_Accouting PRIMARY KEY (Citizen_ID, Transaction_ID)
 )
---DROP TABLE dataACCOUTING
 
 
 INSERT INTO dataAGENCY (Agency_ID, Agency_Email, Agency_Brand, Phone_No, Address, Pass_word)
