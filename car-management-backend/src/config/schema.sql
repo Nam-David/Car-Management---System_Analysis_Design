@@ -52,7 +52,8 @@ CREATE TABLE dataTRANSACTION (
 	Model_Car_ID VARCHAR (255) NOT NULL REFERENCES dataCAR(Model_Car_ID),  -- Added references
 	Transaction_Date DATE NOT NULL,
 	Number_Transaction INT DEFAULT 1,
-	Status_Of_Purchasing VARCHAR (255) NOT NULL  
+	Payment_Date DATE NOT NULL,
+	Status_Of_Purchasing VARCHAR (255) NOT NULL
 );
 	
 CREATE TABLE dataACCOUTING (
