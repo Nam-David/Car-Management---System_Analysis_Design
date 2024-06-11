@@ -3,6 +3,7 @@ const cors = require('cors');
 const app = express();
 const carRoutes = require('./routes/carRoutes');
 const customerRoutes = require('./routes/customerRoutes');
+const transactionRoutes = require('./routes/transactionRoutes');
 const pool = require('./config/db');
 
 // Cấu hình CORS (phải được thêm trước các routes)
@@ -14,6 +15,7 @@ app.use(express.json());
 // Khai báo routes
 app.use('/cars', carRoutes);
 app.use('/customers', customerRoutes);
+app.use('/transaction', transactionRoutes);
 
 // Kiểm tra kết nối database
 pool.query('SELECT NOW()', (err, res) => {
