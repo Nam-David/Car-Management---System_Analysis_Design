@@ -3,8 +3,8 @@ const { Pool } = require('pg');
 const pool = new Pool({
     user: 'postgres',
     host: 'localhost',
-    database: 'car_management',
-    password: '08112018',
+    database: 'car-management',
+    password: 'admin',
     port: 5432, // Cổng mặc định của PostgreSQL
 });
 
