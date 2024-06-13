@@ -1,6 +1,6 @@
-Chạy phía frontend tại /car-management-frontend với npm start
+Chạy phía frontend tại cd car-management-frontend với npm start
 
-Chạy phía backend tại /car-management-backend với node /src/app.js
+Chạy phía backend tại cd car-management-backend với node src\app.js
 
 Đang nghiên cứu cách chạy song song bằng concurrently
 
