@@ -92,7 +92,7 @@ VALUES
 	('VINVFWG', 'VF Wild', 50000.00, 'Grey', 'Vietnam', '2024-06-01', 8, 5, 2024),
 	('VINVF8BL', 'VF 8', 47200.00, 'Black', 'Vietnam', '2024-06-01', 8, 3, 2023),
 	('VINVF8WH', 'VF 8', 47200.00, 'White', 'Vietnam', '2024-06-01', 9, 7, 2023),
-	('VINVF8BL', 'VF 8', 47200.00, 'Black', 'Vietnam', '2024-06-01', 9, 4, 2023),
+	('VINVF8B', 'VF 8', 47200.00, 'Blue', 'Vietnam', '2024-06-01', 9, 4, 2023),
 	('VINVF9CR', 'VF 9', 81000.00, 'Crimson Red', 'Vietnam', '2024-06-01', 10, 10, 2023),
 	('VINVF9BL', 'VF 9', 81000.00, 'Black', 'Vietnam', '2024-06-01', 10, 8, 2023),
 	('VINVF9SL', 'VF 9', 81000.00, 'Silver', 'Vietnam', '2024-06-01', 9, 12, 2023),
