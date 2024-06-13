@@ -96,7 +96,6 @@ VALUES
 	('VINVF9CR', 'VF 9', 81000.00, 'Crimson Red', 'Vietnam', '2024-06-01', 10, 10, 2023),
 	('VINVF9BL', 'VF 9', 81000.00, 'Black', 'Vietnam', '2024-06-01', 10, 8, 2023),
 	('VINVF9SL', 'VF 9', 81000.00, 'Silver', 'Vietnam', '2024-06-01', 9, 12, 2023),
-	('VINVF9CR', 'VF 9', 81000.00, 'Crimson Red', 'Vietnam', '2024-06-01', 9, 9, 2023),
 	('VINVF5B', 'VF 5', 30000.00, 'Blue', 'Vietnam', '2024-07-01', 8, 12, 2023),
 	('VINVF6G', 'VF 6', 35000.00, 'Green', 'Vietnam', '2024-08-01', 8, 8, 2023),
 	('VINVF7SL', 'VF 7', 37000.00, 'Silver', 'Vietnam', '2024-09-01', 9, 6, 2023),
