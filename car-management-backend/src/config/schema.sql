@@ -26,7 +26,7 @@ CREATE TABLE dataCUSTOMER  (
     Address VARCHAR (255) NOT NULL UNIQUE,
     Number_Transaction INT NOT NULL,
     PRIMARY KEY (Citizen_ID)
-)
+);
 
 CREATE TABLE dataAGENCY (
 	Agency_ID VARCHAR (255) PRIMARY KEY,
@@ -61,7 +61,7 @@ CREATE TABLE dataTRANSACTION (
     PRIMARY KEY (Transaction_ID),
     FOREIGN KEY (Citizen_ID) REFERENCES dataCUSTOMER(Citizen_ID),
     FOREIGN KEY (Model_Car_ID) REFERENCES dataCAR(Model_Car_ID)
-)
+);
 	
 CREATE TABLE dataACCOUTING (
 	Transaction_ID VARCHAR (255) NOT NULL REFERENCES dataTRANSACTION(Transaction_ID),
