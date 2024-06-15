@@ -34,7 +34,7 @@
 }
 
 .image-container img {
-    max-width: 700px;
+    max-width: 660px;
     /* Giới hạn kích thước hình ảnh */
     height: auto;
 }
@@ -534,6 +534,7 @@ img {
     bottom: 10px;
     /* Điều chỉnh vị trí dưới cùng */
 }
+
 
 .nav-container a {
     color: inherit; /* Hoặc bạn có thể đặt màu cụ thể, ví dụ: #000 */

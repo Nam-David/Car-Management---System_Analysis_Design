@@ -1,14 +1,14 @@
 // script.js
 
 const cars = [
-    { name: "VinFast Wild", image: "/Public/Images/vfwild.jpg", specs: ["Việt Nam", "2024"], value: "$500 000" },
-    { name: "VinFast VF 9", image: "/Public/Images/car-pics/vf9/vf9r.png", specs: ["Spec 1", "Spec 2", "Spec 3"] },
-    { name: "Vinfast VF 8", image: "/Public/Images/car-pics/vf8/vf8wh.png", specs: ["Spec 1", "Spec 2", "Spec 3"] },
-    { name: "Vinfast VF 7", image: "/Public/Images/car-pics/vf7/vf7b.png", specs: ["Spec 1", "Spec 2", "Spec 3"] },
-    { name: "VinFast VF 6", image: "/Public/Images/car-pics/vf6/vf6r.png", specs: ["Việt Nam", "2024"], value: "$500 000" },
-    { name: "VinFast VF 5", image: "/Public/Images/car-pics/vf5/vf5bl.png", specs: ["Việt Nam", "2024"], value: "$500 000" },
-    { name: "VinFast VF 3", image: "/Public/Images/car-pics/vf3/vf3yl.png", specs: ["Việt Nam", "2024"], value: "$500 000" },
-    { name: "VinFast VF e34", image:"/Public/Images/car-pics/vfe34/vfe34b.png", specs: ["Việt Nam", "2024"], value: "$500 000" },
+    { name: "VinFast Wild", image: "/Public/Images/vfwild.jpg",origin: "Việt Nam", year: "2024", hw: "664HP", value: "$50 000" },
+    { name: "VinFast VF 9", image: "/Public/Images/car-pics/vf9/vf9r.png", origin: "Việt Nam", year: "2024", hw: "402HP", value: "$81 000" },
+    { name: "Vinfast VF 8", image: "/Public/Images/car-pics/vf8/vf8wh.png",origin: "Việt Nam", year: "2024", hw: "402HP", value: "$47 200" },
+    { name: "Vinfast VF 7", image: "/Public/Images/car-pics/vf7/vf7b.png",origin: "Việt Nam", year: "2024", hw: "349HP", value: "$37 000" },
+    { name: "VinFast VF 6", image: "/Public/Images/car-pics/vf6/vf6r.png", origin: "Việt Nam", year: "2024", hw: "201HP", value: "$35 000" },
+    { name: "VinFast VF 5", image: "/Public/Images/car-pics/vf5/vf5bl.png", origin: "Việt Nam", year: "2024", hw: "134HP", value: "$30 000" },
+    { name: "VinFast VF 3", image: "/Public/Images/car-pics/vf3/vf3yl.png",origin: "Việt Nam", year: "2024", hw: "43HP", value: "$16 000" },
+    { name: "VinFast VF e34", image:"/Public/Images/car-pics/vfe34/vfe34b.png",origin: "Việt Nam", year: "2024", hw: "147HP", value: "$26 000" },
     // Thêm dữ liệu xe khác tại đây
 ];
 
@@ -24,16 +24,22 @@ function renderCars() {
     const carsToShow = cars.slice(startIndex, endIndex);
 
     carsToShow.forEach(car => {
-                const carElement = document.createElement("div");
-                carElement.className = "car";
-                carElement.innerHTML = `
+        const carElement = document.createElement("div");
+        carElement.className = "car";
+        carElement.innerHTML = `
             <div class="image-container">
                 <img src="${car.image}" alt="${car.name}">
             </div>
             <div class="info-container">
                 <h2>${car.name}</h2>
                 <ul>
-                    ${car.specs.map(spec => `<li>${spec}</li>`).join('')}
+                    <li>Xuất xứ: ${car.origin}</li>
+                </ul>
+                <ul>
+                    <li>Năm sản xuất: ${car.year}</li>
+                </ul>
+                <ul>
+                    <li>${car.hw}</li>
                 </ul>
                 <h3>
                     ${car.value}
@@ -44,7 +50,6 @@ function renderCars() {
         carContainer.appendChild(carElement);
     });
 }
-
 function renderPagination() {
     const paginationContainer = document.getElementById("pagination");
     paginationContainer.innerHTML = ""; // Xóa nội dung cũ
@@ -60,7 +65,7 @@ function renderPagination() {
             renderPagination();
         }
     });
-    paginationContainer.appendChild(prevButton);
+paginationContainer.appendChild(prevButton);
 
     for (let i = 1; i <= totalPages; i++) {
         const button = document.createElement("button");
