@@ -1,10 +1,14 @@
 // script.js
 
 const cars = [
-    { name: "VinFast Wild", image: "/Public/Images/car-pics/vfwild.jpg", specs: ["Việt Nam", "2024"], value: "$500 000" },
-    { name: "VinFast VF 3", image: "/Public/Images/vf3.jpg", specs: ["Spec 1", "Spec 2", "Spec 3"] },
-    { name: "Vinfast VF 7", image: "/Public/Images/vf7.png", specs: ["Spec 1", "Spec 2", "Spec 3"] },
-    { name: "Vinfast VF 3", image: "/Public/Images/vf3.jpg", specs: ["Spec 1", "Spec 2", "Spec 3"] },
+    { name: "VinFast Wild", image: "/Public/Images/vfwild.jpg", specs: ["Việt Nam", "2024"], value: "$500 000" },
+    { name: "VinFast VF 9", image: "/Public/Images/car-pics/vf9/vf9r.png", specs: ["Spec 1", "Spec 2", "Spec 3"] },
+    { name: "Vinfast VF 8", image: "/Public/Images/car-pics/vf8/vf8wh.png", specs: ["Spec 1", "Spec 2", "Spec 3"] },
+    { name: "Vinfast VF 7", image: "/Public/Images/car-pics/vf7/vf7b.png", specs: ["Spec 1", "Spec 2", "Spec 3"] },
+    { name: "VinFast VF 6", image: "/Public/Images/car-pics/vf6/vf6r.png", specs: ["Việt Nam", "2024"], value: "$500 000" },
+    { name: "VinFast VF 5", image: "/Public/Images/car-pics/vf5/vf5bl.png", specs: ["Việt Nam", "2024"], value: "$500 000" },
+    { name: "VinFast VF 3", image: "/Public/Images/car-pics/vf3/vf3yl.png", specs: ["Việt Nam", "2024"], value: "$500 000" },
+    { name: "VinFast VF e34", image:"/Public/Images/car-pics/vfe34/vfe34b.png", specs: ["Việt Nam", "2024"], value: "$500 000" },
     // Thêm dữ liệu xe khác tại đây
 ];
 
