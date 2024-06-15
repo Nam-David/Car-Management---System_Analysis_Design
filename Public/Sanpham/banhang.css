@@ -535,13 +535,17 @@ img {
     /* Điều chỉnh vị trí dưới cùng */
 }
 
-
 .nav-container a {
-    color: inherit; /* Hoặc bạn có thể đặt màu cụ thể, ví dụ: #000 */
-    text-decoration: none; /* Nếu bạn muốn loại bỏ gạch chân */
-  }
-  
-  /* Đảm bảo rằng liên kết đã truy cập có cùng màu */
-  .nav-container a:visited {
-    color: inherit; /* Giữ nguyên màu hoặc đặt màu cụ thể */
-  }
+    color: inherit;
+    /* Hoặc bạn có thể đặt màu cụ thể, ví dụ: #000 */
+    text-decoration: none;
+    /* Nếu bạn muốn loại bỏ gạch chân */
+}
+
+
+/* Đảm bảo rằng liên kết đã truy cập có cùng màu */
+
+.nav-container a:visited {
+    color: inherit;
+    /* Giữ nguyên màu hoặc đặt màu cụ thể */
+}
