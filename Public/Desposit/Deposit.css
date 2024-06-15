@@ -388,3 +388,13 @@ body {
     border: 3px solid blue;
     /* Border for the selected swatch */
 }
+
+.btn {
+    width: 470px;
+    height: 50px;
+    border-radius: 10px;
+    border: none;
+    font-size: 20px;
+    font-weight: 700;
+    cursor: pointer;
+}
