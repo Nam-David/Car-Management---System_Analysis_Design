@@ -1,46 +1,16 @@
 // script.js
 
-/**
 const cars = [
-    { name: "VinFast Wild", image: "/Public/Images/vfwild.jpg", origin: "Việt Nam", year: "2024", hw: "664HP", value: "$50 000", link: "/Public/Desposit/Deposit_VFwild.html" },
-    { name: "VinFast VF 9", image: "/Public/Images/car-pics/vf9/vf9r.png", origin: "Việt Nam", year: "2024", hw: "402HP", value: "$81 000", link: "/Public/Desposit/Deposit_VF9.html" },
-    { name: "Vinfast VF 8", image: "/Public/Images/car-pics/vf8/vf8wh.png", origin: "Việt Nam", year: "2024", hw: "402HP", value: "$47 200", link: "/Public/Desposit/Deposit_VF8.html" },
-    { name: "Vinfast VF 7", image: "/Public/Images/car-pics/vf7/vf7b.png", origin: "Việt Nam", year: "2024", hw: "349HP", value: "$37 000", link: "/Public/Desposit/Deposit_VF7.html" },
-    { name: "VinFast VF 6", image: "/Public/Images/car-pics/vf6/vf6r.png", origin: "Việt Nam", year: "2024", hw: "201HP", value: "$35 000", link: "/Public/Desposit/Deposit_VF6.html" },
-    { name: "VinFast VF 5", image: "/Public/Images/car-pics/vf5/vf5bl.png", origin: "Việt Nam", year: "2024", hw: "134HP", value: "$30 000", link: "/Public/Desposit/Deposit_VF5.html" },
-    { name: "VinFast VF 3", image: "/Public/Images/car-pics/vf3/vf3yl.png", origin: "Việt Nam", year: "2024", hw: "43HP", value: "$16 000", link: "/Public/Desposit/Deposit_VF3.html" },
-    { name: "VinFast VF e34", image: "/Public/Images/car-pics/vfe34/vfe34b.png", origin: "Việt Nam", year: "2024", hw: "147HP", value: "$26 000", link: "/Public/Desposit/Deposit_VFe34.html" },
+    { name: "VinFast Wild", image: "../Images/vfwild.jpg", origin: "Việt Nam", year: "2024", hw: "664HP", value: "$50 000", link: "../Desposit/Deposit_VFwild.html" },
+    { name: "VinFast VF 9", image: "../Images/car-pics/vf9/vf9r.png", origin: "Việt Nam", year: "2024", hw: "402HP", value: "$81 000", link: "../Desposit/Deposit_VF9.html" },
+    { name: "Vinfast VF 8", image: "../Images/car-pics/vf8/vf8wh.png", origin: "Việt Nam", year: "2024", hw: "402HP", value: "$47 200", link: "../Desposit/Deposit_VF8.html" },
+    { name: "Vinfast VF 7", image: "../Images/car-pics/vf7/vf7b.png", origin: "Việt Nam", year: "2024", hw: "349HP", value: "$37 000", link: "../Desposit/Deposit_VF7.html" },
+    { name: "VinFast VF 6", image: "../Images/car-pics/vf6/vf6r.png", origin: "Việt Nam", year: "2024", hw: "201HP", value: "$35 000", link: "../Desposit/Deposit_VF6.html" },
+    { name: "VinFast VF 5", image: "../Images/car-pics/vf5/vf5bl.png", origin: "Việt Nam", year: "2024", hw: "134HP", value: "$30 000", link: "../Desposit/Deposit_VF5.html" },
+    { name: "VinFast VF 3", image: "../Images/car-pics/vf3/vf3yl.png", origin: "Việt Nam", year: "2024", hw: "43HP", value: "$16 000", link: "../Desposit/Deposit_VF3.html" },
+    { name: "VinFast VF e34", image: "../Images/car-pics/vfe34/vfe34b.png", origin: "Việt Nam", year: "2024", hw: "147HP", value: "$26 000", link: "../Desposit/Deposit_VFe34.html" },
     // Thêm dữ liệu xe khác tại đây
 ];
-*/
-
-// banhang.js
-
-let cars = [];
-
-async function fetchCars() {
-    try {
-        const response = await fetch('http://localhost:3001/cars'); // Gọi API backend
-        if (!response.ok) {
-            throw new Error('Lỗi khi lấy dữ liệu xe hơi');
-        }
-        const data = await response.json();
-        cars = data.map(car => ({
-            name: car.model_car_name,
-            image: `./image/${car.model_car_id.toLowerCase()}.jpg`, // Đường dẫn ảnh minh họa, bạn cần thay đổi cho phù hợp
-            specs: [car.origin_of_car, car.launching_year],
-            value: `$${car.price.toLocaleString()}` 
-        }));
-        renderCars();
-        renderPagination();
-    } catch (error) {
-        console.error('Lỗi:', error);
-        // Xử lý lỗi hiển thị cho người dùng (ví dụ: hiển thị thông báo lỗi)
-    }
-}
-
-// Gọi fetchCars() khi trang web được tải
-fetchCars(); 
 
 const carsPerPage = 3;
 let currentPage = 1;
