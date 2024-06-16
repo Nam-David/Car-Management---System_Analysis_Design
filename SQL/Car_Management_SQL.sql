@@ -16,7 +16,7 @@ CREATE TABLE dataCAR (
 	Car_Sold INT NOT NULL,
 	Lauching_Year INT NOT NULL,
 	PRIMARY KEY (Model_Car_ID)
-)
+);
 
 CREATE TABLE dataCUSTOMER  (
 	Citizen_ID VARCHAR (255),
@@ -26,7 +26,7 @@ CREATE TABLE dataCUSTOMER  (
 	Address VARCHAR (255) NOT NULL UNIQUE,
 	Number_Transaction INT NOT NULL,
 	PRIMARY KEY (Citizen_ID)
-)
+);
 
 CREATE TABLE dataAGENCY  (
 	Agency_ID VARCHAR (255),
@@ -36,7 +36,7 @@ CREATE TABLE dataAGENCY  (
 	Address VARCHAR (255) NOT NULL UNIQUE,
 	Pass_Word VARCHAR (255) NOT NULL,
 	PRIMARY KEY (Agency_ID)
-)
+);
 
 CREATE TABLE dataEMPLOYEE  (
 	Employee_CitizenID  VARCHAR (255),
@@ -47,7 +47,7 @@ CREATE TABLE dataEMPLOYEE  (
 	Employee_Address VARCHAR (255) NOT NULL UNIQUE,
 	Role_Title VARCHAR (255) NOT NULL,   -- chức danh 
 	PRIMARY KEY (Employee_CitizenID)
-)
+);
 
 	
 CREATE TABLE dataTRANSACTION (
@@ -63,7 +63,7 @@ CREATE TABLE dataTRANSACTION (
 	PRIMARY KEY (Transaction_ID),
 	FOREIGN KEY (Citizen_ID) REFERENCES dataCUSTOMER(Citizen_ID),
 	FOREIGN KEY (Model_Car_ID) REFERENCES dataCAR(Model_Car_ID)
-)
+);
 	
 CREATE TABLE dataACCOUTING (
 	Transaction_ID VARCHAR (255) NOT NULL UNIQUE,
@@ -74,7 +74,7 @@ CREATE TABLE dataACCOUTING (
 	FOREIGN KEY (Citizen_ID) REFERENCES dataCUSTOMER(Citizen_ID),
 	FOREIGN KEY (Transaction_ID) REFERENCES dataTRANSACTION(Transaction_ID),
 	CONSTRAINT PK_Accouting PRIMARY KEY (Citizen_ID, Transaction_ID)
-)
+);
 
 
 INSERT INTO dataAGENCY (Agency_ID, Agency_Email, Agency_Brand, Phone_No, Address, Pass_word)
