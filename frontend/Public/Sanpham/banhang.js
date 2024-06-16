@@ -1,5 +1,6 @@
 // script.js
 
+/**
 const cars = [
     { name: "VinFast Wild", image: "/Public/Images/vfwild.jpg", origin: "Việt Nam", year: "2024", hw: "664HP", value: "$50 000", link: "/Public/Desposit/Deposit_VFwild.html" },
     { name: "VinFast VF 9", image: "/Public/Images/car-pics/vf9/vf9r.png", origin: "Việt Nam", year: "2024", hw: "402HP", value: "$81 000", link: "/Public/Desposit/Deposit_VF9.html" },
@@ -11,6 +12,35 @@ const cars = [
     { name: "VinFast VF e34", image: "/Public/Images/car-pics/vfe34/vfe34b.png", origin: "Việt Nam", year: "2024", hw: "147HP", value: "$26 000", link: "/Public/Desposit/Deposit_VFe34.html" },
     // Thêm dữ liệu xe khác tại đây
 ];
+*/
+
+// banhang.js
+
+let cars = [];
+
+async function fetchCars() {
+    try {
+        const response = await fetch('http://localhost:3001/cars'); // Gọi API backend
+        if (!response.ok) {
+            throw new Error('Lỗi khi lấy dữ liệu xe hơi');
+        }
+        const data = await response.json();
+        cars = data.map(car => ({
+            name: car.model_car_name,
+            image: `./image/${car.model_car_id.toLowerCase()}.jpg`, // Đường dẫn ảnh minh họa, bạn cần thay đổi cho phù hợp
+            specs: [car.origin_of_car, car.launching_year],
+            value: `$${car.price.toLocaleString()}` 
+        }));
+        renderCars();
+        renderPagination();
+    } catch (error) {
+        console.error('Lỗi:', error);
+        // Xử lý lỗi hiển thị cho người dùng (ví dụ: hiển thị thông báo lỗi)
+    }
+}
+
+// Gọi fetchCars() khi trang web được tải
+fetchCars(); 
 
 const carsPerPage = 3;
 let currentPage = 1;
