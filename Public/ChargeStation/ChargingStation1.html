@@ -1,0 +1,886 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="ChargingStation.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn-prod.eu.securiti.ai/consent/cookie-consent.css" />
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+
+    <title>Đại lý bán xe Vinh Mặp</title>
+    <link rel="icon" href="../Images/tab_logo.png" type="image/x-icon">
+</head>
+
+<body>
+    <nav class="nav-container">
+        <a href="../Home/index.html">
+            <img class="logo" src="../Images/vinlogo.png" alt="vinlogo Logo" />
+        </a>
+        <ul>
+            <li>Về chúng tôi</li>
+            <li><a href="../Sanpham/banhang.html">Sản phẩm</a></li>
+            <li>Trạm sạc</li>
+            <li><a href="../Uudai/uudai.html">Ưu đãi</a></li>
+            <li>Chính sách</li>
+        </ul>
+        <div class="icons">
+            <a href="../Login/login.html" style="text-decoration: none; color: inherit;">
+                <i class="bx bx-user-circle"></i>
+            </a>
+        </div>
+    </nav>
+
+    <div class="mySlides">
+        <img src="../Images/adst.png" style="width:100%" onclick="openModal('modal1');">
+    </div>
+    <div class="mySlides">
+        <img src="../Images/pbad.png" style="width:100%" onclick="openModal('modal2');">
+    </div>
+
+    <div class="mySlides">
+        <img src="../Images/qotad.png" style="width:100%" onclick="openModal('modal3');">
+    </div>
+
+    <!-- Nút "Previous" -->
+    <a class="prev" href="#" onclick="plusSlides(1); return false;">&#10094;</a>
+    <a class="next" href="#" onclick="plusSlides(0); return false;">&#10095;</a>
+
+    </div>
+    <!-- Thêm div cho các nút chấm tròn -->
+    <div style="text-align:center; margin-top: 15px;">
+        <span class="dot" onclick="currentSlide(1)"></span>
+        <span class="dot" onclick="currentSlide(2)"></span>
+        <span class="dot" onclick="currentSlide(3)"></span>
+    </div>
+
+
+    <div style="margin-top: 800px; margin-left: 50px; margin-right: 50px;">
+        <div class="row">
+            <div class="col">
+                <h3>Thuê pin ô tô điện linh hoạt</h3>
+                <p>Với phương châm luôn đặt lợi ích Khách hàng lên hàng đầu, VinFast áp dụng chính sách cho thuê pin độc đáo, ưu việt và khác biệt với tất cả các mô hình cho thuê pin từ trước tới nay trên thế giới.</p>
+            </div>
+            <div class="col">
+                <img style="width: 700px; border-radius: 10px;" src="https://storage.googleapis.com/vinfast-data-01/pin-tramsac-1_1660273470.png" />
+            </div>
+        </div>
+
+        <div class="row" style="margin-top: 30px;">
+            <div class="col">
+                <img style="width: 700px; border-radius: 10px;" alt src="https://storage.googleapis.com/vinfast-data-01/pin-tramsac-2_1660273363.png" />
+            </div>
+            <div class="col">
+                <h3>Đa dạng giải pháp sạc</h3>
+                <p>VinFast cung cấp đa dạng giải pháp sạc để đáp ứng nhu cầu sử dụng của Khách hàng một cách thuận tiện nhất.</p>
+            </div>
+
+        </div>
+
+        <div>
+            <h3 style="margin-top: 40px;">Lợi ích của thuê pin</h3>
+
+            <div class="row" style="margin-left: 10px; margin-right: 15px">
+                <div class="col" style="background-color: rgb(247, 247, 246); margin-right: 30px;">
+                    <svg fill="none " height="48px" width="48px" xmlns="http://www.w3.org/2000/svg " style="margin-top: 20px;"> <path d="M38.3203 4.5H9.67969C6.82362 4.5 4.5 6.82362 4.5 9.67969V31.0078C4.5 32.5199 5.7301 33.75
+                    7.24219 33.75H12.4219V40.7578C12.4219 42.2699 13.652 43.5 15.1641 43.5H40.7578C42.2699 43.5 43.5 42.2699 43.5 40.7578V9.67969C43.5 6.82362 41.1764 4.5 38.3203 4.5ZM12.4219 31.3125H7.24219C7.07415 31.3125 6.9375 31.1758 6.9375 31.0078V9.67969C6.9375
+                    8.1676 8.1676 6.9375 9.67969 6.9375C11.1918 6.9375 12.4219 8.1676 12.4219 9.67969V31.3125ZM28.875 32.6626V33.1062C28.875 33.7624 28.3707 34.3271 27.7152 34.358C27.0153 34.391 26.4375 33.83326.4375 33.1406V32.6643C26.4375 32.4971 26.3278
+                    32.3513 26.1685 32.3007C24.4663 31.76 23.1579 30.3121 22.849 28.4668C22.7379 27.803 23.186 27.1747 23.8498 27.0636C24.5139 26.9522 25.1419 27.4005 25.253 28.0644C25.4592 29.2958 26.558 30.1737 27.8271 30.088C29.0261 30.0069 29.9992 29.0375
+                    30.087 27.8389C30.1916 26.4127 29.0607 25.2188 27.6562 25.2188C24.9681 25.2188 22.7812 23.0319 22.7812 20.3438C22.7812 18.1737 24.2065 16.3303 26.1701 15.7004C26.3287 15.6495 26.4375 15.5039 26.4375 15.3374V14.8939C26.4375 14.2377 26.9418
+                    13.673 27.5973 13.6421C28.2972 13.609 28.875 14.1667 28.875 14.8594V15.3357C28.875 15.5029 28.9847 15.6487 29.144 15.6993C30.8462 16.24 32.1546 17.6879 32.4635 19.5332C32.5746 20.197 32.1265 20.8253 31.4627 20.9364C30.7985 21.048 30.1705
+                    20.5995 30.0595 19.9356C29.8533 18.7042 28.7545 17.8263 27.4854 17.912C26.2864 17.9931 25.3133 18.9625 25.2255 20.1611C25.1209 21.5873 26.2518 22.7812 27.6562 22.7812C30.3444 22.7812 32.5312 24.9681 32.5312 27.6562C32.5312 29.8263 31.106
+                    31.6697 29.1424 32.2996C28.9838 32.3505 28.875 32.4961 28.875 32.6626Z " fill="#7A99AC "></path> </svg>
+                    <p>Khách hàng không tốn tiền sửa chữa, bảo dưỡng Pin.</p>
+                </div>
+                <div class="col content-item slide-item" style="background-color: rgb(247, 247, 246); margin-right: 30px;">
+                    <svg height="48 " viewbox="0 0 48 48 " width="48 " xmlns="http://www.w3.org/2000/svg " style="margin-top: 20px;"> <path d="M25.9961 1.99805C29.3161 1.99805 31.9961 4.67805 31.9961 7.99805C31.9961 11.318 29.3161 13.998 25.9961 13.998C22.6761 13.998 19.9961
+                        11.318 19.9961 7.99805C19.9961 4.67805 22.6761 1.99805 25.9961 1.99805ZM39.9961 27.998C39.9961 23.278 36.3361 19.198 30.9961 17.238C29.9961 18.898 28.1161 19.998 25.9961 19.998C24.8183 19.9971 23.6669 19.6495 22.6853 18.9987C21.7037
+                        18.3479 20.9354 17.4225 20.4761 16.338C19.9961 16.398 19.5561 16.458 19.1361 16.578L13.9961 13.998V18.638C10.9961 20.438 8.89609 22.998 8.23609 25.998H3.99609V33.998H10.1561C11.1561 35.298 12.4561 36.438 13.9961 37.358V43.998H17.9961V39.118C19.8561
+                        39.678 21.8761 39.998 23.9961 39.998C26.1161 39.998 28.1361 39.678 29.9961 39.118V43.998H33.9961V37.358C36.2961 35.998 38.0561 34.118 39.0761 31.998H43.9961V27.998H39.9961ZM13.9961 25.998C12.8961 25.998 11.9961 25.098 11.9961 23.998C11.9961
+                        22.898 12.8961 21.998 13.9961 21.998C15.0961 21.998 15.9961 22.898 15.9961 23.998C15.9961 25.098 15.0961 25.998 13.9961 25.998Z " fill="#7A99AC "></path> </svg>
+                    <p>Khách hàng sử dụng điều hòa, sưởi bằng điện với chi phí rẻ hơn chạy xăng.</p>
+                </div>
+                <div class="col content-item slide-item " style="background-color: rgb(247, 247, 246); ">
+                    <svg height="48 " viewbox="0 0 49 48 " width="49 " xmlns="http://www.w3.org/2000/svg " style="margin-top: 20px;"> <path d="M36.5 20C35.9696 20 35.4609 19.7893 35.0858 19.4142C34.7107 19.0391 34.5 18.5304 34.5 18C34.5 17.4696 34.7107 16.9609 35.0858 16.5858C35.4609
+                        16.2107 35.9696 16 36.5 16C37.0304 16 37.5391 16.2107 37.9142 16.5858C38.2893 16.9609 38.5 17.4696 38.5 18C38.5 18.5304 38.2893 19.0391 37.9142 19.4142C37.5391 19.7893 37.0304 20 36.5 20ZM24.5 20H12.5V10H24.5V20ZM40.04 14.46L40.06
+                        14.44L32.62 7L30.5 9.12L34.72 13.34C32.84 14 31.5 15.86 31.5 18C31.5 18.6566 31.6293 19.3068 31.8806 19.9134C32.1319 20.52 32.5002 21.0712 32.9645 21.5355C33.9021 22.4732 35.1739 23 36.5 23C37.22 23 37.88 22.84 38.5 22.58V37C38.5 37.5304
+                        38.2893 38.0391 37.9142 38.4142C37.5391 38.7893 37.0304 39 36.5 39C35.9696 39 35.4609 38.7893 35.0858 38.4142C34.7107 38.0391 34.5 37.5304 34.5 37V28C34.5 26.9391 34.0786 25.9217 33.3284 25.1716C32.5783 24.4214 31.5609 24 30.5 24H28.5V10C28.5
+                        8.93913 28.0786 7.92172 27.3284 7.17157C26.5783 6.42143 25.5609 6 24.5 6H12.5C10.28 6 8.5 7.78 8.5 10V42H28.5V27H31.5V37C31.5 38.3261 32.0268 39.5979 32.9645 40.5355C33.9021 41.4732 35.1739 42 36.5 42C37.1566 42 37.8068 41.8707 38.4134
+                        41.6194C39.02 41.3681 39.5712 40.9998 40.0355 40.5355C40.4998 40.0712 40.8681 39.52 41.1194 38.9134C41.3707 38.3068 41.5 37.6566 41.5 37V18C41.5 16.62 40.94 15.36 40.04 14.46Z " fill="#7A99AC "></path> </svg>
+                    <p>Nếu Khách hàng di chuyển nhiều hàng tháng thì chi phí thuê pin theo gói cố định và tiền sạc điện sẽ rẻ hơn tiền xăng hàng tháng khi dùng xe xăng cùng hạng.</p>
+                </div>
+            </div>
+            <img style="margin-top: 20px;" src="https://storage.googleapis.com/vinfast-data-01/banner-tramsac_1660273569.png " width="1400px " height="1700px" />
+        </div>
+
+        <div>
+            <h2 style="text-align: center; margin-top: 20px ; margin-bottom: 40px;">Chính sách thuê pin</h2>
+
+            <div class="row" style="background-color: aliceblue;">
+                <div class="col left-content">
+                    <div class="right-content-new">
+                        <h4>Phí thuê pin hàng tháng</h4>
+                        <p>Chu kỳ tính cước: Tính từ ngày 26 tháng trước tới ngày 25 của tháng tiếp theo</p>
+                        <p>Khách hàng có thể thuê pin trọn đời đến khi Khách hàng hết nhu cầu sử dụng xe. Trường hợp chuyển nhượng xe thì Khách hàng mới chỉ cần ký xác nhận tiếp tục thực hiện hợp đồng thuê pin.</p>
+                        <p>Giá thuê pin được cố định suốt vòng đời sản phẩm theo giá thuê pin thời điểm khách hàng nhận xe, không phụ thuộc vào chủ sở hữu. (Áp dụng với các Khách hàng ký Hợp đồng thuê pin trước ngày 01.01.2024)</p>
+                    </div>
+                    <div class="border-line"> </div>
+                    <div class="right-content-top">
+                        <h4>Chính sách thuê pin dòng xe điện VF 5 Plus thị trường Việt Nam áp dụng từ ngày 22/02/2024 cho đến khi có thông báo mới như sau:</h4>
+                        <table class="table table-borderless table-6">
+                            <thead style="background-color: #dee2e6;">
+                                <tr>
+                                    <th style="text-align:center;">Dòng xe</th>
+                                    <th colspan="3" style="text-align:center;">Phí dịch vụ cho quãng đường đi trong 01 tháng (*)</th>
+                                    <th style="text-align:center;">Phí cọc thuê pin</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <p style="text-align:center;"> </p>
+                                    </td>
+                                    <td>
+                                        <p style="text-align:center;">Dưới 1500 km</p>
+                                    </td>
+                                    <td>
+                                        <p style="text-align:center;">Từ 1500 km tới dưới 3000 km</p>
+                                    </td>
+                                    <td>
+                                        <p style="text-align:center;">Từ 3000 km trở lên</p>
+                                    </td>
+                                    <td>
+                                        <p style="text-align:center;"> </p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p style="text-align:center;">VF 5 Plus</p>
+                                    </td>
+                                    <td>
+                                        <p style="text-align:center;">1.200.000 VNĐ</p>
+                                    </td>
+                                    <td>
+                                        <p style="text-align:center;">1.600.000 VNĐ</p>
+                                    </td>
+                                    <td>
+                                        <p style="text-align:center;">2.700.000 VNĐ</p>
+                                    </td>
+                                    <td>
+                                        <p style="text-align:center;">15.000.000 VNĐ</p>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="border-line"> </div>
+                    <div class="right-content-top">
+                        <h4>Chính sách thuê pin dòng xe điện VF 9 thị trường Việt Nam áp dụng từ ngày 01/06/2024 cho đến khi có thông báo mới như sau:</h4>
+                        <table class="table table-borderless table-6">
+                            <thead style="background-color: #dee2e6;">
+                                <tr>
+                                    <th colspan=" 1 " rowspan="2 ">Dòng xe</th>
+                                    <th colspan="2 " rowspan="1 ">Phí dịch vụ cho quãng đường đi trong 01 tháng (*)</th>
+                                    <th colspan="1 " rowspan="2 ">Phí cọc thuê pin</th>
+                                </tr>
+                                <tr>
+                                    <th colspan="1 " rowspan="1 ">Dưới 3500 km</th>
+                                    <th colspan="1 " rowspan="1 ">Từ 3500 km trở lên</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>VF 9</td>
+                                    <td>6.000.000 VNĐ</td>
+                                    <td>8.400.000 VNĐ</td>
+                                    <td>60.000.000 VNĐ</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="border-line "> </div>
+                    <div class="right-content-top ">
+                        <h4>Chính sách bán hàng tri ân ngày Nhà Giáo Việt Nam 20/11:</h4>
+                        <p>Áp dụng cho KH đặt cọc mua xe từ 01/11/2024 tới 31/12/2024</p>
+                        <table class="table table-borderless table-6 ">
+                            <thead style="background-color: #dee2e6;">
+                                <tr>
+                                    <th colspan="1 " rowspan="1 ">STT</th>
+                                    <th colspan="1 " rowspan="1 ">Dòng xe</th>
+                                    <th colspan="1 " rowspan="1 ">Quà tặng cho KH</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td colspan="1 " rowspan="1 ">1</td>
+                                    <td colspan="1 " rowspan="1 ">VF 5 Plus</td>
+                                    <td colspan="1 " rowspan="1 ">01 năm thuê pin (Tối đa 19.2 triệu)</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="1 " rowspan="1 ">2</td>
+                                    <td colspan="1 " rowspan="1 ">VF 6</td>
+                                    <td colspan="1 " rowspan="1 ">01 năm thuê pin (Tối đa 21.6 triệu)</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="1 " rowspan="1 ">3</td>
+                                    <td colspan="1 " rowspan="1 ">VF e34</td>
+                                    <td colspan="1 " rowspan="1 ">01 năm thuê pin (Tối đa 25.2 triệu)</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="1 " rowspan="1 ">4</td>
+                                    <td colspan="1 " rowspan="1 ">VF 8</td>
+                                    <td colspan="1 " rowspan="1 ">01 năm thuê pin (Tối đa 34.8 triệu)</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="1 " rowspan="1 ">5</td>
+                                    <td colspan="1 " rowspan="1 ">VF 9</td>
+                                    <td colspan="1 " rowspan="1 ">01 năm thuê pin (Tối đa 82.8 triệu)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p>Điều kiện áp dụng: Phí thuê pin được khuyến mại tối đa trong 1 tháng là phí dịch vụ cho quãng đường đi dưới 3000 km, hoặc 3500 km với VF 9.</p>
+                    </div>
+                    <div class="border-line "> </div>
+                    <div class="right-content-top ">
+                        <h4>Chính sách thuê pin các dòng xe điện thị trường Việt Nam áp dụng từ ngày 01/03/2024 cho đến khi có thông báo mới như sau:</h4>
+                        <table class="table table-borderless table-6 ">
+                            <thead style="background-color: #dee2e6;">
+                                <tr>
+                                    <th colspan="1 " rowspan="2 ">Dòng xe</th>
+                                    <th colspan="2 " rowspan="1 ">Phí dịch vụ cho quãng đường đi trong 01 tháng (*)</th>
+                                    <th colspan="1 " rowspan="2 ">Phí cọc thuê pin</th>
+                                </tr>
+                                <tr>
+                                    <th colspan="1 " rowspan="1 ">Dưới 3000 km</th>
+                                    <th colspan="1 " rowspan="1 ">Từ 3000 km trở lên</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td colspan="1 " rowspan="1 ">VF 5 Plus</td>
+                                    <td colspan="1 " rowspan="1 ">1.600.000 VNĐ</td>
+                                    <td colspan="1 " rowspan="1 ">2.700.000 VNĐ</td>
+                                    <td colspan="1 " rowspan="1 ">15.000.000 VNĐ</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="1 " rowspan="1 ">VF 6</td>
+                                    <td colspan="1 " rowspan="1 ">1.800.000 VNĐ</td>
+                                    <td colspan="1 " rowspan="1 ">3.000.000 VNĐ</td>
+                                    <td colspan="1 " rowspan="1 ">25.000.000 VNĐ</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="1 " rowspan="1 ">VF e34</td>
+                                    <td colspan="1 " rowspan="1 ">2.100.000 VNĐ</td>
+                                    <td colspan="1 " rowspan="1 ">3.500.000 VNĐ</td>
+                                    <td colspan="1 " rowspan="1 ">30.000.000 VNĐ</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="1 " rowspan="1 ">VF 7</td>
+                                    <td colspan="1 " rowspan="1 ">2.900.000 VNĐ</td>
+                                    <td colspan="1 " rowspan="1 ">4.800.000 VNĐ</td>
+                                    <td colspan="1 " rowspan="1 ">41.000.000 VNĐ</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="1 " rowspan="1 ">VF 8</td>
+                                    <td colspan="1 " rowspan="1 ">2.900.000 VNĐ</td>
+                                    <td colspan="1 " rowspan="1 ">4.800.000 VNĐ</td>
+                                    <td colspan="1 " rowspan="1 ">41.000.000 VNĐ</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p> </p>
+                        <table class="table table-borderless table-6 ">
+                            <thead style="background-color: #dee2e6;">
+                                <tr>
+                                    <th colspan="1 " rowspan="2 ">Dòng xe</th>
+                                    <th colspan="2 " rowspan="1 ">Phí dịch vụ cho quãng đường đi trong 01 tháng (*)</th>
+                                    <th colspan="1 " rowspan="2 ">Phí cọc thuê pin</th>
+                                </tr>
+                                <tr>
+                                    <th colspan="1 " rowspan="1 ">Dưới 3500 km</th>
+                                    <th colspan="1 " rowspan="1 ">Từ 3500 km trở lên</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td colspan="1 " rowspan="1 ">VF 9</td>
+                                    <td colspan="1 " rowspan="1 ">4.100.000 VNĐ</td>
+                                    <td colspan="1 " rowspan="1 ">6.500.000 VNĐ</td>
+                                    <td colspan="1 " rowspan="1 ">60.000.000 VNĐ</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p>*Giá đã bao gồm VAT</p>
+                    </div>
+                    <div class="border-line "> </div>
+                    <div class="right-content-top ">
+                        <h4>Với các Khách hàng cọc mua xe từ ngày 01/09/2024 đến 31/10/2024:</h4>
+                        <p>Khách hàng được áp dụng tặng quà đặc biệt riêng cho mỗi dòng xe (kèm pin và thuê pin):</p>
+                        <table class="table table-borderless table-6 ">
+                            <thead style="background-color: #dee2e6;">
+                                <tr>
+                                    <th scope="col">STT</th>
+                                    <th>Loại xe</th>
+                                    <th>Quà tặng cho khách hàng</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">1</th>
+                                    <td>VF e34</td>
+                                    <td>01 năm thuê pin (Tối đa 22.8 triệu)</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">2</th>
+                                    <td>VF 6</td>
+                                    <td>1 năm sạc pin miễn phí cho KH đặt cọc từ ngày 20/10/2024 tới hết ngày 30/10/2024 (Tối đa 9 triệu)</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row ">3</th>
+                                    <td>VF 8</td>
+                                    <td>02 năm thuê pin (Tối đa 64.8 triệu)</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row ">4</th>
+                                    <td>VF 9</td>
+                                    <td>02 năm thuê pin (Tối đa 84 triệu)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p style="font-weight: 500;">Điều kiện áp dụng:</p>
+                        <ul style="list-style-type: none">
+                            <li>+ Chỉ được áp dụng đồng thời với Chính sách Hỗ trợ ưu đãi lãi suất cho Khách hàng vay mua xe ô tô điện và Quy định thanh toán bằng Voucher Vinhomes &amp; Voucher Sống xanh.</li>
+                            <li>+ Không áp dụng với Khách hàng đã có các ưu đãi khác.</li>
+                            <li>+ Phí thuê pin được khuyến mại tối đa trong tháng là phần chi phí tối thiểu của gói Linh hoạt theo từng dòng xe.</li>
+                            <li>+ KH sẽ phải thanh toán thêm chi phí thuê pin nếu đi quá định mức của gói Linh hoạt.</li>
+                        </ul>
+                        <div class="border-line "> </div>
+                        <h5>Với các Khách hàng cọc mua xe từ ngày 01/07/2024 tới hết ngày 30/10/2024:</h5>
+                        <table class="table table-borderless table-6 ">
+                            <thead style="background-color: #dee2e6;">
+                                <tr>
+                                    <th rowspan="2 ">STT</th>
+                                    <th rowspan="2 ">Dòng xe</th>
+                                    <th colspan="2 ">Phí dịch vụ tối thiểu cho quãng đường giới hạn</th>
+                                    <th rowspan="2 ">Đơn giá tính phí phụ trội cho quãng đường vượt quá (VNĐ/km)</th>
+                                </tr>
+                                <tr>
+                                    <th>Phí dịch vụ tối thiểu (VNĐ)</th>
+                                    <th>Số km giới hạn</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <td>VF 5 Plus</td>
+                                    <td>1.600.000</td>
+                                    <td>1.500</td>
+                                    <td>1.070</td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>VF 6</td>
+                                    <td colspan="3 ">1.800.000 cho quãng đường dưới 3000 km, 3.000.000 cho quãng đường từ 3000 km trở lên. <br>Phí đặt cọc pin: 30.000.000 (Miễn phí 1 năm sạc pin cho các Khách hàng đặt cọc xe VF6 từ 20/10/2024 tới 30/10/2024)</td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>VF e34</td>
+                                    <td>1.900.000</td>
+                                    <td>1.500</td>
+                                    <td>1.265</td>
+                                </tr>
+                                <tr>
+                                    <td>4</td>
+                                    <td>VF 8</td>
+                                    <td>2.700.000</td>
+                                    <td>1.800</td>
+                                    <td>1.800</td>
+                                </tr>
+                                <tr>
+                                    <td>5</td>
+                                    <td>VF 9</td>
+                                    <td>3.500.000</td>
+                                    <td>2.000</td>
+                                    <td>2.350</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <span>* Giá đã bao gồm VAT</span>
+                        <div class="border-line "> </div>
+                        <h5>Với các Khách hàng cọc mua xe từ ngày 01/05/2024 đến 30/06/2024:</h5>
+                        <p>Các Khách hàng chỉ có 01 lựa chọn là gói thuê pin cố định sử dụng không giới hạn số km/tháng như sau:</p>
+                        <table class="table table-borderless ">
+                            <thead style="background-color: #dee2e6;">
+                                <tr>
+                                    <th scope="col ">STT</th>
+                                    <th scope="col ">Dòng xe</th>
+                                    <th scope="col ">Giá gói thuê pin cố định *</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row ">1</th>
+                                    <td>VF 5 Plus</td>
+                                    <td>1.600.000 VNĐ</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row ">2</th>
+                                    <td>VF e34</td>
+                                    <td>1.900.000 VNĐ</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row ">3</th>
+                                    <td>VF 8</td>
+                                    <td>2.700.000 VNĐ</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row ">4</th>
+                                    <td>VF 9</td>
+                                    <td>3.500.000 VNĐ</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <span> * Giá đã bao gồm VAT<br/>     * Khách hàng được cố định giá thuê pin suốt vòng đời sản phẩm. </span>
+                        <div class="border-line "> </div>
+                        <h5>Với các Khách hàng không được cố định giá thuê pin (thay đổi vào ngày 01 tháng 12 hàng năm):</h5>
+                        <p>Các Khách hàng mua xe VFe34 trong năm 2024, nếu không thực hiện ký thỏa thuận bổ sung áp dụng chính sách cố định giá thuê pin với VinFast thì sẽ bị áp dụng chính sách này. Giá thuê pin áp dụng cho năm 2024 như sau:</p>
+                        <h6>Gói linh hoạt</h6>
+                        <p>Khách hàng trả phí thuê bao pin hàng tháng cho quãng đường 500 km/tháng, nếu Khách hàng sử dụng nhiều hơn 500 km/tháng thì Khách hàng trả thêm số tiền bằng quãng đường vượt nhân với đơn giá thuê pin/km. Cụ thể:</p>
+                        <table class="table table-borderless ">
+                            <thead style="background-color: #dee2e6;">
+                                <tr>
+                                    <th scope="col ">STT</th>
+                                    <th scope="col ">Dòng xe</th>
+                                    <th scope="col ">Phí thuê bao<br/> tối thiểu/tháng (500 km)*</th>
+                                    <th scope="col ">Đơn giá<br/> thuê pin/km*</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row ">1</th>
+                                    <td>VF e34</td>
+                                    <td>649.000 VNĐ</td>
+                                    <td>1.298 VNĐ</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <span>* Giá đã bao gồm VAT</span>
+                        <h6>Gói cố định</h6>
+                        <p>Hàng tháng Khách hàng chỉ cần trả tổng tiền của gói này là sử dụng không giới hạn số km/tháng. Cụ thể:</p>
+                        <table class="table table-borderless ">
+                            <thead style="background-color: #dee2e6;">
+                                <tr>
+                                    <th scope="col ">STT</th>
+                                    <th scope="col ">Dòng xe</th>
+                                    <th scope="col ">Phí thuê bao tối thiểu/tháng*</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row ">1</th>
+                                    <td>VF e34</td>
+                                    <td>1.782.000 VNĐ</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <span>* Giá đã bao gồm VAT</span>
+                        <div class="border-line "> </div>
+                        <h5>Với các Khách hàng cọc mua xe từ ngày 01/09/2024 đến ngày 30/04/2024:</h5>
+                        <p style="font-weight: 600; ">Các Khách hàng chỉ có 01 lựa chọn là gói thuê pin cố định sử dụng không giới hạn số km/tháng như sau:</p>
+                        <table class="table table-borderless ">
+                            <thead style="background-color: #dee2e6;">
+                                <tr>
+                                    <th scope="col ">STT</th>
+                                    <th scope="col ">Dòng xe</th>
+                                    <th scope="col ">Giá gói thuê pin cố định *</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row ">1</th>
+                                    <td>VF e34 *</td>
+                                    <td>2.900.000 VNĐ</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row ">2</th>
+                                    <td>VF 8</td>
+                                    <td>4.950.000 VNĐ</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row ">3</th>
+                                    <td>VF 9</td>
+                                    <td>6.490.000 VNĐ</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <span> * Giá đã bao gồm VAT<br/>    * Với xe VinFast VFe34, bắt đầu áp dụng từ ngày 14/11/2024 </span>
+                        <div class="border-line "> </div>
+                        <h5>Với các Khách hàng cọc mua xe trước ngày 01/09/2024:</h5>
+                        <p>VinFast có 2 gói thuê bao pin cho Khách hàng tùy chọn (Giá thuê pin được cố định suốt vòng đời sản phẩm theo giá thuê pin thời điểm Khách hàng nhận xe, mà không phụ thuộc vào chủ sở hữu):</p>
+                        <h6>Gói linh hoạt - từ 657.500 VNĐ</h6>
+                        <p>Khách hàng trả phí thuê bao pin hàng tháng cho quãng đường 500 km/tháng, nếu Khách hàng sử dụng nhiều hơn 500 km/tháng thì Khách hàng trả thêm số tiền bằng quãng đường vượt nhân với đơn giá thuê pin/km. Cụ thể:</p>
+                        <table class="table table-borderless ">
+                            <thead style="background-color: #dee2e6;">
+                                <tr>
+                                    <th scope="col ">STT</th>
+                                    <th scope="col ">Dòng xe</th>
+                                    <th scope="col ">Phí thuê bao<br/> tối thiểu/tháng (500 km)*</th>
+                                    <th scope="col ">Đơn giá thuê pin/km*</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row ">1</th>
+                                    <td>VF e34</td>
+                                    <td>657.500 VNĐ</td>
+                                    <td>1.315 VNĐ</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row ">2</th>
+                                    <td>VF 8</td>
+                                    <td>990.000 VNĐ</td>
+                                    <td>1.980 VNĐ</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row ">3</th>
+                                    <td>VF 9</td>
+                                    <td>1.100.000 VNĐ</td>
+                                    <td>2.200 VNĐ</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <span>* Giá đã bao gồm VAT</span>
+                        <h6>Gói cố định - từ 1.805.000 VNĐ</h6>
+                        <p>Hàng tháng Khách hàng chỉ cần trả tổng tiền của gói này là sử dụng không giới hạn số km/tháng. Cụ thể:</p>
+                        <table class="table table-borderless ">
+                            <thead style="background-color: #dee2e6;">
+                                <tr>
+                                    <th scope="col ">STT</th>
+                                    <th scope="col ">Dòng xe</th>
+                                    <th scope="col ">Phí thuê bao tối thiểu/tháng*</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row ">1</th>
+                                    <td>VF e34</td>
+                                    <td>1.805.000 VNĐ</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row ">2</th>
+                                    <td>VF 8</td>
+                                    <td>2.189.000 VNĐ</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row ">3</th>
+                                    <td>VF 9</td>
+                                    <td>3.091.000 VNĐ</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <span>* Giá đã bao gồm VAT</span></div>
+                </div>
+
+                <div class="col ">
+                    <div class="right-content ">
+                        <div class="right-content-new">
+                            <h3>Thời hạn hợp đồng thuê pin & đặt cọc</h3>
+                            <ul style="list-style-type: none">
+                                <li>+ Thời hạn Hợp Đồng thuê pin là vô thời hạn đến khi Khách hàng hết nhu cầu hoặc hủy xe.</li>
+                                <li>+ Khách hàng không phải đặt cọc khi thuê pin (Áp dụng với Khách hàng ký Hợp đồng thuê pin trước ngày 01.11.2024)</li>
+                                <li>+ Các Khách hàng ký Hợp đồng thuê pin từ ngày 01.11.2024 trở đi cần đặt cọc thuê pin, phí đặt cọc áp dụng theo từng dòng xe.</li>
+                            </ul>
+                            <h3>Phí chuyển đổi gói cước: 4.120.000 VNĐ/lần (đã bao gồm VAT)</h3>
+                            <h4>Phí trả chậm</h4>
+                            <p>Tỷ lệ phí thanh toán chậm là 10%/năm, áp dụng cho phí thuê pin và phí đền bù pin hỏng (nếu có - trong trường hợp Khách hàng làm hỏng pin thuê) mà Khách hàng quá hạn thanh toán.</p>
+                            <h4>Chế tài khi Khách hàng nợ phí thuê pin</h4>
+                            <ul style="list-style-type: none">
+                                <li>+ VinFast sẽ chặn sạc pin của Khách hàng 50% cho tháng đầu, từ tháng 2 chặn 70% dung lượng pin (SOC).</li>
+                                <li>+ Khi Khách hàng thanh toán xong công nợ, hệ thống sẽ tự động mở khóa và Khách hàng có thể sạc bình thường.</li>
+                            </ul>
+                            <h4>Thay thế/sửa chữa/bảo dưỡng pin cho Khách hàng</h4>
+                            <h5>1. Pin cho thuê sẽ được thay thế/sửa chữa/bảo dưỡng miễn phí trong các trường hợp:</h5>
+                            <ul style="list-style-type: none">
+                                <li>+ Pin hỏng/lỗi do Nhà sản xuất.</li>
+                                <li>+ Bảo dưỡng (nếu có) miễn phí.</li>
+                                <li>+ Trạng thái tiếp nhận sạc của pin xuống dưới 70%.</li>
+                            </ul>
+                            <h5>2. Nếu pin hỏng do lỗi Khách hàng thì Khách hàng sẽ phải đền bù chi phí sửa chữa/thay thế pin. Chi phí sửa chữa/thay thế sẽ được niêm yết trên Website và các xưởng dịch vụ VinFast.</h5>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+        <div class="row" style="margin-top: 50px;">
+            <div class="col">
+                <h2 style="text-align: center;">Hướng dẫn thanh toán</h2>
+                <p>Chi phí thuê pin sẽ được thanh toán trả sau, trước ngày 15 của tháng tiếp theo cho toàn bộ phí thuê pin của tháng trước đó.</p>
+                <div class="payment-guide-content slider">
+                    <div>
+                        <div style="background-color: rgb(226, 237, 242); width: 500px; border-radius: 10px;">
+                            <svg style="margin-top: 20px; margin-left: 20px;" height="50" width="38" xmlns="http://www.w3.org/2000/svg"> 
+                            <path d="M19.0007 0.666626C26.724 0.666626 33.0007 6.87329 33.0007 14.55C33.0007 24.9566 19.0007 40.3333 19.0007 40.3333C19.0007 40.3333 5.00065 24.9566 5.00065 14.55C5.00065 6.87329 11.2773 0.666626 19.0007 0.666626ZM19.0007 9.99996C17.763 9.99996 16.576 10.4916 15.7008 11.3668C14.8257 12.242 14.334 13.4289 14.334 14.6666C14.334 15.9043 14.8257 17.0913 15.7008 17.9665C16.576 18.8416 17.763 19.3333 19.0007 19.3333C20.2383 19.3333 21.4253 18.8416 22.3005 17.9665C23.1757 17.0913 23.6673 15.9043 23.6673 14.6666C23.6673 13.4289 23.1757 12.242 22.3005 11.3668C21.4253 10.4916 20.2383 9.99996 19.0007 9.99996V9.99996ZM37.6673 40.3333C37.6673 45.49 29.314 49.6666 19.0007 49.6666C8.68732 49.6666 0.333984 45.49 0.333984 40.3333C0.333984 37.3233 3.18065 34.64 7.59065 32.9366L9.08398 35.06C6.56398 36.11 5.00065 37.5566 5.00065 39.1666C5.00065 42.3866 11.2773 45 19.0007 45C26.724 45 33.0007 42.3866 33.0007 39.1666C33.0007 37.5566 31.4373 36.11 28.9173 35.06L30.4107 32.9366C34.8207 34.64 37.6673 37.3233 37.6673 40.3333Z" fill="#7A99AC"></path> </svg>
+                            <p style="margin-right: 10px; padding: 20px 0px; margin-left: 20px;">Thanh toán trực tiếp tại các Điểm Cung Cấp Dịch Vụ bằng các phương thức thanh toán mà Điểm Cung Cấp Dịch Vụ chấp nhận</p>
+                        </div>
+                        <div style="background-color: rgb(226, 237, 242); width: 500px; border-radius: 10px;">
+                            <svg style="margin-top: 20px; margin-left: 20px;" height="56" viewbox="0 0 56 56" width="56" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M46.666 9.33337H9.33268C6.74268 9.33337 4.66602 11.41 4.66602 14V42C4.66602 43.2377 5.15768 44.4247 6.03285 45.2999C6.90802 46.175 8.09501 46.6667 9.33268 46.6667H46.666C49.256 46.6667 51.3327 44.59 51.3327 42V14C51.3327 12.7624 50.841 11.5754 49.9659 10.7002C49.0907 9.82504 47.9037 9.33337 46.666 9.33337ZM34.9994 23.3334H25.666V25.6667H32.666C33.9494 25.6667 34.9994 26.7167 34.9994 28V35C34.9994 36.2834 33.9494 37.3334 32.666 37.3334H30.3327V39.6667H25.666V37.3334H20.9993V32.6667H30.3327V30.3334H23.3327C22.0494 30.3334 20.9993 29.2834 20.9993 28V21C20.9993 19.7167 22.0494 18.6667 23.3327 18.6667H25.666V16.3334H30.3327V18.6667H34.9994V23.3334Z" fill="#7A99AC"></path> </svg>
+                            <p style="margin-right: 10px; padding: 20px 0px; margin-left: 20px;">Thanh toán online thông qua ứng dụng VinFast</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <h2 style="text-align: center;">Hướng dẫn thuê &amp; sạc PIN</h2>
+                <p>Với hệ thống trạm sạc phủ sóng toàn quốc, Khách hàng có thể dễ dàng sử dụng dịch vụ sạc ô tô điện VinFast ở bất cứ đâu. Hãy cùng chúng tôi tìm hiểu hướng dẫn sạc và thuê pin Ô tô điện VinFast.</p>
+                <img style="margin-left: 20px; width: 593px; height: 321px;" alt src="https://storage.googleapis.com/vinfast-data-01/pin-tramsac-14_1660273636.png" />
+            </div>
+        </div>
+
+        <div>
+            <h2 style="margin-top: 30px; text-align: center;">Quy định sử dụng pin</h2>
+            <div class="row">
+                <div class="col">
+                    <img src="https://storage.googleapis.com/vinfast-data-01/pin-tramsac-4_1660273675.png" style="width: 756px; height: 607px;">
+                </div>
+                <div class="col">
+                    <h4>Quy định chung</h4>
+                    <ul>
+                        <p>+ Không tự ý tháo rời, sửa chữa hoặc thay thế các bộ phận, dây cáp hoặc đầu nối điện áp cao.</p>
+                        <p>+ Chỉ được sử dụng nguồn sạc theo khuyến cáo của nhà sản xuất được công bố trên Website <a href="https://vinfastauto.com/vn_vi" target="_blank">https://vinfastauto.com.</a></p>
+                        <p>+ Không sử dụng Pin làm nguồn điện để vận hành các thiết bị khác.</p>
+                        <p>+ Không tự ý can thiệp hoặc cập nhật phần mềm trái phép mà không được sự cho phép của nhà sản xuất.</p>
+                        <p>+ Không để Xe ở những nơi có thể ngập lụt, vì ngập lụt có thể làm hỏng Pin hoặc Xe.</p>
+                        <p>+ Tránh để Xe tiếp xúc với nhiệt độ môi trường trên 55°C hoặc dưới -20°C quá 24 giờ tại một điểm. Không tuân theo khuyến nghị nhiệt độ này có thể làm giảm vĩnh viễn hiệu suất vận hành của Pin.</p>
+                        <p>+ Nếu dung lượng Pin còn lại thấp hơn 5% (dung lượng hiển thị màu đỏ trên màn hình), Pin cần được sạc ngay lập tức. Không thực hiện điều này có thể gây ra hỏng Pin vĩnh viễn và có thể dẫn đến trách nhiệm bồi thường thiệt hại của
+                            Khách Hàng.
+                        </p>
+                        <p>+ Tuân thủ hướng dẫn sử dụng Xe và Pin của nhà sản xuất.</p>
+                        <p>+ Thông báo ngay cho VinFast Trading khi phát hiện bất cứ lỗi, hỏng hóc, sự cố nào liên quan đến Pin và chịu trách nhiệm tự bảo quản Pin cho đến khi bàn giao lại Pin cho VinFast.</p>
+                        <p>+ Nếu Xe gặp phải một tai nạn có khả năng ảnh hưởng đến Pin, Khách Hàng cần yêu cầu xưởng dịch vụ của VinFast Trading kiểm tra tổng quát hệ thống Pin.</p>
+                    </ul>
+
+                </div>
+            </div>
+        </div>
+
+        <div>
+            <div class="row" style="margin-top: 50px;">
+                <div class="col">
+                    <h2 style="text-align: center;">Quy hoạch trạm sạc</h2>
+                    <p style="margin-right: 50px; margin-top: 50px; margin-left: 40px; margin-bottom: 40px;">Nhằm khuyến khích người dân sử dụng xe điện, dần thay thế phương tiện sử dụng xăng dầu nhằm giảm khối lượng khí phát thải vào môi trường. VinFast phát triển hệ thống trạm sạc với hơn 150.000 cổng sạc cho xe máy điện và ô tô điện, trải
+                        dài rộng khắp 63 tỉnh thành tại Việt Nam.</p>
+                    <div class="row" style="margin-left: 30px;">
+                        <div class="col">
+                            <h1>63</h1>
+                            <p>Tỉnh thành</ơ>
+                        </div>
+                        <div class="col" style="margin-right: 50px;">
+                            <h1>150.000</h1>
+                            <p>Cổng sạc</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <img style="width: 758px; height: 546px;" alt src="https://storage.googleapis.com/vinfast-data-01/pin-tramsac-5_1660273699.png" />
+                </div>
+            </div>
+        </div>
+
+        <div>
+            <h2 style="text-align: center;margin-top: 50px;">Quy hoạch trạm sạc VinFast</h2>
+            <p style="text-align: center;">Trạm sạc dành cho ô tô và xe máy điện VinFast có thể lắp đặt tại khu vực đỗ xe hiện có mà không làm thay đổi công năng của bãi đỗ xe, thiết bị sạc là do VinFast sản xuất, chế tạo với hình thức đẹp, hiện đại, tuân thủ theo tiêu chuẩn của Châu
+                Âu về an toàn điện.</p>
+            <div class="row">
+                <div class="col" style="background-color: #f1f1f1; margin-right: 30px;border-radius: 20px">
+                    <svg style="margin-left: 80px;" fill="none" height="24" viewbox="0 0 25 24" width="25" xmlns="http://www.w3.org/2000/svg"> 
+                        <path d="M13.7 11H10.5V7H13.7C14.2304 7 14.7391 7.21071 15.1142 7.58579C15.4893 7.96086 15.7 8.46957 15.7 9C15.7 9.53043 15.4893 10.0391 15.1142 10.4142C14.7391 10.7893 14.2304 11 13.7 11ZM13.5 3H6.5V21H10.5V15H13.5C15.0913 15 16.6174 14.3679 17.7426 13.2426C18.8679 12.1174 19.5 10.5913 19.5 9C19.5 5.68 16.81 3 13.5 3Z" fill="#7A99AC"></path> </svg>
+                    <p style="text-align: center;">Bãi đỗ xe<br/> Bến xe</p>
+                </div>
+                <div class="col" style="background-color: #f1f1f1; margin-right: 30px; border-radius: 20px ;">
+                    <svg style="margin-left: 80px;" fill="none" height="24" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"> 
+                            <path d="M18 10C17.7348 10 17.4804 9.89464 17.2929 9.70711C17.1054 9.51957 17 9.26522 17 9C17 8.73478 17.1054 8.48043 17.2929 8.29289C17.4804 8.10536 17.7348 8 18 8C18.2652 8 18.5196 8.10536 18.7071 8.29289C18.8946 8.48043 19 8.73478 19 9C19 9.26522 18.8946 9.51957 18.7071 9.70711C18.5196 9.89464 18.2652 10 18 10ZM12 10H6V5H12V10ZM19.77 7.23L19.78 7.22L16.06 3.5L15 4.56L17.11 6.67C16.17 7 15.5 7.93 15.5 9C15.5 9.3283 15.5647 9.65339 15.6903 9.95671C15.8159 10.26 16.0001 10.5356 16.2322 10.7678C16.7011 11.2366 17.337 11.5 18 11.5C18.36 11.5 18.69 11.42 19 11.29V18.5C19 18.7652 18.8946 19.0196 18.7071 19.2071C18.5196 19.3946 18.2652 19.5 18 19.5C17.7348 19.5 17.4804 19.3946 17.2929 19.2071C17.1054 19.0196 17 18.7652 17 18.5V14C17 13.4696 16.7893 12.9609 16.4142 12.5858C16.0391 12.2107 15.5304 12 15 12H14V5C14 4.46957 13.7893 3.96086 13.4142 3.58579C13.0391 3.21071 12.5304 3 12 3H6C4.89 3 4 3.89 4 5V21H14V13.5H15.5V18.5C15.5 19.163 15.7634 19.7989 16.2322 20.2678C16.7011 20.7366 17.337 21 18 21C18.3283 21 18.6534 20.9353 18.9567 20.8097C19.26 20.6841 19.5356 20.4999 19.7678 20.2678C19.9999 20.0356 20.1841 19.76 20.3097 19.4567C20.4353 19.1534 20.5 18.8283 20.5 18.5V9C20.5 8.31 20.22 7.68 19.77 7.23Z" fill="#7A99AC"></path> </svg>
+                    <p style="text-align: center;">Trạm dừng nghỉ<br/> Trạm xăng dầu</p>
+                </div>
+                <div class="col" style="background-color: #f1f1f1; margin-right: 30px;border-radius: 20px">
+                    <svg style="margin-left: 80px;" fill="none" height="24" viewbox="0 0 25 24" width="25" xmlns="http://www.w3.org/2000/svg"> 
+                            <path d="M20.5 4H4.5C3.39 4 2.5 4.89 2.5 6V18C2.5 18.5304 2.71071 19.0391 3.08579 19.4142C3.46086 19.7893 3.96957 20 4.5 20H20.5C21.61 20 22.5 19.11 22.5 18V6C22.5 5.46957 22.2893 4.96086 21.9142 4.58579C21.5391 4.21071 21.0304 4 20.5 4V4ZM15.5 10H11.5V11H14.5C15.05 11 15.5 11.45 15.5 12V15C15.5 15.55 15.05 16 14.5 16H13.5V17H11.5V16H9.5V14H13.5V13H10.5C9.95 13 9.5 12.55 9.5 12V9C9.5 8.45 9.95 8 10.5 8H11.5V7H13.5V8H15.5V10Z" fill="#7A99AC"></path> </svg>
+                    <p style="text-align: center;">Trung tâm<br/> thương mại</p>
+                </div>
+                <div class="col" style="background-color: #f1f1f1; margin-right: 30px;border-radius: 20px">
+                    <svg style="margin-left: 80px;" fill="none" height="19" viewbox="0 0 19 19" width="19" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M16.5 13H14.5V11H16.5V13ZM16.5 17H14.5V15H16.5V17ZM10.5 5H8.5V3H10.5V5ZM10.5 9H8.5V7H10.5V9ZM10.5 13H8.5V11H10.5V13ZM10.5 17H8.5V15H10.5V17ZM4.5 9H2.5V7H4.5V9ZM4.5 13H2.5V11H4.5V13ZM4.5 17H2.5V15H4.5V17ZM12.5 9V3L9.5 0L6.5 3V5H0.5V19H18.5V9H12.5Z" fill="#7A99AC"></path> </svg>
+                    <p style="text-align: center;">Chung cư,<br/> tòa văn phòng</p>
+                </div>
+                <div class="col" style="background-color: #f1f1f1; margin-right: 30px;border-radius: 20px">
+                    <svg style="margin-left: 80px;" fill="none" height="16" viewbox="0 0 18 16" width="18" xmlns="http://www.w3.org/2000/svg"> 
+                        <path d="M15.1007 0.8C15.0007 0.3 14.6007 0 14.1007 0H10.0007L10.2007 3H7.8007L8.0007 0H3.8007C3.3007 0 2.9007 0.4 2.8007 0.8L0.100696 14.8C0.000696182 15.4 0.500696 16 1.1007 16H7.0007L7.3007 11H10.7007L11.0007 16H16.8007C17.4007 16 17.9007 15.4 17.8007 14.8L15.1007 0.8ZM7.4007 9L7.6007 5H10.2007L10.4007 9H7.4007Z" fill="#7A99AC"></path> </svg>
+                    <p style="text-align: center;">Cao tốc<br/> Quốc lộ</p>
+                </div>
+                <div class="col" style="background-color: #f1f1f1; margin-right: 30px;border-radius: 20px">
+                    <svg style="margin-left: 80px;" fill="none" height="24" viewbox="0 0 25 24" width="25" xmlns="http://www.w3.org/2000/svg"> 
+                            <path d="M12.5 2C15.81 2 18.5 4.66 18.5 7.95C18.5 12.41 12.5 19 12.5 19C12.5 19 6.5 12.41 6.5 7.95C6.5 4.66 9.19 2 12.5 2ZM12.5 6C11.9696 6 11.4609 6.21071 11.0858 6.58579C10.7107 6.96086 10.5 7.46957 10.5 8C10.5 8.53043 10.7107 9.03914 11.0858 9.41421C11.4609 9.78929 11.9696 10 12.5 10C13.0304 10 13.5391 9.78929 13.9142 9.41421C14.2893 9.03914 14.5 8.53043 14.5 8C14.5 7.46957 14.2893 6.96086 13.9142 6.58579C13.5391 6.21071 13.0304 6 12.5 6V6ZM20.5 19C20.5 21.21 16.92 23 12.5 23C8.08 23 4.5 21.21 4.5 19C4.5 17.71 5.72 16.56 7.61 15.83L8.25 16.74C7.17 17.19 6.5 17.81 6.5 18.5C6.5 19.88 9.19 21 12.5 21C15.81 21 18.5 19.88 18.5 18.5C18.5 17.81 17.83 17.19 16.75 16.74L17.39 15.83C19.28 16.56 20.5 17.71 20.5 19Z" fill="#7A99AC"></path> </svg>
+                    <p style="text-align: center;">Địa điểm<br/> phù hợp khác</p>
+                </div>
+            </div>
+
+            <div class="row" style="margin-top: 40px;">
+                <div class="col">
+                    <img style="width: 815px; height: 437px;" src="https://storage.googleapis.com/vinfast-data-01/pin-tramsac-6_1660273722.png">
+                </div>
+                <div class="col">
+                    <h3 style="text-align: center;">Chính sách sạc pin</h3>
+                    <p>VinFast cung cấp đơn giá sạc ô tô điện, xe máy điện và hình thức thanh toán áp dụng tại các trạm sạc công cộng như sau:</p>
+                    <ul style="list-style: none;">
+                        <li><b>+ Đơn giá sạc: 3.858 VNĐ/kWh áp dụng từ ngày 19/03/2024</b></li>
+                        <li><b>+ Đơn giá sạc quá giờ: 1.000 đồng/phút</b> kể từ phút thứ 31 sau khi pin đầy. Đơn giá sạc quá giờ không áp dụng cho các dòng xe máy điện và với các trụ sạc thường ô tô loại AC11kW.</li>
+                    </ul>
+                    <p><b>Hình thức thanh toán:</b> Thanh toán cùng chi phí thuê bao pin hàng tháng</p>
+                    <p><b>Ghi chú:</b></p>
+                    <ul style="list-style: none;">
+                        <li>+ Đơn giá nêu trên đã bao gồm VAT</li>
+                        <li>+ Đơn giá áp dụng từ ngày ban hành cho đến khi có thông báo mới</li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+
+        <div>
+            <h2 style="margin-top: 50px; text-align: center;">Các loại trụ sạc công cộng cho Ô tô điện</h2>
+            <p text-align: center; ">VinFast cung cấp đa dạng giải pháp sạc để đáp ứng nhu cầu sử dụng của Khách hàng một cách thuận tiện nhất.</p>
+
+            <div class="row ">
+                <div class="col ">
+                    <img style="margin-left: 80px; " alt src="https://storage.googleapis.com/vinfast-data-01/pin-tramsac-7_1660273744.png " />
+                    <div class="item-content ">
+                        <h4>Trụ sạc ô tô - Sạc siêu nhanh DC 250kW</h4>
+                        <p>Thiết bị sạc Ô tô điện DC 250 kW là thiết bị cung cấp nguồn điện một chiều để sạc trực tiếp cho pin, được thiết kế dạng tủ đứng, mỗi thiết bị được trang bị 1 cổng sạc, công suất 250 kW.</p>
+                        <div class="item-detail ">
+                            <div class="d-flex align-items-center mb-1 "><span class="title col-6 ">Kiểu dáng </span> <span class="subtitle col-6 "> Tủ đứng </span></div>
+                            <div class="d-flex align-items-center mb-1 "><span class="title col-6 ">Điện áp hoạt động (V) </span> <span class="subtitle col-6 "> 400VAC ± 10%, 3 pha </span></div>
+                            <div class="d-flex align-items-center mb-1 "><span class="title col-6 ">Điện áp đầu ra </span> <span class="subtitle col-6 "> 200-1000 VDC </span></div>
+                            <div class="d-flex align-items-center mb-1 "><span class="title col-6 ">Công suất </span> <span class="subtitle col-6 "> 250 kW/ cổng sạc </span></div>
+                            <div class="d-flex align-items-center mb-1 "><span class="title col-6 ">Số lượng đầu ra </span> <span class="subtitle col-6 "> 1 cổng/trụ sạc </span></div>
+                            <div class="d-flex align-items-center mb-1 "><span class="title col-6 ">Nhiệt độ hoạt động </span> <span class="subtitle col-6 "> -30oC đến 55oC</span></div>
+                            <div class="d-flex align-items-center mb-1 "><span class="title col-6 ">Bảo vệ </span> <span class="subtitle col-6 "> Bảo vệ quá tải/ quá nhiệt/ ngắn mạch/ IP 54 </span></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col ">
+                    <img style="margin-left: 80px; " alt src="https://storage.googleapis.com/vinfast-data-01/img_1705981400.png " />
+                    <div class="item-content ">
+                        <h4>Trụ sạc ô tô - Sạc siêu nhanh DC 150kW</h4>
+                        <p>Thiết kế dạng tủ đứng, mỗi thiết bị được trang bị 2 cổng sạc, công suất sạc có thể lên tới 150kW.</p>
+                        <div class="item-detail ">
+                            <div class="d-flex align-items-center mb-1 "><span class="title col-6 ">Kiểu dáng</span> <span class="subtitle col-6 ">Tủ đứng</span></div>
+                            <div class="d-flex align-items-center mb-1 "><span class="title col-6 ">Điện áp hoạt động (V)</span> <span class="subtitle col-6 ">3 pha, 304 - 456 VAC</span></div>
+                            <div class="d-flex align-items-center mb-1 "><span class="title col-6 ">Điện áp đầu ra</span> <span class="subtitle col-6 ">200 - 1000 VDC</span></div>
+                            <div class="d-flex align-items-center mb-1 "><span class="title col-6 ">Tần số hoạt động</span> <span class="subtitle col-6 ">50 ± 5% Hz</span></div>
+                            <div class="d-flex align-items-center mb-1 "><span class="title col-6 ">Công suất</span> <span class="subtitle col-6 ">150kW/cổng sạc</span></div>
+                            <div class="d-flex align-items-center mb-1 "><span class="title col-6 ">Số lượng đầu ra</span> <span class="subtitle col-6 ">2 cổng sạc/trụ sạc</span></div>
+                            <div class="d-flex align-items-center mb-1 "><span class="title col-6 ">Bảo vệ</span> <span class="subtitle col-6 ">Bảo vệ quá tải/quá nhiệt/ngắn mạch/IP 54</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row ">
+                <div class="col ">
+                    <img style="margin-left: 80px; " alt src="https://storage.googleapis.com/vinfast-data-01/pin-tramsac-8_1660273763.png " />
+                    <div class="item-content ">
+                        <h4>Trụ sạc ô tô - Sạc nhanh DC 60kW</h4>
+                        <p>Thiết kế dạng tủ đứng, mỗi thiết bị được trang bị 2 cổng sạc, công suất 60 kW/1 cổng sạc.</p>
+                        <div class="item-detail ">
+                            <div class="d-flex align-items-center mb-1 "><span class="title col-6 ">Kiểu dáng </span> <span class="subtitle col-6 "> Tủ đứng </span></div>
+                            <div class="d-flex align-items-center mb-1 "><span class="title col-6 ">Điện áp hoạt động (V) </span> <span class="subtitle col-6 "> 3 pha, 304 - 456 VAC </span></div>
+                            <div class="d-flex align-items-center mb-1 "><span class="title col-6 ">Tần số hoạt động </span> <span class="subtitle col-6 "> 50 ± 5% Hz </span></div>
+                            <div class="d-flex align-items-center mb-1 "><span class="title col-6 ">Điện áp đầu ra </span> <span class="subtitle col-6 "> 200-1000 VDC </span></div>
+                            <div class="d-flex align-items-center mb-1 "><span class="title col-6 ">Công suất </span> <span class="subtitle col-6 "> 60 kW/ cổng sạc </span></div>
+                            <div class="d-flex align-items-center mb-1 "><span class="title col-6 ">Số lượng đầu ra </span> <span class="subtitle col-6 ">2 cổng/trụ sạc</span></div>
+                            <div class="d-flex align-items-center mb-1 "><span class="title col-6 ">Bảo vệ </span> <span class="subtitle col-6 "> Bảo vệ quá tải/ quá nhiệt/ ngắn mạch/ IP 54 </span></div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col ">
+                    <img style="margin-left: 80px; " alt src="https://storage.googleapis.com/vinfast-data-01/pin-tramsac-9_1660273785.png " />
+                    <div class="item-content ">
+                        <h4>Trụ sạc ô tô - Sạc nhanh DC 30kW</h4>
+                        <p>Trụ sạc DC Ô tô điện được sử dụng để sạc cho Ô tô điện ở tại các điểm dừng nghỉ, bãi đỗ xe công cộng</p>
+                        <div class="item-detail ">
+                            <div class="d-flex align-items-center mb-1 "><span class="title col-6 ">Kiểu dáng </span> <span class="subtitle col-6 "> Treo tường &amp; Tủ đứng </span></div>
+                            <div class="d-flex align-items-center mb-1 "><span class="title col-6 ">Điện áp hoạt động (V) </span> <span class="subtitle col-6 "> 3 pha, 304 - 456 VAC </span></div>
+                            <div class="d-flex align-items-center mb-1 "><span class="title col-6 ">Tần số hoạt động </span> <span class="subtitle col-6 "> 50 ± 5% Hz </span></div>
+                            <div class="d-flex align-items-center mb-1 "><span class="title col-6 ">Công suất 3</span> <span class="subtitle col-6 ">30 kW/ cổng sạc </span></div>
+                            <div class="d-flex align-items-center mb-1 "><span class="title col-6 ">Giao thức trực tuyến </span> <span class="subtitle col-6 "> CAN Protocol </span></div>
+                            <div class="d-flex align-items-center mb-1 "><span class="title col-6 ">Số lượng đầu ra </span> <span class="subtitle col-6 "> 1 cổng/trụ sạc</span></div>
+                            <div class="d-flex align-items-center mb-1 "><span class="title col-6 ">Bảo vệ </span> <span class="subtitle col-6 "> Bảo vệ quá tải/ quá nhiệt/ ngắn mạch/ IP 54 </span></div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+
+            <div class="row ">
+                <div class="col-6 ">
+                    <img alt src="https://storage.googleapis.com/vinfast-data-01/pin-tramsac-10_1660273804.png " />
+                    <div class="item-content ">
+                        <h4>Trụ sạc ô tô - Sạc thường AC 11kW</h4>
+                        <p>Trụ sạc AC ô tô điện là thiết bị sạc mà cung cấp nguồn điện xoay chiều cho xe, công suất cấp tối đa 11kW tùy dòng xe.</p>
+                        <div class="item-detail ">
+                            <div class="d-flex align-items-center mb-1 "><span class="title col-6 ">Kiểu dáng </span> <span class="subtitle col-6 "> Treo tường &amp; Tủ đứng </span></div>
+                            <div class="d-flex align-items-center mb-1 "><span class="title col-6 ">Điện áp hoạt động (V) </span> <span class="subtitle col-6 "> 3 pha, 304 - 456 VAC </span></div>
+                            <div class="d-flex align-items-center mb-1 "><span class="title col-6 ">Tần số hoạt động </span> <span class="subtitle col-6 "> 50 ± 5% Hz </span></div>
+                            <div class="d-flex align-items-center mb-1 "><span class="title col-6 ">Công suất </span> <span class="subtitle col-6 "> 11 kW/ cổng sạc </span></div>
+                            <div class="d-flex align-items-center mb-1 "><span class="title col-6 ">Giao thức trực tuyến </span> <span class="subtitle col-6 "> CAN Protocol </span></div>
+                            <div class="d-flex align-items-center mb-1 "><span class="title col-6 ">Số lượng đầu ra </span> <span class="subtitle col-6 "> 1 cổng/trụ sạc</span></div>
+                            <div class="d-flex align-items-center mb-1 "><span class="title col-6 ">Bảo vệ </span> <span class="subtitle col-6 "> Bảo vệ quá tải/ quá nhiệt/ ngắn mạch/ IP 54 </span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        <div class="content ">
+            <div class="top ">
+                <div class="logo-details ">
+                    <img class="logo " src="../Images/vinlogo.png " alt="VinFast Logo ">
+                </div>
+                <div class="media-icons ">
+                    <a href="# "><i class="fab fa-facebook-f "></i></a>
+                    <a href="# "><i class="fab fa-linkedin-in "></i></a>
+                </div>
+            </div>
+            <div class="link-boxes ">
+                <ul class="box ">
+                    <li class="link_name ">Đại lý VinFast</li>
+                    <li><a href="../Home/index.html ">Trang chủ</a></li>
+                    <li><a href="../Sanpham/banhang.html ">Sản phẩm</a></li>
+                    <li><a href="# ">Trạm sạc</a></li>
+                    <li><a href="../Uudai/uudai.html ">Ưu đãi</a></li>
+                    <li><a href="# ">Chính sách</a></li>
+                </ul>
+                <ul class="box1 ">
+                    <p>Công ty TNHH HapiHapi Cooperation</p>
+                    <p>Địa chỉ: 02 Võ Oanh, phường 25, quận Bình Thạnh, Thành phố Hồ Chí Minh, Việt Nam <br> Phòng C001</p>
+                    <p>Số điện thoại: 0862341xxx (Đăng Nam)</p>
+                </ul>
+            </div>
+        </div>
+        <div class="bottom-details ">
+            <div class="bottom_text ">
+                <span class="copyright_text ">Copyright HapiHapi © 2024</span>
+            </div>
+        </div>
+    </footer>
+
+</body>
