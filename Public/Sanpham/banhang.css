@@ -535,7 +535,7 @@ img {
     /* Điều chỉnh vị trí dưới cùng */
 }
 
-.nav-container a {
+.nav-container ul li a {
     color: inherit;
     /* Hoặc bạn có thể đặt màu cụ thể, ví dụ: #000 */
     text-decoration: none;
