@@ -7,9 +7,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="/Public/Images/tab_logo.png" type="image/x-icon">
-    <title>Quản lý thông tin khách hàng - Đại lý Vin Mặp</title>
-    <link rel="stylesheet" href="quanlyttkh.css">
-
+    <title>Danh sách xe - Đại lý Vin Mặp</title>
+    <link rel="stylesheet" href="DS xe.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.css"></link>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- <link rel="stylesheet" href="../menu/menu.css"> -->
@@ -66,46 +66,53 @@
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 
-    <h1 id="heading"><b>Quản lý thông tin khách hàng</b></h1>
+    <h1 id="heading"><b>Danh sách xe</b></h1>
 
     <form id="add-row-form">
         <div class="container">
 
             <div class="row" id="add-row-form">
                 <div class="col">
-                    <p>Số CCCD</p>
+                    <p>Mã xe</p>
                     <div><input type="text" id="new-id"></div>
                 </div>
                 <div class="col">
-                    <p>Họ và tên KH</p>
+                    <p>Tên xe</p>
                     <input type="text" id="new-name">
                 </div>
                 <div class="col">
-                    <p>Địa chỉ</p>
-                    <input type="text" id="new-address">
+                    <p>Giá tiền</p>
+                    <input type="text" id="new-price">
                 </div>
                 <div class="col">
-                    <p>Số điện thoại</p>
-                    <input type="text" id="new-phoneNo">
+                    <p>Màu sắc</p>
+                    <input type="text" id="new-color">
                 </div>
-
             </div>
 
             <div class="row" id="add-row-form">
                 <div class="col">
-                    <p>Email</p>
-                    <input type="text" id="new-email">
+                    <p>Nguồn gốc</p>
+                    <input type="text" id="new-origin">
                 </div>
                 <div class="col">
-                    <p>Số lượng giao dịch</p>
-                    <input type="text" id="new-no-transac">
+                    <p>Ngày nhập</p>
+                    <input type="text" id="new-date-of-import">
                 </div>
                 <div class="col">
-                    <p>Tổng giá trị giao dịch</p>
-                    <input type="text" id="new-total">
+                    <p>Số lượng tồn</p>
+                    <input type="text" id="new-car-number-availability">
                 </div>
                 <div class="col">
-                    <button type="submit"><ion-icon name="person-add-outline"></ion-icon></button>
+                    <p>Số lượng xe đã bán</p>
+                    <input type="text" id="new-car-sold">
+                </div>
+                <div class="col">
+                    <p>Ngày ra mắt</p>
+                    <input type="text" id="new-launching-date">
+                </div>
+                <div class="col">
+                    <button type="submit">+<i class="fa-solid fa-car-side"></i></ion-icon></button>
                 </div>
 
             </div>
@@ -116,7 +123,7 @@
     </form>
     <div class="row" id="add-row-form3">
         <div class="col">
-            <input type="te1xt" id="id-search" placeholder="Tìm kiếm theo số CCCD...">
+            <input type="te1xt" id="id-search" placeholder="Tìm kiếm theo mã xe...">
         </div>
     </div>
 
@@ -125,48 +132,30 @@
     <table class="table table-hover table-sortable table-bordered">
         <thead>
             <tr>
-                <th>Số CCCD</th>
-                <th>Họ và Tên</th>
-                <!--<th>Ngày tháng năm sinh</th>-->
-                <th>Địa chỉ</th>
-                <th>Số điện thoại</th>
-                <th>Email</th>
-                <th>Số giao dịch</th>
-                <!--<th>Cấp độ</th>-->
-                <th>Tổng giá trị giao dịch</th>
+                <th>Mã xe</th>
+                <th>Tên xe</th>
+                <th>Giá tiền</th>
+                <th>Màu sắc</th>
+                <th>Nguồn gốc</th>
+                <th>Ngày nhập</th>
+                <th>Số lượng tồn</th>
+                <th>Số lượng xe đã bán</th>
+                <th>Ngày ra mắt</th>
                 <th></th>
             </tr>
         </thead>
         <!--rgb(148, 238, 208)-->
         <tbody style="background-color: rgb(245, 252, 255)">
             <tr>
-                <td class="editable">001</td>
-                <td class="editable">Bao Harry</td>
-                <!--<td class="editable">10/10/2004</td>-->
-                <td class="editable">02, Vo Oanh, Phuong 25, Binh Thanh, TPHCM</td>
-                <td class="editable">0123456789</td>
-                <td class="editable">haha1@gmail.com</td>
-                <td class="editable">1</td>
-                <!--<td class="editable">VIP</td>-->
-                <td class="editable">99999</td>
-
-                <td class="action-buttons">
-                    <button class="edit-btn"><ion-icon name="create-outline"></ion-icon></button>
-                    <button class="delete-btn"><ion-icon name="trash-outline"></ion-icon></button>
-                    <!-- Delete button -->
-                </td>
-            </tr>
-
-            <tr>
-                <td class="editable">002</td>
-                <td class="editable">Thach Dylan</td>
-                <!--<td class="editable">10/10/2004</td>-->
-                <td class="editable">02, Vo Oanh, Phuong 25, Binh Thanh, TPHCM</td>
-                <td class="editable">0987654321</td>
-                <td class="editable">haha2@gmail.com</td>
+                <td class="editable">VINVF8BL</td>
+                <td class="editable">VF 8</td>
+                <td class="editable">47200.00</td>
+                <td class="editable">Black</td>
+                <td class="editable">Vietnam</td>
+                <td class="editable">2024-06-01</td>
+                <td class="editable">8</td>
                 <td class="editable">3</td>
-                <!--<td class="editable">VIP</td>-->
-                <td class="editable">999999</td>
+                <td class="editable">2023</td>
 
                 <td class="action-buttons">
                     <button class="edit-btn"><ion-icon name="create-outline"></ion-icon></button>
@@ -176,15 +165,15 @@
             </tr>
 
             <tr>
-                <td class="editable">003</td>
-                <td class="editable">Dung Windd</td>
-                <!--<td class="editable">10/10/2004</td>-->
-                <td class="editable">02, Vo Oanh, Phuong 25, Binh Thanh, TPHCM</td>
-                <td class="editable">035792468</td>
-                <td class="editable">haha3@gmail.com</td>
-                <td class="editable">2</td>
-                <!--<td class="editable">VIP</td>-->
-                <td class="editable">99999</td>
+                <td class="editable">VINVF8WH</td>
+                <td class="editable">VF 8</td>
+                <td class="editable">47200.00</td>
+                <td class="editable">White</td>
+                <td class="editable">Vietnam</td>
+                <td class="editable">2024-06-01</td>
+                <td class="editable">9</td>
+                <td class="editable">7</td>
+                <td class="editable">2023</td>
 
                 <td class="action-buttons">
                     <button class="edit-btn"><ion-icon name="create-outline"></ion-icon></button>
@@ -194,15 +183,15 @@
             </tr>
 
             <tr>
-                <td class="editable">004</td>
-                <td class="editable">Duy Dora</td>
-                <!--<td class="editable">10/10/2004</td>-->
-                <td class="editable">02, Vo Oanh, Phuong 25, Binh Thanh, TPHCM</td>
-                <td class="editable">0246813579</td>
-                <td class="editable">haha4@gmail.com</td>
-                <td class="editable">2</td>
-                <!--<td class="editable">VIP</td>-->
-                <td class="editable">99999</td>
+                <td class="editable">VINVF9CR</td>
+                <td class="editable">VF 9</td>
+                <td class="editable">81000.00</td>
+                <td class="editable">Crimson Red</td>
+                <td class="editable">Vietnam</td>
+                <td class="editable">2024-06-01</td>
+                <td class="editable">10</td>
+                <td class="editable">10</td>
+                <td class="editable">2023</td>
 
                 <td class="action-buttons">
                     <button class="edit-btn"><ion-icon name="create-outline"></ion-icon></button>
@@ -212,15 +201,33 @@
             </tr>
 
             <tr>
-                <td class="editable">005</td>
-                <td class="editable">Nam David</td>
-                <!--<td class="editable">10/10/2004</td>-->
-                <td class="editable">02, Vo Oanh, Phuong 25, Binh Thanh, TPHCM</td>
-                <td class="editable">0123498765</td>
-                <td class="editable">haha5@gmail.com</td>
-                <td class="editable">4</td>
-                <!--<td class="editable">VIP</td>-->
-                <td class="editable">99999</td>
+                <td class="editable">VINVF5B</td>
+                <td class="editable">VF 5</td>
+                <td class="editable">30000.00</td>
+                <td class="editable">Blue</td>
+                <td class="editable">Vietnam</td>
+                <td class="editable">2024-07-01</td>
+                <td class="editable">8</td>
+                <td class="editable">12</td>
+                <td class="editable">2023</td>
+
+                <td class="action-buttons">
+                    <button class="edit-btn"><ion-icon name="create-outline"></ion-icon></button>
+                    <button class="delete-btn"><ion-icon name="trash-outline"></ion-icon></button>
+                    <!-- Delete button -->
+                </td>
+            </tr>
+
+            <tr>
+                <td class="editable">VINVF6G</td>
+                <td class="editable">VF 6</td>
+                <td class="editable">30000.00</td>
+                <td class="editable">Green</td>
+                <td class="editable">Vietnam</td>
+                <td class="editable">2024-08-01</td>
+                <td class="editable">8</td>
+                <td class="editable">8</td>
+                <td class="editable">2023</td>
 
                 <td class="action-buttons">
                     <button class="edit-btn"><ion-icon name="create-outline"></ion-icon></button>
@@ -235,7 +242,7 @@
         </tbody>
     </table>
 
-    <script src="quanlyttkh.js"></script>
+    <script src="DS xe.js"></script>
 </body>
 
 </html>
