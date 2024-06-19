@@ -6,9 +6,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="../Images/tab_logo.png" type="image/x-icon">
+    <link rel="icon" href="/Public/Images/tab_logo.png" type="image/x-icon">
     <title>Danh sách xe - Đại lý Vin Mặp</title>
-    <link rel="stylesheet" href="DS xe.css">
+    <link rel="stylesheet" href="DSXe.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.css"></link>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 
@@ -30,16 +30,27 @@
                     <ion-icon name="home-outline"></ion-icon> Trang chủ</a>
             </li>
             <li>
-                <a href="../quanlyttkh/quanlyttkh.html">
+                <a href="/Public/LoginSuccess/quanlyttkh/quanlyttkh.html">
                     <ion-icon name="people-outline"></ion-icon> Quản lý thông tin khách hàng</a>
             </li>
-            <li class="submenu">
-                <a href="#" onclick="alertFeature()">
+            <li>
+                <a href="/Public/LoginSuccess/QLNhanSu/QLNhanSu.html">
                     <ion-icon name="man-outline"></ion-icon> Quản lý nhân sự</a>
             </li>
-            <li>
+            <li class="submenu">
                 <a href="#">
                     <ion-icon name="server-outline"></ion-icon> Thông tin doanh thu</a>
+                <ul>
+                    <li>
+                        <a href="/Public/LoginSuccess/DSXe/DSXe.html">
+                            <ion-icon name="receipt-outline"></ion-icon> Thông tin giao dịch</a>
+                    </li>
+                    <li>
+                        <a href="/Public/LoginSuccess/QLSLXe/QLSLXe.html">
+                            <ion-icon name="stats-chart-outline"></ion-icon> Thống kê doanh thu</a>
+                    </li>
+                </ul>
+
             </li>
 
             <li class="submenu">
@@ -47,11 +58,11 @@
                     <ion-icon name="car-sport-outline"></ion-icon>Thông tin về xe</a>
                 <ul>
                     <li>
-                        <a href="../qlttgd/qlttgd.html">
+                        <a href="/Public/LoginSuccess/DSXe/DSXe.html">
                             <ion-icon name="receipt-outline"></ion-icon> Danh sách xe</a>
                     </li>
                     <li>
-                        <a href="#" onclick="alertFeature()">
+                        <a href="/Public/LoginSuccess/QLSLXe/QLSLXe.html">
                             <ion-icon name="stats-chart-outline"></ion-icon> Quản lý số lượng xe</a>
                     </li>
                 </ul>
@@ -99,7 +110,7 @@
                     <p>Ngày nhập</p>
                     <input type="text" id="new-date-of-import">
                 </div>
-                
+
                 <div class="col">
                     <p>Ngày ra mắt</p>
                     <input type="text" id="new-launching-date">
@@ -223,7 +234,7 @@
         </tbody>
     </table>
 
-    <script src="DS xe.js"></script>
+    <script src="DSXe.js"></script>
 </body>
 
 </html>
