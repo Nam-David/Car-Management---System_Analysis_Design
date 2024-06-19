@@ -89,13 +89,11 @@ document.getElementById("add-row-form").addEventListener("submit", (event) => {
     const color = document.getElementById("new-color").value;
     const origin = document.getElementById("new-origin").value;
     const dateOfImport = document.getElementById("new-date-of-import").value;
-    const numberAvailability = document.getElementById("new-car-number-availability").value;
-    const carSold = document.getElementById("new-car-sold").value;
     const launchingDate = document.getElementById("new-launching-date").value;
 
 
     // Check if any field is empty
-    if (!id || !name ||  !price || !color || !origin || !dateOfImport || !numberAvailability || !carSold || !launchingDate ) {
+    if (!id || !name ||  !price || !color || !origin || !dateOfImport || !launchingDate ) {
         alert("Thông tin chưa được điền đầy đủ. Hãy kiểm tra lại.");
         return;
     }
@@ -108,8 +106,7 @@ document.getElementById("add-row-form").addEventListener("submit", (event) => {
         <td class="editable">${color}</td>
         <td class="editable">${origin}</td>
         <td class="editable">${dateOfImport}</td>
-        <td class="editable">${numberAvailability}</td>
-        <td class="editable">${carSold}</td>
+        
         <td class="editable">${launchingDate}</td>
         <td>
             <button class="edit-btn"><ion-icon name="create-outline"></ion-icon></button>
