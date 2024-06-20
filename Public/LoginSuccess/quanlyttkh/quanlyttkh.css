@@ -84,7 +84,7 @@ body {
     /* width: calc(33.33% - 20px); */
 }
 
-#add-row-form3 input[type="te1xt"] {
+#add-row-form3 input[type="text1"] {
     padding: 10px 20px;
     font-size: 15px;
     text-align: center;
