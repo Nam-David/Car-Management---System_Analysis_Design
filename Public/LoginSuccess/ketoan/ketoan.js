@@ -73,11 +73,8 @@ document.getElementById("add-row-form").addEventListener("submit", (event) => {
 
     const transactionId = document.getElementById("new-Transaction_Id").value;
     const citizenId = document.getElementById("new-Citizen_Id").value;
-    const modalCarId = document.getElementById("new-Modal_Car_Id").value;
-    const transactionDate = document.getElementById("new-Transaction_Date").value;
-    const paymentDate = document.getElementById("new-Payment_Date").value;
-    const warrantyDate = document.getElementById("new-Warrnty_Valid_Date").value;
-    const status = document.getElementById("new-Status_Of_Purchasing").value;
+    const transactionPrice = document.getElementById("new-Transaction_Price").value;
+    const depositPrice = document.getElementById("new-Deposit_Price").value;
 
     const existingIds = Array.from(document.querySelectorAll(".table tbody tr td:first-child"), td => td.textContent);
     if (existingIds.includes(transactionId)) {
@@ -85,7 +82,7 @@ document.getElementById("add-row-form").addEventListener("submit", (event) => {
         return;
     }
 
-    if (!transactionId || !citizenId || !modalCarId || !transactionDate || !paymentDate || !warrantyDate || !status) {
+    if (!transactionId || !citizenId || !transactionPrice || !depositPrice) {
         alert("Thông tin chưa được điền đầy đủ. Hãy kiểm tra lại.");
         return;
     }
@@ -94,15 +91,9 @@ document.getElementById("add-row-form").addEventListener("submit", (event) => {
     newRow.innerHTML = `
         <td class="editable">${transactionId}</td>
         <td class="editable">${citizenId}</td>
-        <td class="editable">${modalCarId}</td>
-        <td class="editable">${transactionDate}</td>
-        <td class="editable">${paymentDate}</td>
-        <td class="editable">${warrantyDate}</td>
-        <td class="editable">${status}</td>
-        <td>
-            <button class="edit-btn"><ion-icon name="create-outline"></ion-icon></button>
-            <button class="delete-btn"><ion-icon name="trash-outline"></ion-icon></button>
-        </td>
+        <td class="editable">${transactionPrice}</td>
+        <td class="editable">${depositPrice}</td>
+
     `;
 
     document.querySelector(".table tbody").appendChild(newRow);
@@ -152,8 +143,9 @@ document.getElementById("id-search").addEventListener("keyup", function() {
     const searchValue = this.value.toLowerCase();
     const rows = document.querySelectorAll(".table tbody tr");
     rows.forEach(row => {
-        const idCell = row.querySelector("td:nth-child(2)");
+        const idCell = row.querySelector("td:nth-child(1)"); // Thay đổi từ cột 2 sang cột 1
         const idText = idCell.textContent.toLowerCase();
         row.style.display = idText.includes(searchValue) ? "" : "none";
     });
 });
+
