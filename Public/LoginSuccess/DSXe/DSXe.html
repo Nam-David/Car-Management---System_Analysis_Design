@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="/Public/Images/tab_logo.png" type="image/x-icon">
     <title>Danh sách xe - Đại lý Vin Mặp</title>
-    <link rel="stylesheet" href="DS xe.css">
+    <link rel="stylesheet" href="DSXe.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.css"></link>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 
@@ -33,13 +33,24 @@
                 <a href="/Public/LoginSuccess/quanlyttkh/quanlyttkh.html">
                     <ion-icon name="people-outline"></ion-icon> Quản lý thông tin khách hàng</a>
             </li>
-            <li class="submenu">
-                <a href="#" onclick="alertFeature()">
+            <li>
+                <a href="/Public/LoginSuccess/QLNhanSu/QLNhanSu.html">
                     <ion-icon name="man-outline"></ion-icon> Quản lý nhân sự</a>
             </li>
-            <li>
+            <li class="submenu">
                 <a href="#">
                     <ion-icon name="server-outline"></ion-icon> Thông tin doanh thu</a>
+                <ul>
+                    <li>
+                        <a href="/Public/LoginSuccess/DSXe/DSXe.html">
+                            <ion-icon name="receipt-outline"></ion-icon> Thông tin giao dịch</a>
+                    </li>
+                    <li>
+                        <a href="/Public/LoginSuccess/QLSLXe/QLSLXe.html">
+                            <ion-icon name="stats-chart-outline"></ion-icon> Thống kê doanh thu</a>
+                    </li>
+                </ul>
+
             </li>
 
             <li class="submenu">
@@ -47,18 +58,18 @@
                     <ion-icon name="car-sport-outline"></ion-icon>Thông tin về xe</a>
                 <ul>
                     <li>
-                        <a href="/Public/LoginSuccess/DS xe/DS xe.html">
+                        <a href="/Public/LoginSuccess/DSXe/DSXe.html">
                             <ion-icon name="receipt-outline"></ion-icon> Danh sách xe</a>
                     </li>
                     <li>
-                        <a href="#" onclick="alertFeature()">
+                        <a href="/Public/LoginSuccess/QLSLXe/QLSLXe.html">
                             <ion-icon name="stats-chart-outline"></ion-icon> Quản lý số lượng xe</a>
                     </li>
                 </ul>
             </li>
 
             <li>
-                <a href="/Public/Login/login.html">
+                <a href="../Login/login.html">
                     <ion-icon name="log-out-outline"></ion-icon> Đăng xuất</a>
             </li>
         </ul>
@@ -91,26 +102,16 @@
             </div>
 
             <div class="row" id="add-row-form">
+
                 <div class="col">
                     <p>Nguồn gốc</p>
                     <input type="text" id="new-origin">
                 </div>
-                <div class="col">
-                    <p>Ngày nhập</p>
-                    <input type="text" id="new-date-of-import">
-                </div>
-                <div class="col">
-                    <p>Số lượng tồn</p>
-                    <input type="text" id="new-car-number-availability">
-                </div>
-                <div class="col">
-                    <p>Số lượng xe đã bán</p>
-                    <input type="text" id="new-car-sold">
-                </div>
-                <div class="col">
+                <div class="col" style="margin-right:280px">
                     <p>Ngày ra mắt</p>
                     <input type="text" id="new-launching-date">
                 </div>
+
                 <div class="col">
                     <button type="submit">+<i class="fa-solid fa-car-side"></i></ion-icon></button>
                 </div>
@@ -137,9 +138,6 @@
                 <th>Giá tiền</th>
                 <th>Màu sắc</th>
                 <th>Nguồn gốc</th>
-                <th>Ngày nhập</th>
-                <th>Số lượng tồn</th>
-                <th>Số lượng xe đã bán</th>
                 <th>Ngày ra mắt</th>
                 <th></th>
             </tr>
@@ -152,9 +150,6 @@
                 <td class="editable">47200.00</td>
                 <td class="editable">Black</td>
                 <td class="editable">Vietnam</td>
-                <td class="editable">2024-06-01</td>
-                <td class="editable">8</td>
-                <td class="editable">3</td>
                 <td class="editable">2023</td>
 
                 <td class="action-buttons">
@@ -170,9 +165,6 @@
                 <td class="editable">47200.00</td>
                 <td class="editable">White</td>
                 <td class="editable">Vietnam</td>
-                <td class="editable">2024-06-01</td>
-                <td class="editable">9</td>
-                <td class="editable">7</td>
                 <td class="editable">2023</td>
 
                 <td class="action-buttons">
@@ -188,9 +180,6 @@
                 <td class="editable">81000.00</td>
                 <td class="editable">Crimson Red</td>
                 <td class="editable">Vietnam</td>
-                <td class="editable">2024-06-01</td>
-                <td class="editable">10</td>
-                <td class="editable">10</td>
                 <td class="editable">2023</td>
 
                 <td class="action-buttons">
@@ -206,9 +195,6 @@
                 <td class="editable">30000.00</td>
                 <td class="editable">Blue</td>
                 <td class="editable">Vietnam</td>
-                <td class="editable">2024-07-01</td>
-                <td class="editable">8</td>
-                <td class="editable">12</td>
                 <td class="editable">2023</td>
 
                 <td class="action-buttons">
@@ -224,9 +210,6 @@
                 <td class="editable">30000.00</td>
                 <td class="editable">Green</td>
                 <td class="editable">Vietnam</td>
-                <td class="editable">2024-08-01</td>
-                <td class="editable">8</td>
-                <td class="editable">8</td>
                 <td class="editable">2023</td>
 
                 <td class="action-buttons">
@@ -242,7 +225,7 @@
         </tbody>
     </table>
 
-    <script src="DS xe.js"></script>
+    <script src="DSXe.js"></script>
 </body>
 
 </html>

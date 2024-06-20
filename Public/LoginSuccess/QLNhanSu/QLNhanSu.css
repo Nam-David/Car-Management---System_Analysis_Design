@@ -93,6 +93,7 @@ body {
     border-width: 4px;
     /* margin-left: 25px; */
     margin-top: 20px;
+    width: 270px;
 }
 
 #add-row-form button[type="submit"] {

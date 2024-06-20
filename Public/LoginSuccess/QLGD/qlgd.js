@@ -85,17 +85,15 @@ document.getElementById("add-row-form").addEventListener("submit", (event) => {
     }
     const name = document.getElementById("new-name").value;
     // const birthdate = document.getElementById("new-birthdate").value;
-    const price = document.getElementById("new-price").value;
-    const color = document.getElementById("new-color").value;
-    const origin = document.getElementById("new-origin").value;
-    const dateOfImport = document.getElementById("new-date-of-import").value;
-    const numberAvailability = document.getElementById("new-car-number-availability").value;
-    const carSold = document.getElementById("new-car-sold").value;
-    const launchingDate = document.getElementById("new-launching-date").value;
-
+    const address = document.getElementById("new-address").value;
+    const phoneNo = document.getElementById("new-phoneNo").value;
+    const email = document.getElementById("new-email").value;
+    // const occupation = document.getElementById("new-occupation").value;
+    const no_transac = document.getElementById("new-no-transac").value;
+    const total = document.getElementById("new-total").value;
 
     // Check if any field is empty
-    if (!id || !name ||  !price || !color || !origin || !dateOfImport || !numberAvailability || !carSold || !launchingDate ) {
+    if (!id || !name || !address || !phoneNo || !email || !no_transac || !total) {
         alert("Thông tin chưa được điền đầy đủ. Hãy kiểm tra lại.");
         return;
     }
@@ -104,13 +102,11 @@ document.getElementById("add-row-form").addEventListener("submit", (event) => {
     newRow.innerHTML = `
         <td class="editable">${id}</td>
         <td class="editable">${name}</td>
-        <td class="editable">${price}</td>
-        <td class="editable">${color}</td>
-        <td class="editable">${origin}</td>
-        <td class="editable">${dateOfImport}</td>
-        <td class="editable">${numberAvailability}</td>
-        <td class="editable">${carSold}</td>
-        <td class="editable">${launchingDate}</td>
+        <td class="editable">${address}</td>
+        <td class="editable">${phoneNo}</td>
+        <td class="editable">${email}</td>
+        <td class="editable">${no_transac}</td>
+        <td class="editable">${total}</td>
         <td>
             <button class="edit-btn"><ion-icon name="create-outline"></ion-icon></button>
             <button class="delete-btn"><ion-icon name="trash-outline"></ion-icon></button>
