@@ -70,116 +70,19 @@ document.querySelectorAll(".edit-btn").forEach(button => {
     });
 });
 
-// Add event listener for adding new row
-document.getElementById("add-row-form").addEventListener("submit", (event) => {
-    event.preventDefault();
+// Add event listeners for deleting rows
+document.querySelectorAll(".delete-btn").forEach(button => {
+    button.addEventListener("click", (event) => {
+        // Prevent default action of button click
+        event.preventDefault();
 
-    const id = document.getElementById("new-id").value;
-    // Other fields...
-
-    // Check if ID already exists in the table
-    const existingIds = Array.from(document.querySelectorAll(".table-sortable tbody tr td:first-child"), td => td.textContent);
-    if (existingIds.includes(id)) {
-        alert("ID đã tồn tại. Thông tin không hợp lệ.");
-        return;
-    }
-    const name = document.getElementById("new-name").value;
-    // const birthdate = document.getElementById("new-birthdate").value;
-    const address = document.getElementById("new-address").value;
-    const phoneNo = document.getElementById("new-phoneNo").value;
-    const email = document.getElementById("new-email").value;
-    // const occupation = document.getElementById("new-occupation").value;
-    const no_transac = document.getElementById("new-no-transac").value;
-    const total = document.getElementById("new-total").value;
-
-    // Check if any field is empty
-    if (!id || !name || !address || !phoneNo || !email || !no_transac || !total) {
-        alert("Thông tin chưa được điền đầy đủ. Hãy kiểm tra lại.");
-        return;
-    }
-
-    const newRow = document.createElement('tr');
-    newRow.innerHTML = `
-        <td class="editable">${id}</td>
-        <td class="editable">${name}</td>
-        <td class="editable">${address}</td>
-        <td class="editable">${phoneNo}</td>
-        <td class="editable">${email}</td>
-        <td class="editable">${no_transac}</td>
-        <td class="editable">${total}</td>
-        <td>
-            <button class="edit-btn"><ion-icon name="create-outline"></ion-icon></button>
-            <button class="delete-btn"><ion-icon name="trash-outline"></ion-icon></button>
-        </td>
-    `;
-    document.querySelectorAll(".edit-btn").forEach(button => {
-        button.addEventListener("click", () => {
+        // Show confirmation dialog
+        const confirmed = confirm("Bạn có chắc chắn muốn xóa dòng này không?");
+        if (confirmed) {
             const row = button.parentElement.parentElement;
-            const cells = row.querySelectorAll(".editable");
-            let allCellsFilled = true;
-            cells.forEach(cell => {
-                if (cell.isContentEditable) {
-                    // If the cell is currently editable, check if it's empty
-                    if (cell.textContent.trim() === "") {
-                        allCellsFilled = false;
-                    }
-
-                    // Make it non-editable and remove the highlight
-                    cell.contentEditable = false;
-                    cell.style.backgroundColor = ""; // Remove background color
-                } else {
-                    // If the cell is currently non-editable, make it editable and add the highlight
-                    cell.contentEditable = true;
-                    cell.style.backgroundColor = "#ffe0e0"; // Highlight editable cells
-                }
-            });
-
-            // If not all cells are filled, show an alert
-            if (!allCellsFilled) {
-                alert("Bạn chưa thêm đầy đủ thông tin.");
-            }
-        });
-    });
-
-    document.querySelector(".table-sortable tbody").appendChild(newRow);
-
-    // Add event listeners to the new buttons
-    newRow.querySelector(".edit-btn").addEventListener("click", () => {
-        const row = newRow;
-        const cells = row.querySelectorAll(".editable");
-        cells.forEach(cell => {
-            cell.contentEditable = true;
-            cell.style.backgroundColor = "#ddd"; // Highlight editable cells
-        });
-    });
-
-    newRow.querySelector(".delete-btn").addEventListener("click", (event) => {
-        // Prevent default action of button click
-        event.preventDefault();
-
-        // Show confirmation dialog
-        const confirmed = confirm("Bạn có chắc chắn muốn xóa dòng này không?");
-        if (confirmed) {
-            const row = newRow;
             row.parentNode.removeChild(row);
         }
     });
-});
-
-// Add event listener for deleting rows within the table body
-document.querySelector(".table-sortable tbody").addEventListener("click", (event) => {
-    const target = event.target;
-    if (target.closest(".delete-btn")) {
-        // Prevent default action of button click
-        event.preventDefault();
-
-        // Show confirmation dialog
-        const confirmed = confirm("Bạn có chắc chắn muốn xóa dòng này không?");
-        if (confirmed) {
-            const row = target.closest("tr");
-            row.parentNode.removeChild(row);
-        }
-    }
 });
 
 // Add this to your JavaScript
