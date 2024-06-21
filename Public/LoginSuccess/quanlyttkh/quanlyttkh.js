@@ -274,7 +274,6 @@ async function renderCustomerTable() {
             <td class="editable">${customer.Phone_No}</td>
             <td class="editable">${customer.Email}</td>
             <td class="editable">${customer.Number_Transaction}</td>
-            <td class="editable">${customer.Total_Transaction_Value || 0}</td> 
             <td class="action-buttons">
                 <button class="edit-btn"><ion-icon name="create-outline"></ion-icon></button>
                 <button class="delete-btn"><ion-icon name="trash-outline"></ion-icon></button>
@@ -334,7 +333,6 @@ async function handleEdit(row, Citizen_ID) {
             Phone_No: cells[3].textContent,
             Email: cells[4].textContent,
             Number_Transaction: parseInt(cells[5].textContent),
-            Total_Transaction_Value: parseFloat(cells[6].textContent)
         };
 
         try {
@@ -391,12 +389,11 @@ document.getElementById("add-row-form").addEventListener("submit", async (event)
         Phone_No: document.getElementById("new-phoneNo").value,
         Email: document.getElementById("new-email").value,
         Number_Transaction: parseInt(document.getElementById("new-no-transac").value) || 0,
-        Total_Transaction_Value: parseFloat(document.getElementById("new-total").value) || 0
     };
 
     // Kiểm tra dữ liệu (bổ sung kiểm tra Citizen_ID)
-    if (!newCustomerData.Citizen_ID || Object.values(newCustomerData).some(value => !value)) {
-        alert("Vui lòng điền đầy đủ thông tin, bao gồm cả số CCCD.");
+    if (Object.values(newCustomerData).some(value => !value)) {
+        alert("Vui lòng điền đầy đủ thông tin");
         return;
     }
 
