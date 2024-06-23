@@ -1,0 +1,24 @@
+
+{
+    "comment": "1st test fill customer info from FE, 2nd test Login",
+    "data" : [
+        {
+        "Citizen_ID" :   "8989898998",
+        "Customer_Name" : "David", 
+        "Phone_No" : "0892832327", 
+        "Email" : "david@gmail.com",
+        "Address" : "Vietnam",
+        "Number_Transaction" : 1
+        },
+
+        {
+            "username": "AGENCY9",
+            "password": "123456789"
+        }
+
+    ]
+}
+
+
+
+

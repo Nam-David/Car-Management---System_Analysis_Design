@@ -1,11 +1,13 @@
+//"validator": "^13.12.0"
 const express = require('express');
 const cors = require('cors');
 const app = express();
 
 const loginRoutes = require ('../src/routes/admin/loginRoutes');
-//const carRoutes = require('../src/routes/carRoutes');
+const fillCustomerRoutes = require ('../src/routes/client/fillCustomerInfoRoutes');
+const carRoutes = require('../src/routes/admin/carRoutes');
 const customerRoutes = require('../src/routes/admin/customerRoutes');
-//const transactionRoutes = require('../src/routes/transactionRoutes');
+const transactionRoutes = require('../src/routes/admin/transactionRoutes');
 
 
 // Cấu hình CORS (phải được thêm trước các routes)
@@ -25,7 +27,8 @@ app.use(express.json());
 
 
 // declare routes
-app.use('/login', loginRoutes); 
+app.use('/login', loginRoutes);
+app.use('/fillCustomerInfo', fillCustomerRoutes); 
 // app.use('/cars', carRoutes);
 app.use('/customers', customerRoutes);
 // app.use('/transaction', transactionRoutes);
@@ -48,3 +51,4 @@ app.listen(PORT, () => {
     console.log(`Server backend đang chạy trên cổng ${PORT}`);
 });
 */
+

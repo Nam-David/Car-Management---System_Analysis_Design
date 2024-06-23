@@ -75,3 +75,9 @@ CREATE TABLE dataACCOUTING (
 	FOREIGN KEY (Transaction_ID) REFERENCES dataTRANSACTION(Transaction_ID),
 	CONSTRAINT PK_Accouting PRIMARY KEY (Citizen_ID, Transaction_ID)
 );
+
+
+DELETE FROM dataCUSTOMER;
+
+SELECT * 
+FROM dataCUSTOMER
