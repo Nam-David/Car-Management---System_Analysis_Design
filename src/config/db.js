@@ -15,7 +15,7 @@ const pool = new Pool ({
     database: 'Car_Agency_Management',
     password: '9804',
     port: 5432
-})
+});
 
 // check db connection
 pool.query('SELECT NOW()', (err, res) => 
