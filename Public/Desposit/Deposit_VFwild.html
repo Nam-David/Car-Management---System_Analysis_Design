@@ -100,7 +100,7 @@
                                         <div class="col-12 group-title"><b>Thông tin chủ xe <br> <br></b></div>
                                         <div class="col-12 group-personal mb-4">
                                             <div class="form-label-group has-icon root_numText lastname">
-                                                <input name="dwfrm_billing_addressFields_lastName" type="text" required maxlength="80" class="js_numText form-control" placeholder="Họ và tên" pattern="^[^!@$#%^&*<>()-=./]+$" data-missing-error="Vui lòng nhập họ và tên" data-parse-error="Trường không được chứa ký tự đặc biệt"
+                                                <input name="dwfrm_billing_addressFields_lastName" id="CustomerName" type="text" required maxlength="80" class="js_numText form-control" placeholder="Họ và tên" pattern="^[^!@$#%^&*<>()-=./]+$" data-missing-error="Vui lòng nhập họ và tên" data-parse-error="Trường không được chứa ký tự đặc biệt"
                                                     data-input-invalid="Trường không được chứa ký tự đặc biệt" value />
                                                 <div class="icon">
                                                     <i class="fas fa-user"></i>
@@ -110,8 +110,8 @@
                                             </div>
                                         </div>
                                         <div class="col-12 group-corporate mb-4">
-                                            <div class="form-label-group has-icon root_numText companyName">
-                                                <input name="companyName" type="text" required maxlength="80" class="js_numText form-control" placeholder="Số CMT/CCCD" data-missing-error="Vui lòng nhập số CMT/CCCD." value />
+                                            <div class="form-label-group has-icon root_numText identitycard">
+                                                <input name="dwfrm_billing_contactInfoFields_identitycard" id="IdentityCard" type="text" required maxlength="80" class="js_numText form-control" placeholder="Số CMT/CCCD" data-missing-error="Vui lòng nhập số CMT/CCCD." value />
                                                 <div class="icon">
                                                     <i class="fas fa-id-card"></i>
                                                 </div>
@@ -121,7 +121,7 @@
                                         </div>
                                         <div class="col-12 mb-4">
                                             <div class="form-label-group has-icon phone">
-                                                <input name="dwfrm_billing_contactInfoFields_phone" type="tel" required maxlength="12" minlength="9" pattern="^((\+?84)|0)((3([2-9]))|(5([25689]))|(7([0|6-9]))|(8([1-9]))|(9([0-9])))([0-9]{7})$" placeholder="Số điện thoại" data-missing-error="Vui lòng nhập số điện thoại."
+                                                <input name="dwfrm_billing_contactInfoFields_phone" id="NumberPhone" type="tel" required maxlength="12" minlength="9" pattern="^((\+?84)|0)((3([2-9]))|(5([25689]))|(7([0|6-9]))|(8([1-9]))|(9([0-9])))([0-9]{7})$" placeholder="Số điện thoại" data-missing-error="Vui lòng nhập số điện thoại."
                                                     data-parse-error="Số điện thoại của Quý khách chưa đúng. Vui lòng kiểm tra lại." class="form-control" value />
                                                 <div class="icon">
                                                     <i class="fas fa-phone"></i>
@@ -132,7 +132,7 @@
                                         </div>
                                         <div class="col-12 mb-4">
                                             <div class="form-label-group has-icon email">
-                                                <input name="dwfrm_billing_contactInfoFields_email" type="email" required maxlength="255" placeholder="Email" data-missing-error="Vui lòng nhập email." data-parse-error="Email của Quý khách chưa đúng. Vui lòng kiểm tra lại." class="form-control" value
+                                                <input name="dwfrm_billing_contactInfoFields_email" id="Email" type="email" required maxlength="255" placeholder="Email" data-missing-error="Vui lòng nhập email." data-parse-error="Email của Quý khách chưa đúng. Vui lòng kiểm tra lại." class="form-control" value
                                                 />
                                                 <div class="icon">
                                                     <i class="fas fa-envelope"></i>
@@ -143,7 +143,7 @@
                                         </div>
                                         <div class="col-12 mb-4">
                                             <div class="form-label-group has-icon address">
-                                                <input name="dwfrm_billing_addressFields_address" type="text" required maxlength="255" placeholder="Địa chỉ: Số nhà, đường, phường, quận, tỉnh/thành phố" data-missing-error="Vui lòng nhập địa chỉ." class="form-control" value />
+                                                <input name="dwfrm_billing_addressFields_address" id="Address" type="text" required maxlength="255" placeholder="Địa chỉ: Số nhà, đường, phường, quận, tỉnh/thành phố" data-missing-error="Vui lòng nhập địa chỉ." class="form-control" value />
                                                 <div class="icon">
                                                     <i class="fas fa-map-marker-alt"></i>
                                                 </div>
@@ -190,7 +190,7 @@
                                     <label class="form-label" for="Agree3"></label>
                                     <input class="form-check-input" type="checkbox" id="Agree3"> Tôi đồng ý với các Điều kiện & Điều khoản của VinFast Online.
                                 </div> <br>
-                                <button type="Menu" class="btn btn-primary">Quay lại Menu</button>
+                                <a href="/Public/Sanpham/banhang.html"><button type="Menu" class="btn btn-primary">Quay lại Menu</button></a>
                                 <button type="submit" class="btn btn-primary" id="submit-deposit">Đã thanh toán</button>
                     </p>
                     </div>
