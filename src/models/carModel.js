@@ -1,4 +1,4 @@
-const pool = require('../config/db'); // Sẽ được tạo ở bước tiếp theo
+const { pool } = require('../config/db'); // Sẽ được tạo ở bước tiếp theo
 
 const getCars = async () => {
     const result = await pool.query('SELECT * FROM dataCAR');

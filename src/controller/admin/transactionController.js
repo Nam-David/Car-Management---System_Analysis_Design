@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const pool = require('../config/db');
+const pool = require('../../config/db');
 
 const createTransaction = async (req, res) => {
     // Start transaction

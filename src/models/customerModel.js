@@ -25,7 +25,7 @@ module.exports = { addCustomer, checkDiscountEligibility };
 
 // backend/src/models/customerModel.js
 
-const pool = require('../config/db');
+const { pool } = require('../config/db');
 
 const addCustomer = async (customerData) => {
     const { Citizen_ID, Customer_Name, Email, Phone_No, Address, Number_Transaction } = customerData;

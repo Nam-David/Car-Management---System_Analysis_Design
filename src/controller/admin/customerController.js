@@ -49,8 +49,8 @@ module.exports = { createCustomer, checkDiscount };
 
 // backend/src/controllers/customerController.js
 
-const CustomerModel = require('../models/customerModel');
-const pool = require('../config/db');
+const CustomerModel = require('../../models/customerModel');
+const pool = require('../../config/db');
 
 const createCustomer = async (req, res) => {
     try {

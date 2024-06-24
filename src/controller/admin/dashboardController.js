@@ -1,4 +1,4 @@
-const pool = require('../config/db');
+const pool = require('../../config/db');
 
 const getDashboardData = async (req, res) => {
     try {

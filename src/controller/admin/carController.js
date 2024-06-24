@@ -1,5 +1,5 @@
 // src/controllers/carController.js
-const CarModel = require('../models/carModel');
+const CarModel = require('../../models/carModel'); 
 
 const getCars = async (req, res) => {
     try {

@@ -13,7 +13,7 @@ module.exports = router;
 
 const express = require('express');
 const router = express.Router();
-const customerController = require('../controllers/customerController');
+const customerController = require('../../controller/admin/customerController');
 
 // Tạo khách hàng mới
 router.post('/', customerController.createCustomer);
