@@ -1,3 +1,9 @@
+let dwfrm_billing_addressFields_lastName = document.getElementById("CustomerName").value
+let dwfrm_billing_contactInfoFields_identitycard = document.getElementById("IdentityCard").value
+let dwfrm_billing_contactInfoFields_phone = document.getElementById("NumberPhone").value
+let wfrm_billing_contactInfoFields_email = document.getElementById("Email").value
+let dwfrm_billing_addressFields_address = document.getElementById("Address").value
+
 document.getElementById('deposit-nav').addEventListener('click', function(event) {
     event.preventDefault();
     var form = document.getElementById('dwfrm_billing');
@@ -331,3 +337,4 @@ document.addEventListener('DOMContentLoaded', function() {
     // Kiểm tra trạng thái ban đầu
     checkAllCheckboxes();
 });
+

@@ -12,8 +12,8 @@ const pool = new Pool({
 const pool = new Pool ({
     user: 'postgres',
     host: 'localhost', 
-    database: 'Car_Agency_Management',
-    password: '9804',
+    database: 'postgres',
+    password: 'Dung2811',
     port: 5432
 });
 
@@ -30,6 +30,7 @@ pool.query('SELECT NOW()', (err, res) =>
 
 // return "pool" in Object format to be used in other files - return a "pool" instance
 module.exports = {pool};
+
 
 
 
