@@ -27,7 +27,7 @@ module.exports = { addCustomer, checkDiscountEligibility };
 
 const { pool } = require('../config/db');
 
-const addCustomer = async (customerData) => {
+const addCustomer = async (pool, customerData) => {
     const { Citizen_ID, Customer_Name, Email, Phone_No, Address, Number_Transaction } = customerData;
     const result = await pool.query(
         'INSERT INTO dataCUSTOMER (Citizen_ID, Customer_Name, Email, Phone_No, Address, Number_Transaction) VALUES ($1, $2, $3, $4, $5, $6)',

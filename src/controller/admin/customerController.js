@@ -50,7 +50,7 @@ module.exports = { createCustomer, checkDiscount };
 // backend/src/controllers/customerController.js
 
 const CustomerModel = require('../../models/customerModel');
-const pool = require('../../config/db');
+const { pool } = require('../../config/db');
 
 const createCustomer = async (req, res) => {
     try {
@@ -67,7 +67,11 @@ const createCustomer = async (req, res) => {
             return res.status(400).json({ message: 'Email đã tồn tại' });
         }
 
-        const success = await CustomerModel.addCustomer(customerData);
+        if (!customerData.Citizen_ID) {
+            return res.status(400).json({ message: 'Missing Citizen_ID' });
+        }
+
+        const success = await CustomerModel.addCustomer(pool, customerData);
         if (success) {
             res.status(201).json({ message: 'Thêm khách hàng thành công!' });
         } else {
