@@ -8,7 +8,7 @@ const fillCustomerRoutes = require ('../src/routes/client/fillCustomerInfoRoutes
 const carRoutes = require('../src/routes/admin/carRoutes');
 const customerRoutes = require('../src/routes/admin/customerRoutes');
 const transactionRoutes = require('../src/routes/admin/transactionRoutes');
-
+const HumanResourceManagementRoutes= require('../src/routes/admin/HumanResourceManagementRoutes');
 
 // Cấu hình CORS (phải được thêm trước các routes)
 //  app.use(cors());
@@ -33,7 +33,7 @@ app.use('/fillCustomerInfo', fillCustomerRoutes);
 app.use('/customers', customerRoutes);
 // app.use('/transaction', transactionRoutes);
 // app.use('/dashboard', dashboardRoutes); // Sử dụng route dashboard
-
+app.use('/HumanRM',HumanResourceManagementRoutes);
 // Run Server 
 app.listen(8989, () => {
     console.log('Server backend running on 8989');

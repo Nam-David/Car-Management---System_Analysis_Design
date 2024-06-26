@@ -28,13 +28,12 @@ pool.query('SELECT NOW()', (err, res) =>
   }
 );
 
+pool.on('error', (err) => {
+  console.error('Unexpected database connection error:', err);
+  process.exit(-1); // Terminate on critical error
+});
 // return "pool" in Object format to be used in other files - return a "pool" instance
 module.exports = {pool};
-
-
-
-
-
 /* //query testing connection
 (async () => {
     try {
