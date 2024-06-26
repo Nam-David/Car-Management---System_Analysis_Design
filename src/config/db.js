@@ -1,4 +1,4 @@
-const { Pool } = require('pg');
+const Pool = require('pg').pool;
 
 /*
 const pool = new Pool({
@@ -30,10 +30,18 @@ pool.query('SELECT NOW()', (err, res) =>
 
 pool.on('error', (err) => {
   console.error('Unexpected database connection error:', err);
-  process.exit(-1); // trong quá trình kết nối database,ứng dụng sẽ ghi lại lỗi vào console và sau đó tự động dừng lại nếu kết nối không ổn định. 
+  process.exit(-1); // Terminate on critical error
 });
+
 // return "pool" in Object format to be used in other files - return a "pool" instance
-module.exports = {pool};
+module.exports = {
+  pool
+};
+
+
+
+
+
 /* //query testing connection
 (async () => {
     try {
