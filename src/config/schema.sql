@@ -19,7 +19,7 @@ CREATE TABLE dataCAR (
 );
 
 CREATE TABLE dataCUSTOMER  (
-	Citizen_ID VARCHAR (255),
+	Citizen_ID VARCHAR (255),				-- có vấn đề - pros add number transaction | cons: 2 custommer nhap cung id, nhung khac ten --> conflict 
 	Email VARCHAR (255) NOT NULL UNIQUE, 
 	Customer_Name VARCHAR (255) NOT NULL,
 	Phone_No VARCHAR (10) NOT NULL UNIQUE,
@@ -45,23 +45,25 @@ CREATE TABLE dataEMPLOYEE  (
 	Employee_Phone_No VARCHAR (10) NOT NULL UNIQUE,
 	Employee_Email VARCHAR (255) NOT NULL UNIQUE,
 	Employee_Address VARCHAR (255) NOT NULL UNIQUE,
-	Role_Title VARCHAR (255) NOT NULL,   -- chức danh 
+	Role_Title VARCHAR (255) NOT NULL,   
 	PRIMARY KEY (Employee_CitizenID)
 );
 
 	
 CREATE TABLE dataTRANSACTION (
-    Transaction_ID VARCHAR (255) PRIMARY KEY, 
-    Citizen_ID VARCHAR (255) NOT NULL,
-    Model_Car_ID VARCHAR (255) NOT NULL,
-    Transaction_Date DATE NOT NULL,
-    Payment_Date DATE NOT NULL,
-    Warranty_Valid_Date DATE NOT NULL,
-    Status_Of_Purchasing VARCHAR (255) NOT NULL, 
-    FOREIGN KEY (Citizen_ID) REFERENCES dataCUSTOMER(Citizen_ID),
-    FOREIGN KEY (Model_Car_ID) REFERENCES dataCAR(Model_Car_ID)
-);
+	Transaction_ID VARCHAR (255),
+	Citizen_ID VARCHAR (255) NOT NULL UNIQUE,
+	Model_Car_ID VARCHAR (255) NOT NULL UNIQUE,
 
+	Transaction_Date DATE NOT NULL,
+	Payment_Date DATE NOT NULL,
+	Warranty_Valid_Date DATE NOT NULL,
+	Status_Of_Purchasing VARCHAR (255) NOT NULL,   --store 3 status (chưa cọc, đã cọc, đã thanh toán)
+
+	PRIMARY KEY (Transaction_ID),
+	FOREIGN KEY (Citizen_ID) REFERENCES dataCUSTOMER(Citizen_ID),
+	FOREIGN KEY (Model_Car_ID) REFERENCES dataCAR(Model_Car_ID)
+);
 	
 CREATE TABLE dataACCOUTING (
 	Transaction_ID VARCHAR (255) NOT NULL UNIQUE,

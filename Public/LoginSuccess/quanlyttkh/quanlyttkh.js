@@ -233,58 +233,77 @@ function sortTableByColumn(table, column, asc = true) {
     table.querySelector(`th:nth-child(${column + 1})`).classList.toggle("th-sort-desc", !asc);
 }
 
-// Add event listeners for sorting
-document.querySelectorAll(".table-sortable th").forEach(headerCell => {
-    headerCell.addEventListener("click", () => {
-        const tableElement = headerCell.parentElement.parentElement.parentElement;
-        const headerIndex = Array.prototype.indexOf.call(headerCell.parentElement.children, headerCell);
-        const currentIsAscending = headerCell.classList.contains("th-sort-asc");
-
-        sortTableByColumn(tableElement, headerIndex, !currentIsAscending);
-    });
-});
-
-// Function to fetch data from the API
-async function fetchData(url) {
-    try {
-        const response = await fetch(url);
-        if (!response.ok) {
-            throw new Error(`Lỗi khi lấy dữ liệu: ${response.status}`);
-        }
-        return await response.json();
-    } catch (error) {
-        console.error(error);
-        alert('Lỗi khi lấy dữ liệu từ server.');
-        return [];
-    }
-}
 
 // Function to render the customer table
 async function renderCustomerTable() {
-    const customers = await fetchData('http://localhost:3001/customers'); // Thay đổi URL API nếu cần
-    const tbody = document.querySelector(".table-sortable tbody");
-    tbody.innerHTML = ''; // Xóa dữ liệu cũ
+    let new_id = document.getElementById('new_id').value;
+    let new_name = document.getElementById('new_name').value;
+    let new_address = document.getElementById('new-address').value;
+    let new_phoneNo = document.getElementById('new-phoneNo').value;
+    let new_email = document.getElementById('new-email').value;
 
-    customers.forEach(customer => {
-        const newRow = document.createElement('tr');
-        newRow.innerHTML = `
-            <td class="editable">${customer.Citizen_ID}</td>
-            <td class="editable">${customer.Customer_Name}</td>
-            <td class="editable">${customer.Address}</td>
-            <td class="editable">${customer.Phone_No}</td>
-            <td class="editable">${customer.Email}</td>
-            <td class="editable">${customer.Number_Transaction}</td>
-            <td class="action-buttons">
-                <button class="edit-btn"><ion-icon name="create-outline"></ion-icon></button>
-                <button class="delete-btn"><ion-icon name="trash-outline"></ion-icon></button>
-            </td>
-        `;
-        tbody.appendChild(newRow);
 
-        // Add event listeners for edit and delete buttons
-        addEventListenersToButtons(newRow);
+    //const tbody = document.querySelector(".table-sortable tbody");
+    //tbody.innerHTML = ''; // Xóa dữ liệu cũ
+    
+    fetch('http://localhost:8989/customers', {
+        method: 'post',
+        headers: {
+            "Content-type": "application/json; charset=UTF-8"
+            },
+        body: JSON.stringify({
+            //username and password are parameters, which declared above
+            new_id : new_id,
+            new_name : new_name,
+            new_address : new_address,
+            new_phoneNo : new_phoneNo,
+            new_email : new_email
+        })
+    })
+
+    .then(res => res.json()) //parse data send from BE to JSON format - the line that receives the data (JSON object) 
+    
+    // loginRespond -> data after being parsed by JSON 
+    .then(loginRespond => {
+
+        console.log(loginRespond);   // test JSON file in console - for debug ONLY !!!
+        if (loginRespond.agency_id === username && loginRespond.pass_word === password) {
+            
+            window.location.href = '../LoginSuccess/Dashboard/Dashboard.html'; // Chuyển hướng nếu đăng nhập thành công
+        } 
+        else {
+            alert("Đăng nhập không thành công, vui lòng kiểm tra lại thông tin đăng nhập của bạn.");
+        }
     });
 }
+
+
+
+
+
+
+
+
+//     customers.forEach(customer => {
+//         const newRow = document.createElement('tr');
+//         newRow.innerHTML = `
+//             <td class="editable">${customer.Citizen_ID}</td>
+//             <td class="editable">${customer.Customer_Name}</td>
+//             <td class="editable">${customer.Address}</td>
+//             <td class="editable">${customer.Phone_No}</td>
+//             <td class="editable">${customer.Email}</td>
+//             <td class="editable">${customer.Number_Transaction}</td>
+//             <td class="action-buttons">
+//                 <button class="edit-btn"><ion-icon name="create-outline"></ion-icon></button>
+//                 <button class="delete-btn"><ion-icon name="trash-outline"></ion-icon></button>
+//             </td>
+//         `;
+//         tbody.appendChild(newRow);
+
+//         // Add event listeners for edit and delete buttons
+//         addEventListenersToButtons(newRow);
+//     });
+// }
 
 // Function to add event listeners to edit and delete buttons
 function addEventListenersToButtons(row) {

@@ -31,6 +31,7 @@ app.use('/login', loginRoutes);
 app.use('/fillCustomerInfo', fillCustomerRoutes); 
 // app.use('/cars', carRoutes);
 app.use('/customers', customerRoutes);
+
 // app.use('/transaction', transactionRoutes);
 // app.use('/dashboard', dashboardRoutes); // Sử dụng route dashboard
 

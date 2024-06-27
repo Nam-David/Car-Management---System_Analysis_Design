@@ -1,8 +1,55 @@
-let dwfrm_billing_addressFields_lastName = document.getElementById("CustomerName").value
-let dwfrm_billing_contactInfoFields_identitycard = document.getElementById("IdentityCard").value
-let dwfrm_billing_contactInfoFields_phone = document.getElementById("NumberPhone").value
-let wfrm_billing_contactInfoFields_email = document.getElementById("Email").value
-let dwfrm_billing_addressFields_address = document.getElementById("Address").value
+function postDatabase() {
+    let customer_input_name = document.getElementById("CustomerName").value;
+    let customer_input_identitycard = document.getElementById("IdentityCard").value;
+    let customer_input_phone = document.getElementById("NumberPhone").value;
+    let customer_input_email = document.getElementById("Email").value;
+    let customer_input_address = document.getElementById("Address").value;
+
+    fetch('http://localhost:8989/fillCustomerInfo', {
+        method: 'post',
+
+        headers: {
+            "Content-type": "application/json; charset=UTF-8"
+            },
+        body: JSON.stringify({
+            //username and password are parameters, which declared above
+            customer_input_name: customer_input_name,
+            customer_input_identitycard: customer_input_identitycard,
+            customer_input_email: customer_input_email,
+            customer_input_phone: customer_input_phone,
+            customer_input_address: customer_input_address 
+        })
+    })
+
+    .then(res => res.json()) //parse data send from BE to JSON format - the line that receives the data (JSON object) 
+    
+    // loginRespond -> data after being parsed by JSON 
+    
+}
+
+
+
+
+
+
+
+// Hàm kiểm tra các trường bắt buộc trong bước 2 (Nhập thông tin)
+function validateStepTwo() {
+    var name = document.getElementsByName('customer_input_name')[0].value.trim();
+    var id = document.getElementsByName('customer_input_identitycard')[0].value.trim();
+    var phone = document.getElementsByName('customer_input_phone')[0].value.trim();
+    var email = document.getElementsByName('customer_input_email')[0].value.trim();
+    var address = document.getElementsByName('customer_input_address')[0].value.trim();
+
+    // Kiểm tra điều kiện
+    if (lastName === '' || companyName === '' || phone === '' || email === '' || address === '') {
+        return false;
+    }
+    return true;
+}
+
+//    event.preventDefault(); --> use in
+
 
 document.getElementById('deposit-nav').addEventListener('click', function(event) {
     event.preventDefault();
@@ -188,22 +235,6 @@ document.addEventListener("DOMContentLoaded", function() {
 //     document.getElementById(id).style.display = 'block';
 // }
 
-// Hàm kiểm tra các trường bắt buộc trong bước 2 (Nhập thông tin)
-function validateStepTwo() {
-    var lastName = document.getElementsByName('dwfrm_billing_addressFields_lastName')[0].value.trim();
-    var companyName = document.getElementsByName('companyName')[0].value.trim();
-    var phone = document.getElementsByName('dwfrm_billing_contactInfoFields_phone')[0].value.trim();
-    var email = document.getElementsByName('dwfrm_billing_contactInfoFields_email')[0].value.trim();
-    var address = document.getElementsByName('dwfrm_billing_addressFields_address')[0].value.trim();
-
-    // Kiểm tra điều kiện
-    if (lastName === '' || companyName === '' || phone === '' || email === '' || address === '') {
-        return false;
-    }
-    return true;
-}
-
-
 
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -288,6 +319,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
+/*
 document.addEventListener('DOMContentLoaded', function() {
     const inputs = document.querySelectorAll('input[required]');
     const nextStep2Button = document.getElementById('next-step-2');
@@ -337,4 +369,4 @@ document.addEventListener('DOMContentLoaded', function() {
     // Kiểm tra trạng thái ban đầu
     checkAllCheckboxes();
 });
-
+*/
