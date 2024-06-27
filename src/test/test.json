@@ -14,6 +14,15 @@
         {
             "username": "AGENCY9",
             "password": "123456789"
+        },
+        {
+            "Employee_CitizenID": "1234567890",
+            "Employee_Name": "John Doe",
+            "Employee_Birthday": "1990-01-01",
+            "Employee_Phone_No": "1234567890",
+            "Employee_Email": "john.doe@example.com",
+            "Employee_Address": "123 Main Street",
+            "Role_Title": "Sales Representative"
         }
 
     ]

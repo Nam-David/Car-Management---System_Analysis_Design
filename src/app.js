@@ -4,15 +4,21 @@ const cors = require('cors');
 const app = express();
 
 const loginRoutes = require ('../src/routes/admin/loginRoutes');
+
+
 const fillCustomerRoutes = require ('../src/routes/client/fillCustomerInfoRoutes');
-const carRoutes = require('../src/routes/admin/carRoutes');
-const customerRoutes = require('../src/routes/admin/customerRoutes');
-const transactionRoutes = require('../src/routes/admin/transactionRoutes');
 
+//const carRoutes = require('../src/routes/admin/carRoutes');
 
-// Cấu hình CORS (phải được thêm trước các routes)
-//  app.use(cors());
-//resolve CORS issue
+//const customerRoutes = require('../src/routes/admin/customerRoutes');
+//const transactionRoutes = require('../src/routes/admin/transactionRoutes');
+//const dashboardRoutes = require('./routes/admin/dashboardRoutes');
+const HumanResourceManagementRoutes= require('../src/routes/admin/HumanResourceManagementRoutes');
+//const HRRoutes = require('../src/routes/admin/HRRoutes');
+//const accountingRoutes = require('../src/routes/admin/accountingRoutes');
+
+// resolve CORS issue
+app.use(cors());
 
 app.use((req, res, next) => {
     res.header("Access-Control-Allow-Origin", "*");
@@ -26,14 +32,17 @@ app.use(express.json());
 
 
 
-// declare routes
+// use routes
 app.use('/login', loginRoutes);
 app.use('/fillCustomerInfo', fillCustomerRoutes); 
 // app.use('/cars', carRoutes);
-app.use('/customers', customerRoutes);
-
+// app.use('/customers', customerRoutes);
 // app.use('/transaction', transactionRoutes);
-// app.use('/dashboard', dashboardRoutes); // Sử dụng route dashboard
+// // app.use('/dashboard', dashboardRoutes);
+app.use('/HumanRM',HumanResourceManagementRoutes);
+// app.use('/HR',HRRoutes);
+// app.use('/accounting',accountingRoutes);
+
 
 // Run Server 
 app.listen(8989, () => {
@@ -52,4 +61,3 @@ app.listen(PORT, () => {
     console.log(`Server backend đang chạy trên cổng ${PORT}`);
 });
 */
-

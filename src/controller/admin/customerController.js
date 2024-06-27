@@ -159,5 +159,5 @@ module.exports = {
     getCustomerById, 
     updateCustomer, 
     deleteCustomer, 
-    checkDiscount 
+    checkDiscount // can nhac gop check discount vao getCustomerById de tien check discount neu can
 };

@@ -8,6 +8,7 @@ exports.saveCustomerInfo = async (req, res) => {
         await client.query('BEGIN'); // Bắt đầu giao dịch
         //const { Citizen_ID, Phone_No, Email, Customer_Name, Address, Model_Car_ID, Transaction_Date, Payment_Date, Warranty_Valid_Date, Status_Of_Purchasing } = req.body;
         const { Citizen_ID, Phone_No, Email, Customer_Name, Address } = req.body;
+
         // ... (Phần kiểm tra dữ liệu đầu vào)
 
         // Kiểm tra xem Citizen_ID đã tồn tại chưa
@@ -29,19 +30,20 @@ exports.saveCustomerInfo = async (req, res) => {
             );
         }
 
-        // Tạo giao dịch mới
         /*
+        // Tạo giao dịch mới
         const transactionResult = await client.query(
             'INSERT INTO dataTRANSACTION (Transaction_ID, Citizen_ID, Model_Car_ID, Transaction_Date, Payment_Date, Warranty_Valid_Date, Status_Of_Purchasing) VALUES (nextval(\'transaction_id_seq\'), $1, $2, $3, $4, $5, $6) RETURNING Transaction_ID',
             [Citizen_ID, Model_Car_ID, Transaction_Date, Payment_Date, Warranty_Valid_Date, Status_Of_Purchasing]
         );
-
-        const transactionId = transactionResult.rows[0].transaction_id; */
+*/
+        //const transactionId = transactionResult.rows[0].transaction_id;
 
         // ... (Phần thêm data vào bảng dataACCOUTING, sử dụng transactionId)
         await client.query('COMMIT'); // Xác nhận toàn bộ giao dịch
 
-        res.status(201).json({ Citizen_ID: Citizen_ID }); //for debug
+        //res.status(201).json({ Transaction_ID: transactionId }); 
+        res.status(201).json({ Citizen_ID: Citizen_ID  }); 
 
     } catch (err) {
         await client.query('ROLLBACK'); // Hoàn tác giao dịch nếu có lỗi

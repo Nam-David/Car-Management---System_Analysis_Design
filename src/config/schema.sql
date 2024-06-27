@@ -27,6 +27,9 @@ CREATE TABLE dataCUSTOMER  (
 	Number_Transaction INT NOT NULL,
 	PRIMARY KEY (Citizen_ID)
 );
+DELETE FROM users WHERE citizen_id = '0123456';
+DELETE FROM dataCUSTOMER WHERE Citizen_ID = '0123456';
+
 
 CREATE TABLE dataAGENCY  (
 	Agency_ID VARCHAR (255),
@@ -51,19 +54,17 @@ CREATE TABLE dataEMPLOYEE  (
 
 	
 CREATE TABLE dataTRANSACTION (
-	Transaction_ID VARCHAR (255),
-	Citizen_ID VARCHAR (255) NOT NULL UNIQUE,
-	Model_Car_ID VARCHAR (255) NOT NULL UNIQUE,
-
-	Transaction_Date DATE NOT NULL,
-	Payment_Date DATE NOT NULL,
-	Warranty_Valid_Date DATE NOT NULL,
-	Status_Of_Purchasing VARCHAR (255) NOT NULL,   --store 3 status (chưa cọc, đã cọc, đã thanh toán)
-
-	PRIMARY KEY (Transaction_ID),
-	FOREIGN KEY (Citizen_ID) REFERENCES dataCUSTOMER(Citizen_ID),
-	FOREIGN KEY (Model_Car_ID) REFERENCES dataCAR(Model_Car_ID)
+    Transaction_ID VARCHAR (255) PRIMARY KEY, 
+    Citizen_ID VARCHAR (255) NOT NULL, --remove Unique,customers can buy multiple
+    Model_Car_ID VARCHAR (255) NOT NULL,
+    Transaction_Date DATE NOT NULL,
+    Payment_Date DATE NOT NULL,
+    Warranty_Valid_Date DATE NOT NULL,
+    Status_Of_Purchasing VARCHAR (255) NOT NULL, 
+    FOREIGN KEY (Citizen_ID) REFERENCES dataCUSTOMER(Citizen_ID),
+    FOREIGN KEY (Model_Car_ID) REFERENCES dataCAR(Model_Car_ID)
 );
+
 	
 CREATE TABLE dataACCOUTING (
 	Transaction_ID VARCHAR (255) NOT NULL UNIQUE,
@@ -79,6 +80,18 @@ CREATE TABLE dataACCOUTING (
 DELETE FROM dataCUSTOMER;
 
 TRUNCATE TABLE dataCUSTOMER;
+
+
+INSERT INTO dataAGENCY (Agency_ID, Agency_Email, Agency_Brand, Phone_No, Address, Pass_word)
+VALUES (
+    'AGENCY9',
+    'anotheragency@example.com',
+    'Vinfast .LTD',
+    '0123456789',
+    '123 Ho Chi Minh City, Vietnam',
+    '123456789'  
+);
+	
 
 
 SELECT * 

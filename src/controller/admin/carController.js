@@ -26,7 +26,50 @@ const getCarById = async (req, res) => {
     }
 };
 
+const createCar = async (req, res) => {
+    try {
+        const car = req.body;
+        const newCar = await CarModel.createCar(car);
+        res.json(newCar);
+    } catch (error) {
+        console.error('Lỗi khi tạo xe hơi:', error);
+        res.status(500).json({ message: 'Lỗi server' });
+    }
+};
+
+const updateCar = async (req, res) => {
+    try {
+        const id = req.params.id;
+        const car = req.body;
+        const updatedCar = await CarModel.updateCar(id, car);
+        if (!updatedCar) {
+            return res.status(404).json({ message: 'Không tìm thấy xe hơi' });
+        }
+        res.json(updatedCar);
+    } catch (error) {
+        console.error('Lỗi khi cập nhật xe hơi:', error);
+        res.status(500).json({ message: 'Lỗi server' });
+    }
+};
+
+const deleteCar = async (req, res) => {
+    try {
+        const id = req.params.id;
+        const car = await CarModel.deleteCar(id);
+        if (!car) {
+            return res.status(404).json({ message: 'Không tìm thấy xe hơi' });
+        }
+        res.json(car);
+    } catch (error) {
+        console.error('Lỗi khi xóa xe hơi:', error);
+        res.status(500).json({ message: 'Lỗi server' });
+    }
+};
+
 module.exports = {
     getCars,
-    getCarById // Xuất hàm mới
+    getCarById,
+    createCar,
+    updateCar,
+    deleteCar
 };
