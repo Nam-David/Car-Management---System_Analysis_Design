@@ -5,38 +5,33 @@ exports.HumanRMcreate = async (req, res) => {
         Employee_Phone_No, Employee_Email, Employee_Address, Role_Title 
     } = req.body;
 
-    // Input từ trường dữ liệu FE
-    if (!Employee_CitizenID || !Employee_Name || !Employee_Birthday) {
-        return res.status(400).json({ error: 'Dữ liệu không trùng khớp!' });
-    }
-
     try {
-        
-        const pool = database.pool; 
+        // if (!Employee_CitizenID) {
+        //     return res.status(400).json({ error: 'Dữ liệu không trùng khớp!' });
+        // }
+        const result = await database.pool.query({
 
-        // PostgreSQL 
-        const sql = `
+            text: `
             INSERT INTO dataEMPLOYEE (
                 Employee_CitizenID, Employee_Name, Employee_Birthday, Employee_Phone_No, 
                 Employee_Email, Employee_Address, Role_Title
-            ) VALUES ($1, $2, $3, $4, $5, $6, $7)
-        `;
+            ) VALUES ($1, $2, $3, $4, $5, $6, $7)`,
+            
+            values: [
+                Employee_CitizenID, Employee_Name, Employee_Birthday, Employee_Phone_No,
+                Employee_Email, Employee_Address, Role_Title
+            ]
+        });
+        
+        
 
-        const values = [
-            Employee_CitizenID, Employee_Name, Employee_Birthday, Employee_Phone_No,
-            Employee_Email, Employee_Address, Role_Title
-        ];
-
-        await pool.query(sql, values); 
+        //await pool.query(sql, values); 
         res.status(201).json({ message: 'Đã thêm nhân viên thành công!' });
 
     } catch (err) {
         console.error(err);
-        if (err.code === '23505') { 
-            res.status(409).json({ error: 'Nhân viên với mã nhân viên hoặc Email hoặc số điện thoại đã tồn tại trên hệ thống!' });
-        } else {
+       
             res.status(500).json({ error: 'Database error' }); 
-        }
     }
 };
 

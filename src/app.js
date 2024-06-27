@@ -14,9 +14,9 @@ const HumanResourceManagementRoutes= require('../src/routes/admin/HumanResourceM
 //const accountingRoutes = require('../src/routes/admin/accountingRoutes');
 
 // resolve CORS issue
-app.use(cors());
+//app.use(cors());
 
-// ??
+// ?? -- Fix cors issue - this line of code - Nam (28/6/2024 - 2:48 A.M)
 app.use((req, res, next) => {
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
@@ -25,12 +25,12 @@ app.use((req, res, next) => {
 
 // FE send data to JSON 
 app.use(express.json());
-
 // use routes
 app.use('/login', loginRoutes);
 app.use('/fillCustomerInfo', fillCustomerRoutes); 
-app.use('/cars', carRoutes);
 app.use('/customers', customerRoutes);
+
+app.use('/cars', carRoutes);
 app.use('/transaction', transactionRoutes);
 // // app.use('/dashboard', dashboardRoutes);
 app.use('/humanrm', HumanResourceManagementRoutes);

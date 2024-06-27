@@ -16,7 +16,7 @@ const router = express.Router();
 const customerController = require('../../controller/admin/customerController');
 
 // Tạo khách hàng mới
-router.post('/', customerController.createCustomer);
+//router.post('/', customerController.createCustomer);
 
 // Lấy danh sách tất cả khách hàng
 router.get('/', customerController.getCustomers);

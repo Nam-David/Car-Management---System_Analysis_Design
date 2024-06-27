@@ -24,3 +24,13 @@ pool.query('SELECT NOW()', (err, res) => {
 
 // return "pool" in Object format to be used in other files - return a "pool" instance
 module.exports = { pool };
+
+/*
+const pool = new Pool ({
+  user: 'postgres',
+  host: 'localhost', 
+  database: 'Car_Agency_Management',
+  password: '9804',
+  port: 5432
+})
+*/
