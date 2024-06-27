@@ -39,7 +39,7 @@ app.use('/fillCustomerInfo', fillCustomerRoutes);
 // app.use('/customers', customerRoutes);
 // app.use('/transaction', transactionRoutes);
 // // app.use('/dashboard', dashboardRoutes);
-app.use('/HumanRM',HumanResourceManagementRoutes);
+app.use('/humanrm',HumanResourceManagementRoutes);
 // app.use('/HR',HRRoutes);
 // app.use('/accounting',accountingRoutes);
 
