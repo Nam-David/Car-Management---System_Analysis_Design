@@ -11,6 +11,7 @@ exports.login = async (req, res) => {
 
         //pool is "object" format -> query in object format ***
         const result = await database.pool.query({
+
             text: `SELECT Agency_ID, Pass_word 
             FROM dataAGENCY 
             WHERE Agency_ID = $1 AND Pass_word = $2`,
@@ -26,13 +27,7 @@ exports.login = async (req, res) => {
             delete agencyData.Pass_word; // Remove password before sending the response (optional)
 
             res.status(200).json(agencyData); 
-            /*
-                Send JSON file to frontend 
-                {
-                    "agency_id": "AGENCY9",
-                    "pass_word": "123456789",
-                }
-            */
+            
         } 
         
         else {

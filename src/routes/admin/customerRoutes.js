@@ -19,18 +19,18 @@ const customerController = require('../../controller/admin/customerController');
 router.post('/', customerController.createCustomer);
 
 // Lấy danh sách tất cả khách hàng
-router.get('/', customerController.getAllCustomers);
+router.get('/', customerController.getCustomers);
 
 // Lấy thông tin khách hàng theo Citizen_ID
-router.get('/:Citizen_ID', customerController.getCustomerById);
+router.get('/:id', customerController.getCustomerById);
 
 // Cập nhật thông tin khách hàng theo Citizen_ID
-router.put('/:Citizen_ID', customerController.updateCustomer);
+router.put('/:id', customerController.updateCustomer);
 
 // Xóa khách hàng theo Citizen_ID
-router.delete('/:Citizen_ID', customerController.deleteCustomer);
+router.delete('/:id', customerController.deleteCustomer);
 
 // Kiểm tra điều kiện giảm giá
-router.get('/:Citizen_ID/discount', customerController.checkDiscount);
+// router.get('/:Citizen_ID/discount', customerController.checkDiscount);
 
 module.exports = router;
