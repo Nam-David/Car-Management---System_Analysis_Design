@@ -60,7 +60,7 @@ CREATE TABLE dataTRANSACTION (
     Transaction_Date DATE NOT NULL,
     Payment_Date DATE NOT NULL,
     Warranty_Valid_Date DATE NOT NULL,
-    Status_Of_Purchasing VARCHAR (255) NOT NULL, 
+    Status_Of_Purchasing VARCHAR (255) NOT NULL, --deposited, paid, canceled
     FOREIGN KEY (Citizen_ID) REFERENCES dataCUSTOMER(Citizen_ID),
     FOREIGN KEY (Model_Car_ID) REFERENCES dataCAR(Model_Car_ID)
 );
