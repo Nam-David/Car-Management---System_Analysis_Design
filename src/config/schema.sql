@@ -1,10 +1,12 @@
-DROP TABLE dataACCOUTING;
-DROP TABLE  dataTRANSACTION;
-DROP TABLE  dataEMPLOYEE;
-DROP TABLE  dataAGENCY;
-DROP TABLE dataCUSTOMER;
-DROP TABLE  dataCAR; 
+-- Drop Existing Tables
+-- DROP TABLE IF EXISTS dataACCOUTING;
+-- DROP TABLE IF EXISTS dataTRANSACTION;
+-- DROP TABLE IF EXISTS dataEMPLOYEE;
+-- DROP TABLE IF EXISTS dataAGENCY;
+-- DROP TABLE IF EXISTS dataCUSTOMER;
+-- DROP TABLE IF EXISTS dataCAR;
 
+-- Create dataCAR table
 CREATE TABLE dataCAR (
 	Model_Car_ID VARCHAR (255),
 	Model_Car_Name VARCHAR (255) NOT NULL, 
@@ -18,6 +20,7 @@ CREATE TABLE dataCAR (
 	PRIMARY KEY (Model_Car_ID)
 );
 
+-- Create dataCUSTOMER table
 CREATE TABLE dataCUSTOMER  (
 	Citizen_ID VARCHAR (255),				-- có vấn đề - pros add number transaction | cons: 2 custommer nhap cung id, nhung khac ten --> conflict 
 	Email VARCHAR (255) NOT NULL UNIQUE, 
@@ -27,10 +30,10 @@ CREATE TABLE dataCUSTOMER  (
 	Number_Transaction INT NOT NULL,
 	PRIMARY KEY (Citizen_ID)
 );
-DELETE FROM users WHERE citizen_id = '0123456';
-DELETE FROM dataCUSTOMER WHERE Citizen_ID = '0123456';
+-- DELETE FROM users WHERE citizen_id = '0123456';
+-- DELETE FROM dataCUSTOMER WHERE Citizen_ID = '0123456';
 
-
+-- Create dataAGENCY table
 CREATE TABLE dataAGENCY  (
 	Agency_ID VARCHAR (255),
 	Agency_Email VARCHAR (255) NOT NULL UNIQUE, 
@@ -41,6 +44,7 @@ CREATE TABLE dataAGENCY  (
 	PRIMARY KEY (Agency_ID)
 );
 
+-- Create dataEMPLOYEE table
 CREATE TABLE dataEMPLOYEE  (
 	Employee_CitizenID  VARCHAR (255),
 	Employee_Name VARCHAR (255) NOT NULL, 
@@ -52,7 +56,7 @@ CREATE TABLE dataEMPLOYEE  (
 	PRIMARY KEY (Employee_CitizenID)
 );
 
-	
+-- Create dataTRANSACTION table
 CREATE TABLE dataTRANSACTION (
     Transaction_ID VARCHAR (255) PRIMARY KEY, 
     Citizen_ID VARCHAR (255) NOT NULL, --remove Unique,customers can buy multiple
@@ -65,7 +69,7 @@ CREATE TABLE dataTRANSACTION (
     FOREIGN KEY (Model_Car_ID) REFERENCES dataCAR(Model_Car_ID)
 );
 
-	
+-- Create dataACCOUTING table
 CREATE TABLE dataACCOUTING (
 	Transaction_ID VARCHAR (255) NOT NULL UNIQUE,
 	Citizen_ID VARCHAR (255) NOT NULL UNIQUE,
@@ -77,22 +81,5 @@ CREATE TABLE dataACCOUTING (
 	CONSTRAINT PK_Accouting PRIMARY KEY (Citizen_ID, Transaction_ID)
 );
 
-DELETE FROM dataCUSTOMER;
-
-TRUNCATE TABLE dataCUSTOMER;
-
-
-INSERT INTO dataAGENCY (Agency_ID, Agency_Email, Agency_Brand, Phone_No, Address, Pass_word)
-VALUES (
-    'AGENCY9',
-    'anotheragency@example.com',
-    'Vinfast .LTD',
-    '0123456789',
-    '123 Ho Chi Minh City, Vietnam',
-    '123456789'  
-);
-	
-
-
-SELECT * 
-FROM dataCUSTOMER
+-- DELETE FROM dataCUSTOMER;
+-- TRUNCATE TABLE dataCUSTOMER;

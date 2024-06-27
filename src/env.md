@@ -1,3 +1,5 @@
+1. npm i hoặc npm i dotenv
+2. 
 tạo file .env trong src với nội dung sau:
 DATABASE_USER=postgres
 DATABASE_HOST=localhost
