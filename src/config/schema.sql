@@ -71,14 +71,11 @@ CREATE TABLE dataTRANSACTION (
 
 -- Create dataACCOUTING table
 CREATE TABLE dataACCOUTING (
-	Transaction_ID VARCHAR (255) NOT NULL UNIQUE,
-	Citizen_ID VARCHAR (255) NOT NULL UNIQUE,
+	Transaction_ID VARCHAR (255),
 	Transaction_Price FLOAT NOT NULL,
 	Deposit_Price FLOAT NOT NULL,
-	
-	FOREIGN KEY (Citizen_ID) REFERENCES dataCUSTOMER(Citizen_ID),
+	PRIMARY KEY (Transaction_ID),        -- Set Transaction_ID as primary key
 	FOREIGN KEY (Transaction_ID) REFERENCES dataTRANSACTION(Transaction_ID),
-	CONSTRAINT PK_Accouting PRIMARY KEY (Citizen_ID, Transaction_ID)
 );
 
 -- DELETE FROM dataCUSTOMER;

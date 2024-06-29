@@ -1,4 +1,87 @@
+
+const employeeTable = document.getElementById('employee-data');
+
+// GET - Func GET data from BACK END & Display
+async function getEmployeeData() {
+  try {
+    const response = await fetch('http://localhost:8989/HumanRM');
+    if (!response.ok) {
+      throw new Error(`Error fetching data: ${response.status}`);
+    }
+    const employeeData = await response.json();
+    
+    console.log(employeeData);
+    displayEmployeeData(employeeData); // Call display function here
+  } catch (error) {
+    console.error('Error fetching employee data:', error);
+  }
+}
+
+// Function to display employee data in the table
+function displayEmployeeData(data) {
+  let tableContent = '';
+
+  //inside <td> attribute must lowercase - same as what Backend return JSON file
+  data.forEach(employee => {
+    tableContent += `<tr>
+      <td>${employee.employee_citizenid}</td>  
+      <td>${employee.employee_name}</td>
+      <td>${employee.employee_birthday}</td>
+      <td>${employee.employee_phone_no}</td>
+      <td>${employee.employee_email}</td>
+      <td>${employee.employee_address}</td>
+      <td>${employee.role_title}</td>
+    </tr>`;
+  });
+
+  employeeTable.innerHTML = tableContent;
+}
+// Call the fetch function after fetching is complete
+getEmployeeData();
+
+// POST 
+
+function postEmployeeData() {
+
+    let Employee_CitizenID = document.getElementById('new-id').value;
+    let Employee_Name  = document.getElementById('new-name').value;
+    let Employee_Birthday = document.getElementById('new-birthdate').value;
+    let  Employee_Phone_No = document.getElementById('new-phoneNo').value;
+    let Employee_Email = document.getElementById('new-email').value;
+    let Employee_Address = document.getElementById('new-address').value;
+    let Role_Title = document.getElementById('new-position').value;
+
+    fetch('http://localhost:8989/HumanRM', {
+        method: 'post',
+
+        headers: {
+            "Content-type": "application/json; charset=UTF-8"
+            },
+        body: JSON.stringify({
+            //username and password are parameters, which declared above
+            Employee_CitizenID : Employee_CitizenID,
+            Employee_Name : Employee_Name ,
+            Employee_Birthday : Employee_Birthday,
+            Employee_Phone_No : Employee_Phone_No ,
+            Employee_Email : Employee_Email ,
+            Employee_Address : Employee_Address,
+            Role_Title : Role_Title
+   
+        })
+    })
+
+    
+    .then(loginRespond => {
+        alert("Thêm nhân viên thành công!!!.");
+    })
+}
+
+
+
+
+
 // Function to sort table by column
+
 function sortTableByColumn(table, column, asc = true) {
     const dirModifier = asc ? 1 : -1;
     const tBody = table.tBodies[0];

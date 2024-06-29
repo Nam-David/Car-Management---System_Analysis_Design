@@ -107,7 +107,7 @@
                     <input type="text" id="new-position">
                 </div>
                 <div class="col">
-                    <button type="submit"><ion-icon name="person-add-outline"></ion-icon></button>
+                    <button type="submit"   onclick ="postEmployeeData()"  ><ion-icon name="person-add-outline"></ion-icon></button>
                 </div>
 
             </div>
@@ -130,101 +130,20 @@
                 <th>Mã nhân viên</th>
                 <th>Họ và tên nhân viên</th>
                 <th>Ngày tháng năm sinh</th>
-                <th>Địa chỉ</th>
                 <th>Số điện thoại</th>
                 <th>Email</th>
+                <th>Địa chỉ</th>
                 <th>Chức vụ</th>
+                        <!--chinh nut xoa up date o day -->
+
                 <th></th>
             </tr>
-        </thead>
+        </thead> 
+
         <!--rgb(148, 238, 208)-->
-        <tbody style="background-color: rgb(245, 252, 255)">
-            <tr>
-                <td class="editable">NV001</td>
-                <td class="editable">Harry</td>
-                <td class="editable">10/10/2004</td>
-                <td class="editable">02, Vo Oanh, Phuong 25, Binh Thanh, TPHCM</td>
-                <td class="editable">0123456789</td>
-                <td class="editable">haha1@gmail.com</td>
-                <td class="editable">Trưởng phòng kinh doanh</td>
-
-
-                <td class="action-buttons">
-                    <button class="edit-btn"><ion-icon name="create-outline"></ion-icon></button>
-                    <button class="delete-btn"><ion-icon name="trash-outline"></ion-icon></button>
-                    <!-- Delete button -->
-                </td>
-            </tr>
-
-            <tr>
-                <td class="editable">NV002</td>
-                <td class="editable">Dylan</td>
-                <td class="editable">10/10/2004</td>
-                <td class="editable">02, Vo Oanh, Phuong 25, Binh Thanh, TPHCM</td>
-                <td class="editable">0987654321</td>
-                <td class="editable">haha2@gmail.com</td>
-                <td class="editable">Trưởng phòng dịch vụ</td>
-
-
-                <td class="action-buttons">
-                    <button class="edit-btn"><ion-icon name="create-outline"></ion-icon></button>
-                    <button class="delete-btn"><ion-icon name="trash-outline"></ion-icon></button>
-                    <!-- Delete button -->
-                </td>
-            </tr>
-
-            <tr>
-                <td class="editable">NV003</td>
-                <td class="editable">Windd</td>
-                <td class="editable">10/10/2004</td>
-                <td class="editable">02, Vo Oanh, Phuong 25, Binh Thanh, TPHCM</td>
-                <td class="editable">035792468</td>
-                <td class="editable">haha3@gmail.com</td>
-                <td class="editable">Kế toán trưởng</td>
-
-                <td class="action-buttons">
-                    <button class="edit-btn"><ion-icon name="create-outline"></ion-icon></button>
-                    <button class="delete-btn"><ion-icon name="trash-outline"></ion-icon></button>
-                    <!-- Delete button -->
-                </td>
-            </tr>
-
-            <tr>
-                <td class="editable">NV004</td>
-                <td class="editable">Dora</td>
-                <td class="editable">10/10/2004</td>
-                <td class="editable">02, Vo Oanh, Phuong 25, Binh Thanh, TPHCM</td>
-                <td class="editable">0246813579</td>
-                <td class="editable">haha4@gmail.com</td>
-                <td class="editable">Trưởng phòng Marketing</td>
-
-
-                <td class="action-buttons">
-                    <button class="edit-btn"><ion-icon name="create-outline"></ion-icon></button>
-                    <button class="delete-btn"><ion-icon name="trash-outline"></ion-icon></button>
-                    <!-- Delete button -->
-                </td>
-            </tr>
-
-            <tr>
-                <td class="editable">NV005</td>
-                <td class="editable">David</td>
-                <td class="editable">10/10/2004</td>
-                <td class="editable">02, Vo Oanh, Phuong 25, Binh Thanh, TPHCM</td>
-                <td class="editable">0123498765</td>
-                <td class="editable">haha5@gmail.com</td>
-                <td class="editable">Trưởng phòng hành chính - nhân sự</td>
-
-
-                <td class="action-buttons">
-                    <button class="edit-btn"><ion-icon name="create-outline"></ion-icon></button>
-                    <button class="delete-btn"><ion-icon name="trash-outline"></ion-icon></button>
-                    <!-- Delete button -->
-                </td>
-            </tr>
-
-
-
+        
+        <tbody style="background-color: rgb(245, 252, 255)" id="employee-data">
+                                 <!--chinh nut xoa up date o day -->
 
         </tbody>
     </table>
