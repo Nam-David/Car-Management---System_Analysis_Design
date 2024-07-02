@@ -11,6 +11,7 @@ const pool = new Pool({
   password: process.env.DATABASE_PASSWORD,
   port: process.env.DATABASE_PORT,
 });
+console.log(process.env.DATABASE_PASSWORD);
 
 // check db connection
 pool.query('SELECT NOW()', (err, res) => {

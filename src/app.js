@@ -9,7 +9,7 @@ const fillCustomerRoutes = require ('../src/routes/client/fillCustomerInfoRoutes
 const carRoutes = require('../src/routes/admin/carRoutes');
 const customerRoutes = require('../src/routes/admin/customerRoutes');
 const transactionRoutes = require('../src/routes/admin/transactionRoutes');
-//const dashboardRoutes = require('./routes/admin/dashboardRoutes');
+const dashboardRoutes = require('./routes/admin/dashboardRoutes');
 const HumanResourceManagementRoutes= require('../src/routes/admin/HumanResourceManagementRoutes');
 //const accountingRoutes = require('../src/routes/admin/accountingRoutes');
 
@@ -32,7 +32,7 @@ app.use('/customers', customerRoutes);
 
 app.use('/cars', carRoutes);
 app.use('/transaction', transactionRoutes);
-// // app.use('/dashboard', dashboardRoutes);
+ app.use('/dashboard', dashboardRoutes);
 app.use('/humanrm', HumanResourceManagementRoutes);
 // app.use('/accounting', accountingRoutes);
 
