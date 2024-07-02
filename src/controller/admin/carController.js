@@ -77,16 +77,54 @@ const getCarById = async (req, res) => {
     }
 };
 
-const updateCar = async (req, res) => {
-    const { Model_Car_ID, Model_Car_Name, Price, Color, Origin_Of_Car, Date_Of_Import, Car_Number_Availability, Car_Sold, Lauching_Year } = req.body;
-    try {
-        db.pool.query('UPDATE dataCAR SET Model_Car_ID = $1, Model_Car_Name = $2, Price = $3, Color = $4, Origin_Of_Car = $5, Date_Of_Import = $6, Car_Number_Availability = $7, Car_Sold = $8, Lauching_Year = $9 WHERE Model_Car_ID = $10', [Model_Car_ID, Model_Car_Name, Price, Color, Origin_Of_Car, Date_Of_Import, Car_Number_Availability, Car_Sold, Lauching_Year, Model_Car_ID]);
-        res.status(200).json({ message: 'Car updated successfully.' });
-    } catch (error) {
-        res.status(500).json({ message: 'An error occurred while updating the car.', error });
-    }
-};
+// const updateCar = async (req, res) => {
+//     const id = req.params.id; // default ID car
 
+//     // DO NOT ALLOW TO UPDATE CAR_ID -> can be lost integrity of data -> nếu muốn cập nhật thì POST lại Model car ID 
+    
+//     const {  Model_Car_Name, Price, Color, Origin_Of_Car, Date_Of_Import, Car_Number_Availability, Car_Sold, Lauching_Year } = req.body;
+//     try {
+//         db.pool.query(
+//             'UPDATE dataCAR SET  Model_Car_Name = $1, Price = $2, Color = $3, Origin_Of_Car = $4, Date_Of_Import = $5, Car_Number_Availability = $6, Car_Sold = $7, Lauching_Year = $8 WHERE Model_Car_ID = $9', 
+//             [Model_Car_Name, Price, Color, Origin_Of_Car, Date_Of_Import, Car_Number_Availability, Car_Sold, Lauching_Year, id]
+//         );
+//         res.status(200).json({ message: 'Car updated successfully.' });
+//     } catch (error) {
+//         res.status(500).json({ message: 'An error occurred while updating the car.', error });
+//     }
+// };
+
+const updateCar = async (req, res) => {
+
+    const id = req.params.id; // Car ID from the URL
+    const field = req.body.field; // Field name to be updated (from frontend)
+    const newValue = req.body.newValue; // New value for the specified field
+  
+    // Check if required fields are present
+    if (!id || !field || !newValue) {
+      return res.status(400).json({ message: 'Missing required fields (id, field, newValue).' });
+    }
+  
+    // Sanitize input (optional): You might want to add input validation/sanitization here to prevent potential security vulnerabilities.
+  
+    try {
+      const updateQuery = `
+        UPDATE dataCAR
+        SET ${field} = $1
+        WHERE Model_Car_ID = $2
+      `;
+  
+      await db.pool.query(updateQuery, [newValue, id]);
+  
+      res.status(200).json({ message: 'Car updated successfully.' });
+    } catch (error) {
+      console.error('Error updating car data:', error);
+      res.status(500).json({ message: 'An error occurred while updating the car.', error });
+    }
+
+
+
+};
 const deleteCar = async (req, res) => {
     const id = req.params.id;
     try {

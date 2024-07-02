@@ -14,7 +14,8 @@ const HumanResourceManagementRoutes= require('../src/routes/admin/HumanResourceM
 //const accountingRoutes = require('../src/routes/admin/accountingRoutes');
 
 // resolve CORS issue
-//app.use(cors());
+
+app.use(cors());
 
 // ?? -- Fix cors issue - this line of code - Nam (28/6/2024 - 2:48 A.M)
 app.use((req, res, next) => {
@@ -29,7 +30,6 @@ app.use(express.json());
 app.use('/login', loginRoutes);
 app.use('/fillCustomerInfo', fillCustomerRoutes); 
 
-//chua lam cus
 app.use('/customers', customerRoutes);
 
 app.use('/cars', carRoutes);

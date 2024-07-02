@@ -1,2 +1,0 @@
-1. Run Backend Server: turn "terminal" -> enter command "cd src" -> enter command "npm start" to run
-(or right click to src -> open in intergrated terminal -> npm start). If not running, try "npm install" before "npm start".
