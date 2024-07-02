@@ -1,0 +1,166 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap");
+body {
+    font-family: "Poppins", sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f2f2f2;
+}
+
+#heading {
+    color: rgb(128, 119, 127);
+    text-align: center;
+    font-size: 40px;
+    padding: 20px 20px;
+}
+
+.table {
+    background-color: rgb(0, 195, 255);
+    /* border-collapse: collapse; */
+    margin-top: 20px;
+}
+
+.table-sortable th {
+    background-color: rgba(0, 128, 255, 0.9);
+    color: #fff;
+    cursor: pointer;
+    text-align: center;
+}
+
+.table-sortable tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+
+/* Button styles */
+
+.action-buttons {
+    /* display: flex; */
+    justify-content: center;
+    align-items: center;
+}
+
+.edit-btn,
+.delete-btn {
+    border: none;
+    color: white;
+    padding: 5px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.edit-btn {
+    background-color: #4CAF50;
+    /* Green */
+}
+
+.delete-btn {
+    background-color: #f44336;
+    /* Red */
+}
+
+
+/* Form styles */
+
+.container {
+    background-color: antiquewhite;
+    font-weight: 700;
+}
+
+#add-row-form3 {
+    margin-left: 20px;
+}
+
+#add-row-form input[type="text"] {
+    /* flex: 1; */
+    padding: 10px 5px;
+    font-size: 15px;
+    text-align: center;
+    border-color: rgb(128, 119, 127);
+    border-radius: 4px;
+    /* margin-right: 19px; */
+    /* width: calc(33.33% - 20px); */
+}
+
+#add-row-form3 input[type="te1xt"] {
+    padding: 10px 20px;
+    font-size: 15px;
+    text-align: center;
+    border-color:rgb(128, 119, 127);
+    border-radius: 4px;
+    border-width: 2px;
+    /* margin-left: 25px; */
+    margin-top: 20px;
+}
+
+#add-row-form button[type="submit"] {
+    padding: 10px 50px;
+    background-color: #0048ff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 35px;
+    margin-left: 50px;
+}
+
+.navbar {
+    background-color: #c19a6b;
+}
+
+.navbar .main-menu {
+    display: flex;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar .main-menu li {
+    margin-left: 0px;
+}
+
+.navbar .main-menu li a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 15px;
+    display: block;
+}
+
+.navbar .main-menu li a:hover {
+    background-color: #C4A484;
+    border-radius: 5px;
+}
+
+.submenu ul {
+    display: none;
+    position: absolute;
+    background-color: #c19a6b;
+    padding: 0;
+    list-style-type: none;
+}
+
+.submenu:hover ul {
+    display: block;
+}
+
+.submenu ul li {
+    margin: 0;
+}
+
+.submenu ul li a {
+    padding: 10px 15px;
+}
+
+.submenu ul li a:hover {
+    background-color: #C4A484;
+}
+
+ion-icon {
+    font-size: 20px;
+    line-height: 1.5px;
+    vertical-align: middle;
+    /* Cân đối chữ */
+}

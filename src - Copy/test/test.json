@@ -1,0 +1,56 @@
+
+{
+    "comment": "1st test fill customer info from FE, 2nd test Login",
+    "data" : [
+        {
+        "Citizen_ID" :   "8989898998",
+        "Customer_Name" : "David", 
+        "Phone_No" : "0892832327", 
+        "Email" : "david@gmail.com",
+        "Address" : "Vietnam"
+   
+        },
+
+        {
+            "username": "AGENCY9",
+            "password": "123456789"
+        },
+        {
+            "Employee_CitizenID": "1234567890",
+            "Employee_Name": "John Doe",
+            "Employee_Birthday": "1990-01-01",
+            "Employee_Phone_No": "1234567890",
+            "Employee_Email": "john.doe@example.com",
+            "Employee_Address": "123 Main Street",
+            "Role_Title": "Sales Representative"
+        },
+        {
+            "Employee_CitizenID": "1234567890",
+            "Employee_Name": "David",
+            "Employee_Birthday": "1990-01-01",
+            "Employee_Phone_No": "1234567890",
+            "Employee_Email": "john.doe@example.com",
+            "Employee_Address": "123 Main Street",
+            "Role_Title": "Sales Representative"
+          },
+          {
+            "Employee_CitizenID": "1234567890",
+            "Employee_Name": "David",
+            "Employee_Birthday": "1990-01-01",
+            "Employee_Phone_No": "1234567890",
+            "Employee_Email": "daivd@example.com",
+            "Employee_Address": "789 Wall Street",
+            "Role_Title": "CEO"
+          },
+          {
+
+
+
+          }
+
+    ]
+}
+
+
+
+
