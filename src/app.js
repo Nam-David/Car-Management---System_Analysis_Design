@@ -28,6 +28,8 @@ app.use(express.json());
 // use routes
 app.use('/login', loginRoutes);
 app.use('/fillCustomerInfo', fillCustomerRoutes); 
+
+//chua lam cus
 app.use('/customers', customerRoutes);
 
 app.use('/cars', carRoutes);
