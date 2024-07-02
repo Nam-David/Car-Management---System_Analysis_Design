@@ -77,6 +77,19 @@ CREATE TABLE dataACCOUTING (
 	PRIMARY KEY (Transaction_ID),        -- Set Transaction_ID as primary key
 	FOREIGN KEY (Transaction_ID) REFERENCES dataTRANSACTION(Transaction_ID),
 );
+CREATE VIEW TransactionDashboard AS
+SELECT
+    T.Transaction_ID AS "Transaction ID",
+    T.Citizen_ID AS "Citizen ID",
+    T.Model_Car_ID AS "Car Model ID",
+    T.Transaction_Date AS "Transaction Date",
+    T.Payment_Date AS "Payment Date",
+    T.Warranty_Valid_Date AS "Warranty Expiry",
+    T.Status_Of_Purchasing AS "Status"
+FROM dataTRANSACTION T; 
 
+--SELECT * FROM TransactionDashboard;
+--SELECT * FROM dataEMPLOYEE;
+--Select * from dataCUSTOMER;
 -- DELETE FROM dataCUSTOMER;
 -- TRUNCATE TABLE dataCUSTOMER;
