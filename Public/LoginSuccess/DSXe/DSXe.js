@@ -189,6 +189,7 @@ function deleteHandlerCarData(event) {
       // Handle network or other errors (optional: display an error message to the user)
     });
 }  
+getCarData();
 
 
 //PUT
@@ -265,7 +266,6 @@ function putHandlerCarData(event){
 */
 
 
-getCarData();
 
 
 

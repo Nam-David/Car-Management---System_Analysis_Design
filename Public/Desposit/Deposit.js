@@ -3,7 +3,7 @@ function extractId() {
     const buttonElement = document.querySelector("button[type='submit']"); // Assuming there's only one submit button
     if (buttonElement) {
       const id = buttonElement.id;
-//      console.log("Extracted ID:", id); // Process or store the ID as needed
+       console.log("Extracted ID:", id); // Process or store the ID as 
 
       return id;
 
@@ -12,9 +12,9 @@ function extractId() {
       console.error("Submit button not found.");
     }
   }
-  
+
   // Call the function after the DOM is loaded (ensure this script runs after the button is loaded):
-  window.addEventListener("DOMContentLoaded", extractId);
+//window.addEventListener("DOMContentLoaded", extractId);
  
 
 function postDatabase() {
@@ -39,7 +39,7 @@ function postDatabase() {
                 customer_input_name: customer_input_name,
                 customer_input_phone: customer_input_phone,
                 customer_input_address: customer_input_address,
-                id : id 
+                
             })
         })  
         .then(res => res.json()) //parse data send from BE to JSON format - the line that receives the data (JSON object) 
@@ -50,28 +50,6 @@ function postDatabase() {
         // loginRespond -> data after being parsed by JSON 
   
 }
-
-
-
-
-
-
-// Hàm kiểm tra các trường bắt buộc trong bước 2 (Nhập thông tin)
-function validateStepTwo() {
-    var name = document.getElementsByName('customer_input_name')[0].value.trim();
-    var id = document.getElementsByName('customer_input_identitycard')[0].value.trim();
-    var phone = document.getElementsByName('customer_input_phone')[0].value.trim();
-    var email = document.getElementsByName('customer_input_email')[0].value.trim();
-    var address = document.getElementsByName('customer_input_address')[0].value.trim();
-
-    // Kiểm tra điều kiện
-    if (lastName === '' || companyName === '' || phone === '' || email === '' || address === '') {
-        return false;
-    }
-    return true;
-}
-
-//    event.preventDefault(); --> use in
 
 
 document.getElementById('deposit-nav').addEventListener('click', function(event) {
@@ -148,7 +126,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 content.style.display = 'block';
             } else {
                 content.style.display = 'none';
-            }
+}
         });
     }
 
@@ -218,45 +196,20 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 });
 
-// Xử lý sự kiện khi click vào từng tab trong navbar
-// document.querySelectorAll('.navbar a').forEach(function(link) {
-//     link.addEventListener('click', function(event) {
-//         event.preventDefault();
+function validateStepTwo() {
+    var lastName = document.getElementsByName('dwfrm_billing_addressFields_lastName')[0].value.trim();
+    var companyName = document.getElementsByName('companyName')[0].value.trim();
+    var phone = document.getElementsByName('dwfrm_billing_contactInfoFields_phone')[0].value.trim();
+    var email = document.getElementsByName('dwfrm_billing_contactInfoFields_email')[0].value.trim();
+    var address = document.getElementsByName('dwfrm_billing_addressFields_address')[0].value.trim();
 
-//         // Lấy target content từ data-content của link được click
-//         var targetContent = this.getAttribute('data-content');
+    // Kiểm tra điều kiện
+    if (lastName === '' || companyName === '' || phone === '' || email === '' || address === '') {
+        return false;
+    }
+    return true;
+}
 
-//         // Kiểm tra điều kiện cho từng trường hợp
-//         if (targetContent === 'content2') { // Nếu click vào Nhập thông tin (bước 2)
-//             if (document.getElementById('vf3-standard').checked || document.querySelectorAll('.color-swatch input:checked').length > 0) {
-//                 // Nếu đã chọn phiên bản và màu sắc, hiển thị content2 (Nhập thông tin)
-//                 showContent(targetContent);
-//             } else {
-//                 // Nếu chưa chọn đủ thông tin, hiển thị cảnh báo
-//                 alert("Quý khách chưa hoàn thiện thông tin xe tại bước 1 - Lựa chọn xe, vui lòng quay lại và hoàn thiện thông tin.");
-//             }
-//         } else if (targetContent === 'content3') { // Nếu click vào Đặt cọc (bước 3)
-//             if (validateStepTwo()) {
-//                 // Nếu bước 2 (Nhập thông tin) đã hợp lệ, hiển thị content3 (Đặt cọc)
-//                 showContent(targetContent);
-//             } else {
-//                 // Nếu bước 2 (Nhập thông tin) chưa hợp lệ, hiển thị cảnh báo
-//                 alert("Quý khách chưa hoàn thiện thông tin Khách hàng tại bước 2 - Nhập thông tin, vui lòng quay lại và hoàn thiện thông tin.");
-//             }
-//         } else {
-//             // Nếu không phải là content2 hoặc content3, hiển thị content tương ứng
-//             showContent(targetContent);
-//         }
-//     });
-// });
-
-// // Hàm hiển thị nội dung theo id và ẩn các nội dung khác
-// function showContent(id) {
-//     document.querySelectorAll('.content').forEach(function(content) {
-//         content.style.display = 'none';
-//     });
-//     document.getElementById(id).style.display = 'block';
-// }
 
 
 
@@ -279,9 +232,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
-
-
-
 document.addEventListener('DOMContentLoaded', function() {
     const navLinks = document.querySelectorAll('.navbar a');
     const contents = document.querySelectorAll('.content');
@@ -342,7 +292,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
-/*
 document.addEventListener('DOMContentLoaded', function() {
     const inputs = document.querySelectorAll('input[required]');
     const nextStep2Button = document.getElementById('next-step-2');
@@ -370,7 +319,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 });
-
 document.addEventListener('DOMContentLoaded', function() {
     const agree1Checkbox = document.getElementById('Agree1');
     const agree2Checkbox = document.getElementById('Agree2');
@@ -392,4 +340,3 @@ document.addEventListener('DOMContentLoaded', function() {
     // Kiểm tra trạng thái ban đầu
     checkAllCheckboxes();
 });
-*/

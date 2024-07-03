@@ -11,13 +11,12 @@ const customerRoutes = require('../src/routes/admin/customerRoutes');
 const transactionRoutes = require('../src/routes/admin/transactionRoutes');
 const dashboardRoutes = require('./routes/admin/dashboardRoutes');
 const HumanResourceManagementRoutes= require('../src/routes/admin/HumanResourceManagementRoutes');
-//const accountingRoutes = require('../src/routes/admin/accountingRoutes');
+const accountingRoutes = require('../src/routes/admin/accountingRoutes');
 
 // resolve CORS issue
-
 app.use(cors());
 
-// ?? -- Fix cors issue - this line of code - Nam (28/6/2024 - 2:48 A.M)
+// -- Fix cors issue - this line of code - Nam (28/6/2024 - 2:48 A.M)
 app.use((req, res, next) => {
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
@@ -29,25 +28,15 @@ app.use(express.json());
 // use routes
 app.use('/login', loginRoutes);
 app.use('/fillCustomerInfo', fillCustomerRoutes); 
-
 app.use('/customers', customerRoutes);
-
 app.use('/cars', carRoutes);
 app.use('/transaction', transactionRoutes);
- app.use('/dashboard', dashboardRoutes);
+app.use('/dashboard', dashboardRoutes);
 app.use('/humanrm', HumanResourceManagementRoutes);
-// app.use('/accounting', accountingRoutes);
+app.use('/accounting', accountingRoutes);
 
 // Run Server 
 app.listen(8989, () => {
     console.log('Server backend running on 8989');
 });
 
-
-/*
-// Khởi động server
-const PORT = process.env.PORT || 3001; // Cho phép sử dụng PORT từ môi trường (cho deployment)
-app.listen(PORT, () => {
-    console.log(`Server backend đang chạy trên cổng ${PORT}`);
-});
-*/
