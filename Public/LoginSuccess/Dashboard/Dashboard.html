@@ -83,59 +83,11 @@
         <div class="card1">
             <h2 style="text-align: center;">Thống kê số lượng xe bán được theo ngày</h2>
             <fieldset>
-                <label for=" ">Vui lòng chọn ngày:
-                    <input type = "date" min = "1582-11-1">
-                </label>
-                <button style="border: none; background-color: rgb(26, 144, 255); color: white; font-weight: 600;
-                padding: 5px 10px;">Chọn</button>
+                <label for="dateInput">Vui lòng chọn ngày:</label>
+                <input type="date" id="dateInput" min="1582-11-1">
+                <button id="fetchButton">Chọn</button>
             </fieldset>
-            <div class="chart-container">
-                <table class="graph" style=" width: 100%;">
-                    <thead>
-                        <tr>
-                            <!-- <th scope="col">Item</th>
-                            <th scope="col">Percent</th> -->
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr style="height:10%">
-                            <th scope="row">VF9</th>
-                            <td><span>2</span></td>
-                        </tr>
-                        <tr style="height:10%">
-                            <th scope="row">VF8</th>
-                            <td><span>2</span></td>
-                        </tr>
-                        <tr style="height:25%">
-                            <th scope="row">VF7</th>
-                            <td><span>5</span></td>
-                        </tr>
-                        <tr style="height:0%">
-                            <th scope="row">VF6</th>
-                            <td><span>0</span></td>
-                        </tr>
-                        <tr style="height:5%">
-                            <th scope="row">VF5</th>
-                            <td><span>1</span></td>
-                        </tr>
-                        <tr style="height:0%">
-                            <th scope="row">VF3</th>
-                            <td><span>0</span></td>
-                        </tr>
-                        <tr style="height:45%">
-                            <th scope="row">VF Wild</th>
-                            <td><span>9</span></td>
-                        </tr>
-                        <tr style="height:10%">
-                            <th scope="row">WF e34</th>
-<td><span>2</span></td>
-                        </tr>
-                    </tbody>
-                </table>
-
-                <!-- <canvas id="lineChart"></canvas>
-                <div class="chart-label">Sales ($)</div> -->
-            </div>
+            <div class="chart-container" id="carSalesChart"></div> 
         </div>
 
 

@@ -53,3 +53,56 @@ document.addEventListener('DOMContentLoaded', async function () {
     // Initial Data Load
     getDashboardData(); 
   });
+
+const dateInput = document.getElementById('dateInput');
+const fetchButton = document.getElementById('fetchButton');
+const chartContainer = document.getElementById('carSalesChart');
+
+fetchButton.addEventListener('click', fetchCarSales);
+
+async function fetchCarSales() {
+    chartContainer.innerHTML = ''; // Xóa nội dung cũ
+
+    if (!dateInput.value) {
+        chartContainer.textContent = 'Vui lòng chọn ngày.';
+        return;
+    }
+    console.log("data input: ", dateInput.value);
+    try {
+        // Chuyển đổi định dạng ngày từ DD/MM/YYYY sang YYYY-MM-DD
+        const [day, month, year] = dateInput.value.split('/');
+        const formattedDate = `${year}-${month}-${day}`; 
+
+        const response = await fetch(`http://localhost:8989/cars/sales?date=${formattedDate.value}`);
+        if (!response.ok) {
+            throw new Error(`Lỗi khi lấy dữ liệu: ${response.status}`);
+        }
+        const data = await response.json();
+
+        // Nếu không có dữ liệu bán hàng
+        if (data.length === 0) {
+            chartContainer.textContent = 'Không có dữ liệu bán hàng cho ngày đã chọn.';
+            return;
+        }
+
+        const table = document.createElement('table');
+        table.classList.add('graph');
+
+        const thead = table.createTHead();
+        const headerRow = thead.insertRow();
+        headerRow.insertCell().textContent = 'Model';
+        headerRow.insertCell().textContent = 'Sold';
+
+        const tbody = table.createTBody();
+        data.forEach(sale => {
+            const row = tbody.insertRow();
+            row.insertCell().textContent = sale.model_car_name;
+            row.insertCell().textContent = sale.total_sold;
+        });
+
+        chartContainer.appendChild(table);
+    } catch (error) {
+        console.error('Lỗi:', error);
+        chartContainer.textContent = 'Đã xảy ra lỗi khi lấy dữ liệu.';
+    }
+}

@@ -77,6 +77,26 @@ const getCarById = async (req, res) => {
     }
 };
 
+const getCarSalesByDate = async (req, res) => {
+    const selectedDate = req.query.date; // Get the selected date from query parameters
+    console.log("Query Date:", selectedDate); // Log the selected date
+    try {
+        const { rows } = await db.pool.query(
+            `SELECT dataCAR.Model_Car_Name, COUNT(dataTRANSACTION.Transaction_ID) as total_sold 
+             FROM dataTRANSACTION 
+             INNER JOIN dataCAR ON dataTRANSACTION.Model_Car_ID = dataCAR.Model_Car_ID
+             WHERE dataTRANSACTION.Transaction_Date = $1
+             GROUP BY dataCAR.Model_Car_Name`,
+            [selectedDate]
+        );
+        console.log("Query Result:", rows); // Log the results from the query
+        res.status(200).json(rows);
+    } catch (error) {
+        res.status(500).json({ message: 'Error fetching car sales.', error });
+    }
+};
+
+
 // const updateCar = async (req, res) => {
 //     const id = req.params.id; // default ID car
 
@@ -139,6 +159,7 @@ module.exports = {
     createCar,
     getCars,
     getCarById,
+    getCarSalesByDate,
     updateCar,
     deleteCar
 };
