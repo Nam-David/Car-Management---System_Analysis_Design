@@ -29,6 +29,9 @@ document.addEventListener('DOMContentLoaded', async function () {
         // Clear the chart container
         chartContainer.innerHTML = ''; 
 
+        // Find the maximum sales value for scaling
+        const maxSales = Math.max(...salesData.map(car => car.total_sold));
+
         // Create the table structure
         const table = document.createElement('table');
         table.classList.add('graph');
@@ -40,9 +43,6 @@ document.addEventListener('DOMContentLoaded', async function () {
         const tbody = document.createElement('tbody');
         table.appendChild(tbody);
 
-        // Add table headers (optional)
-        // ... (add code to create and append header rows if needed)
-
         // Populate the table body with sales data
         salesData.forEach(car => {
             const row = document.createElement('tr');
@@ -52,8 +52,19 @@ document.addEventListener('DOMContentLoaded', async function () {
             row.appendChild(modelCell);
 
             const salesCell = document.createElement('td');
+            const salesBar = document.createElement('div'); // Use a div for the bar
+            // Calculate the bar height based on the maximum sales
+            const barHeight = (car.total_sold / maxSales) * 5; // Scale to 200px max
+            salesBar.style.height = `${barHeight}px`; 
+            salesBar.style.backgroundColor = 'rgb(65, 166, 255)';
+            salesBar.style.width = '5px'; // Adjust bar width as needed
+            salesBar.style.margin = '0 auto'; // Center the bar horizontally
+
             const salesSpan = document.createElement('span');
             salesSpan.textContent = car.total_sold;
+            salesSpan.style.position = 'relative';
+            salesSpan.style.top = '-20px'; // Position above the bar
+            salesCell.appendChild(salesBar);
             salesCell.appendChild(salesSpan);
             row.appendChild(salesCell);
 
