@@ -5,6 +5,65 @@ document.addEventListener('DOMContentLoaded', async function () {
     
     const totalRevenueElement = document.getElementById('total-revenue'); // Move variable declaration inside the listener
     const totalCarsInStockElement = document.getElementById('total-cars-in-stock'); // Move variable declaration inside the listener
+    
+    const chartContainer = document.querySelector('.chart-container'); 
+
+    // Function to fetch car sales data
+    async function fetchCarSalesData(selectedDate) {
+        try {
+            const response = await fetch(`http://localhost:8989/cars/sales/${selectedDate}`);
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            const data = await response.json();
+            console.log('Fetched car sales data:', data);
+            return data;
+        } catch (error) {
+            console.error('Error fetching car sales data:', error);
+            return []; // Return an empty array in case of error
+        }
+    }
+
+    // Function to update the chart with new data (you'll implement this later)
+    function updateChart(salesData) {
+        // Clear the chart container
+        chartContainer.innerHTML = ''; 
+
+        // Create the table structure
+        const table = document.createElement('table');
+        table.classList.add('graph');
+        table.style.width = '100%';
+
+        const thead = document.createElement('thead');
+        table.appendChild(thead);
+
+        const tbody = document.createElement('tbody');
+        table.appendChild(tbody);
+
+        // Add table headers (optional)
+        // ... (add code to create and append header rows if needed)
+
+        // Populate the table body with sales data
+        salesData.forEach(car => {
+            const row = document.createElement('tr');
+            const modelCell = document.createElement('th');
+            modelCell.textContent = car.model_car_name; 
+            modelCell.scope = 'row';
+            row.appendChild(modelCell);
+
+            const salesCell = document.createElement('td');
+            const salesSpan = document.createElement('span');
+            salesSpan.textContent = car.total_sold;
+            salesCell.appendChild(salesSpan);
+            row.appendChild(salesCell);
+
+            tbody.appendChild(row);
+        });
+
+        // Append the table to the chart container
+        chartContainer.appendChild(table);
+    }
+    
     // GET - Fetch Dashboard Data from Backend
     async function getDashboardData() {
         try {
@@ -52,9 +111,27 @@ document.addEventListener('DOMContentLoaded', async function () {
     }
     // Initial Data Load
     getDashboardData(); 
-  });
 
-  const dashboardTable = document.getElementById('dashboard');
+    
+    // Event listener for the "Chọn" button
+    const selectDateButton = document.querySelector('button');
+    selectDateButton.addEventListener('click', async () => {
+    const selectedDateInput = document.querySelector('input[type="date"]');
+    let selectedDate = selectedDateInput.value;
+
+    if (selectedDate) {
+        // Format the date to YYYY-MM-DD
+        selectedDate = new Date(selectedDate).toISOString().slice(0, 10); 
+        console.log('Selected date:', selectedDate);
+        const salesData = await fetchCarSalesData(selectedDate);
+        updateChart(salesData);
+    } else {
+        alert('Vui lòng chọn ngày!'); 
+    }
+    });
+});
+
+//   const dashboardTable = document.getElementById('dashboard');
 
 // // GET - Func GET data from BACK END & Display
 // async function getTransactionData() {
