@@ -24,10 +24,10 @@ function displayCustomerData(data) {
   data.forEach(customer => {
     tableContent += `<tr>
         <td>${customer.citizen_id}</td>  
-        <td>${customer.email}</td>
         <td>${customer.customer_name}</td>
-        <td>${customer.phone_no}</td>
         <td>${customer.address}</td>
+        <td>${customer.phone_no}</td>
+        <td>${customer.email}</td>
         <td>${customer.number_transaction}</td>
         <td>
             <button class="delete-customer"   data-customer-id="${customer.citizen_id}" >delete</button>  

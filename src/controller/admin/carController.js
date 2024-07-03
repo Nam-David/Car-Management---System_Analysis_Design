@@ -77,6 +77,38 @@ const getCarById = async (req, res) => {
     }
 };
 
+const getCarSalesByDate = async (req, res) => {
+    const selectedDate = req.params.date;
+    console.log("Selected Date:", selectedDate); // Log the date
+
+    // Validate date format (YYYY-MM-DD)
+    const dateRegex = /^\d{4}-\d{2}-\d{2}$/;
+    if (!dateRegex.test(selectedDate)) {
+        return res.status(400).json({ message: 'Invalid date format. Use YYYY-MM-DD.' });
+    }
+
+    try {
+        const query = `
+            SELECT dataCAR.Model_Car_Name, COUNT(dataTRANSACTION.Transaction_ID) as total_sold
+            FROM dataTRANSACTION
+            INNER JOIN dataCAR ON dataTRANSACTION.Model_Car_ID = dataCAR.Model_Car_ID
+            WHERE dataTRANSACTION.Transaction_Date = $1
+            GROUP BY dataCAR.Model_Car_Name
+        `;
+        console.log("SQL Query:", query);  // Log the query
+
+        const values = [selectedDate];  // Use parameterized query
+        console.log("Values:", values);  // Log the values
+        
+        const { rows } = await db.pool.query(query, values);
+        console.log("Rows:", rows);  // Log the rows
+        res.status(200).json(rows);
+    } catch (error) {
+        console.error('Error fetching car sales:', error);
+        res.status(500).json({ message: 'Error fetching car sales.' });
+    }
+};
+
 // const updateCar = async (req, res) => {
 //     const id = req.params.id; // default ID car
 
@@ -139,6 +171,7 @@ module.exports = {
     createCar,
     getCars,
     getCarById,
+    getCarSalesByDate,
     updateCar,
     deleteCar
 };

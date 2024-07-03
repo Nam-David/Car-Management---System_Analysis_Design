@@ -32,6 +32,7 @@ const getCustomerById = async (req, res) => {
 const updateCustomer = async (req, res) => {
     const { Citizen_ID, Email, Customer_Name, Phone_No, Address, Number_Transaction } = req.body;
     try {
+        
         db.pool.query('UPDATE dataCUSTOMER SET Citizen_ID = $1, Email = $2, Customer_Name = $3, Phone_No = $4, Address = $5, Number_Transaction = $6 WHERE Citizen_ID = $7', 
         [Citizen_ID, Email, Customer_Name, Phone_No, Address, Number_Transaction, Citizen_ID]);
         res.status(200).json({  });

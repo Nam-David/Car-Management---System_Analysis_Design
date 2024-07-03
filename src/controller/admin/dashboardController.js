@@ -1,5 +1,4 @@
 const database = require('../../config/db'); // Import the database object
-
 const getDashboardData = async (req, res) => {
   try {
     // Use database.pool to access the pool
@@ -21,5 +20,4 @@ const getDashboardData = async (req, res) => {
     console.log(database.pool); // Log the pool object for debugging
   }
 };
-
 module.exports = { getDashboardData };
