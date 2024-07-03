@@ -1,32 +1,55 @@
+
+function extractId() {
+    const buttonElement = document.querySelector("button[type='submit']"); // Assuming there's only one submit button
+    if (buttonElement) {
+      const id = buttonElement.id;
+//      console.log("Extracted ID:", id); // Process or store the ID as needed
+
+      return id;
+
+      // You can also perform actions based on the ID here
+    } else {
+      console.error("Submit button not found.");
+    }
+  }
+  
+  // Call the function after the DOM is loaded (ensure this script runs after the button is loaded):
+  window.addEventListener("DOMContentLoaded", extractId);
+ 
+
 function postDatabase() {
     let customer_input_name = document.getElementById("CustomerName").value;
     let customer_input_identitycard = document.getElementById("IdentityCard").value;
     let customer_input_phone = document.getElementById("NumberPhone").value;
     let customer_input_email = document.getElementById("Email").value;
     let customer_input_address = document.getElementById("Address").value;
-
+    let buttonId = extractId();
+    console.log(buttonId); 
+    
     fetch('http://localhost:8989/fillCustomerInfo', {
-        method: 'post',
+            method: 'post',
 
-        headers: {
-            "Content-type": "application/json; charset=UTF-8"
-            },
-        body: JSON.stringify({
-            //username and password are parameters, which declared above
-            customer_input_name: customer_input_name,
-            customer_input_identitycard: customer_input_identitycard,
-            customer_input_email: customer_input_email,
-            customer_input_phone: customer_input_phone,
-            customer_input_address: customer_input_address 
-        })
-    })
+            headers: {
+                "Content-type": "application/json; charset=UTF-8"
+                },
+            body: JSON.stringify({
+                //username and password are parameters, which declared above
+                customer_input_identitycard: customer_input_identitycard,
+                customer_input_email: customer_input_email,
+                customer_input_name: customer_input_name,
+                customer_input_phone: customer_input_phone,
+                customer_input_address: customer_input_address,
+                id : id 
+            })
+        })  
+        .then(res => res.json()) //parse data send from BE to JSON format - the line that receives the data (JSON object) 
+        .then(loginRespond => {
 
-    .then(res => res.json()) //parse data send from BE to JSON format - the line that receives the data (JSON object) 
-    
-    // loginRespond -> data after being parsed by JSON 
-    
+            console.log(loginRespond.id);     
+        });  
+        // loginRespond -> data after being parsed by JSON 
+  
 }
-
 
 
 

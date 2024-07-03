@@ -1,151 +1,60 @@
-// Function to sort table by column
-function sortTableByColumn(table, column, asc = true) {
-    const dirModifier = asc ? 1 : -1;
-    const tBody = table.tBodies[0];
-    const rows = Array.from(tBody.querySelectorAll("tr"));
+const carTable = document.getElementById('ketoan-data');
 
-    // Sort each row
-    const sortedRows = rows.sort((a, b) => {
-        let aColText = a.querySelector(`td:nth-child(${column + 1})`).textContent.trim();
-        let bColText = b.querySelector(`td:nth-child(${column + 1})`).textContent.trim();
-
-        // Convert to number if possible
-        if (!isNaN(aColText)) {
-            aColText = Number(aColText);
-            bColText = Number(bColText);
-        }
-
-        return aColText > bColText ? (1 * dirModifier) : (-1 * dirModifier);
-    });
-
-    // Remove all existing TRs from the table
-    while (tBody.firstChild) {
-        tBody.removeChild(tBody.firstChild);
+// GET - Func GET data from BACK END & Display
+async function getCarData() {
+  try {
+    const response = await fetch('http://localhost:8989/cars');
+    if (!response.ok) {
+      throw new Error(`Error fetching data: ${response.status}`);
     }
-
-    // Re-add the newly sorted rows
-    tBody.append(...sortedRows);
-
-    // Remember how the column is currently sorted
-    table.querySelectorAll("th").forEach(th => th.classList.remove("th-sort-asc", "th-sort-desc"));
-    table.querySelector(`th:nth-child(${column + 1})`).classList.toggle("th-sort-asc", asc);
-    table.querySelector(`th:nth-child(${column + 1})`).classList.toggle("th-sort-desc", !asc);
+    const carData = await response.json();
+    
+    //console.log(carData);
+    displayCarData(carData); // Call display function here
+  } catch (error) {
+    console.error('Error fetching employee data:', error);
+  }
 }
+//class="data-cell"
+//  <td class="edit-car" data-field= "Model_Car_ID"> ${car.model_car_id}</td>  
+//             <button class="delete-car"   data-car-id="${car.model_car_id}" >delete</button>  --> can tim hieu cho nay vi sao     const carId = event.target.dataset.carId; co the lay duoc du lieu 
+// Function to display car data in the table
+function displayCarData(data) {
+  let tableContent = '';
 
-// Add event listeners for sorting
-document.querySelectorAll(".table-sortable th").forEach(headerCell => {
-    headerCell.addEventListener("click", () => {
-        const tableElement = headerCell.closest(".table-sortable");
-        const headerIndex = Array.prototype.indexOf.call(headerCell.parentElement.children, headerCell);
-        const currentIsAscending = headerCell.classList.contains("th-sort-asc");
+  //inside <td> attribute must lowercase - same as what Backend return JSON file
 
-        sortTableByColumn(tableElement, headerIndex, !currentIsAscending);
-    });
-});
+  data.forEach(car => {
+    tableContent += `<tr>
+        <td data-field= "Model_Car_ID"> ${car.model_car_id}</td>  
+        <td data-field= "Model_Car_Name"> ${car.model_car_name}</td>
+        <td data-field= "Price"> ${car.price}</td>
+        <td data-field= "Color"> ${car.color}</td>
+        <td data-field= "Origin_Of_Car"> ${car.origin_of_car}</td> 
+        <td data-field= "Date_Of_Import"> ${car.date_of_import}</td>
+        <td data-field= "Car_Number_Availability">${car.car_number_availability}</td>
+        <td data-field= "Car_Sold"> ${car.car_sold}</td>
+        <td data-field= "Lauching_Year"> ${car.lauching_year}</td>
+       
+        
+        <td>
+            <button class="delete-car"   data-car-id="${car.model_car_id}" >delete</button>  
+         </td>
+         <td>
+            <button class="edit-car"   data-car-id="${car.model_car_id}" >edit</button>  
+        </td>
+    </tr>`;
+    // data-car-id: will store ID for each row 
+  });
 
-// Add event listeners for editing cells
-document.querySelectorAll(".edit-btn").forEach(button => {
-    button.addEventListener("click", () => {
-        const row = button.closest("tr");
-        const cells = row.querySelectorAll(".editable");
-        cells.forEach(cell => {
-            if (cell.isContentEditable) {
-                cell.contentEditable = false;
-                cell.style.backgroundColor = ""; // Remove background color
-            } else {
-                cell.contentEditable = true;
-                cell.style.backgroundColor = "#ffe0e0"; // Highlight editable cells
+    tableContent += '</tbody>'; // Close table body tag
 
-                // Add an event listener for the blur event
-                cell.addEventListener("blur", () => {
-                    if (cell.textContent.trim() === "") {
-                        alert("Bạn chưa thêm đầy đủ thông tin.");
-                    }
-                });
-            }
-        });
-    });
-});
-
-// Add event listener for adding new row
-document.getElementById("add-row-form").addEventListener("submit", (event) => {
-    event.preventDefault();
-
-    const transactionId = document.getElementById("new-Transaction_Id").value;
-    const citizenId = document.getElementById("new-Citizen_Id").value;
-    const transactionPrice = document.getElementById("new-Transaction_Price").value;
-    const depositPrice = document.getElementById("new-Deposit_Price").value;
-
-    const existingIds = Array.from(document.querySelectorAll(".table tbody tr td:first-child"), td => td.textContent);
-    if (existingIds.includes(transactionId)) {
-        alert("Mã giao dịch đã tồn tại. Thông tin không hợp lệ.");
-        return;
-    }
-
-    if (!transactionId || !citizenId || !transactionPrice || !depositPrice) {
-        alert("Thông tin chưa được điền đầy đủ. Hãy kiểm tra lại.");
-        return;
-    }
-
-    const newRow = document.createElement('tr');
-    newRow.innerHTML = `
-        <td class="editable">${transactionId}</td>
-        <td class="editable">${citizenId}</td>
-        <td class="editable">${transactionPrice}</td>
-        <td class="editable">${depositPrice}</td>
-
-    `;
-
-    document.querySelector(".table tbody").appendChild(newRow);
-
-    // Add event listeners to the new buttons
-    newRow.querySelector(".edit-btn").addEventListener("click", () => {
-        const row = newRow;
-        const cells = row.querySelectorAll(".editable");
-        cells.forEach(cell => {
-            if (cell.isContentEditable) {
-                if (cell.textContent.trim() === "") {
-                    alert("Bạn chưa thêm đầy đủ thông tin.");
-                }
-                cell.contentEditable = false;
-                cell.style.backgroundColor = ""; // Remove background color
-            } else {
-                cell.contentEditable = true;
-                cell.style.backgroundColor = "#ffe0e0"; // Highlight editable cells
-            }
-        });
-    });
-
-    newRow.querySelector(".delete-btn").addEventListener("click", (event) => {
-        event.preventDefault();
-        const confirmed = confirm("Bạn có chắc chắn muốn xóa dòng này không?");
-        if (confirmed) {
-            newRow.remove();
+    carTable.innerHTML = tableContent;
+    // add event to delete and delete
+    carTable.addEventListener('click', deleteHandlerCarData);
+    carTable.addEventListener('click', (event) => {
+        if (event.target.classList.contains('edit-car')) {
+            makeCellEditable(event);
         }
     });
-});
-
-// Add event listener for deleting rows within the table body
-document.querySelector(".table tbody").addEventListener("click", (event) => {
-    const target = event.target;
-    if (target.closest(".delete-btn")) {
-        event.preventDefault();
-        const confirmed = confirm("Bạn có chắc chắn muốn xóa dòng này không?");
-        if (confirmed) {
-            const row = target.closest("tr");
-            row.remove();
-        }
-    }
-});
-
-// Search by Citizen ID
-document.getElementById("id-search").addEventListener("keyup", function() {
-    const searchValue = this.value.toLowerCase();
-    const rows = document.querySelectorAll(".table tbody tr");
-    rows.forEach(row => {
-        const idCell = row.querySelector("td:nth-child(1)"); // Thay đổi từ cột 2 sang cột 1
-        const idText = idCell.textContent.toLowerCase();
-        row.style.display = idText.includes(searchValue) ? "" : "none";
-    });
-});
-
+}
