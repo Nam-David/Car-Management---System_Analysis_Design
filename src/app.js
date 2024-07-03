@@ -4,13 +4,13 @@ const cors = require('cors');
 const app = express();
 
 // import routes
-const loginRoutes = require ('../src/routes/admin/loginRoutes');
-const fillCustomerRoutes = require ('../src/routes/client/fillCustomerInfoRoutes');
+const loginRoutes = require('../src/routes/admin/loginRoutes');
+const fillCustomerRoutes = require('../src/routes/client/fillCustomerInfoRoutes');
 const carRoutes = require('../src/routes/admin/carRoutes');
 const customerRoutes = require('../src/routes/admin/customerRoutes');
 const transactionRoutes = require('../src/routes/admin/transactionRoutes');
 const dashboardRoutes = require('./routes/admin/dashboardRoutes');
-const HumanResourceManagementRoutes= require('../src/routes/admin/HumanResourceManagementRoutes');
+const HumanResourceManagementRoutes = require('../src/routes/admin/HumanResourceManagementRoutes');
 //const accountingRoutes = require('../src/routes/admin/accountingRoutes');
 
 // resolve CORS issue
@@ -28,13 +28,13 @@ app.use((req, res, next) => {
 app.use(express.json());
 // use routes
 app.use('/login', loginRoutes);
-app.use('/fillCustomerInfo', fillCustomerRoutes); 
+app.use('/fillCustomerInfo', fillCustomerRoutes);
 
 app.use('/customers', customerRoutes);
 
 app.use('/cars', carRoutes);
 app.use('/transaction', transactionRoutes);
- app.use('/dashboard', dashboardRoutes);
+app.use('/dashboard', dashboardRoutes);
 app.use('/humanrm', HumanResourceManagementRoutes);
 // app.use('/accounting', accountingRoutes);
 
