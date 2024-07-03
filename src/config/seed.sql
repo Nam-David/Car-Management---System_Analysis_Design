@@ -1,4 +1,4 @@
-INSERT INTO dataAGENCY (Agency_ID, Agency_Email, Agency_Brand, Phone_No, Address, Pass_word)
+INSERT INTO dataAGENCY (Agency_ID, Agency_Email, Agency_Brand, Phone_No, Agency_Address, Pass_word)
 VALUES (
     'AGENCY9',
     'anotheragency@example.com',

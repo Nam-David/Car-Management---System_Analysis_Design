@@ -10,7 +10,7 @@ async function getEmployeeData() {
     }
     const employeeData = await response.json();
     
-    console.log(employeeData);
+    //console.log(employeeData);
     displayEmployeeData(employeeData); // Call display function here
   } catch (error) {
     console.error('Error fetching employee data:', error);

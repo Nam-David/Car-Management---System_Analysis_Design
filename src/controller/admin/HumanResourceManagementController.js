@@ -47,7 +47,7 @@ exports.getEmployees = async (req, res) => {
 };
 
 exports.getEmployeeById = async (req, res) => {
-    const id = parseInt(req.params.id);
+    const id = req.params.id;
     try {
         const { rows } = await database.pool.query('SELECT * FROM dataEMPLOYEE WHERE Employee_ID = $1', [id]);
         res.status(200).json(rows);
@@ -57,7 +57,7 @@ exports.getEmployeeById = async (req, res) => {
 };
 
 exports.updateEmployee = async (req, res) => {
-    const id = parseInt(req.params.id);
+    const id = req.params.id;
     const { Employee_CitizenID, Employee_Name, Employee_Birthday, Employee_Phone_No, Employee_Email, Employee_Address, Role_Title } = req.body;
     try {
         database.pool.query('UPDATE dataEMPLOYEE SET Employee_CitizenID = $1, Employee_Name = $2, Employee_Birthday = $3, Employee_Phone_No = $4, Employee_Email = $5, Employee_Address = $6, Role_Title = $7 WHERE Employee_CitizenID = $8', [Employee_CitizenID, Employee_Name, Employee_Birthday, Employee_Phone_No, Employee_Email, Employee_Address, Role_Title, id]);
@@ -68,7 +68,8 @@ exports.updateEmployee = async (req, res) => {
 };
 
 exports.deleteEmployee = async (req, res) => {
-    const id = parseInt(req.params.id);
+    const id = req.params.id;
+    console.log(id);
     try {
         database.pool.query('DELETE FROM dataEMPLOYEE WHERE Employee_CitizenID = $1', [id]);
         res.status(200).json({ message: 'Employee deleted successfully.' });

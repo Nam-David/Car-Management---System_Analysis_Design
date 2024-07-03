@@ -16,6 +16,8 @@ const accountingRoutes = require('../src/routes/admin/accountingRoutes');
 // resolve CORS issue
 app.use(cors());
 
+
+
 // -- Fix cors issue - this line of code - Nam (28/6/2024 - 2:48 A.M)
 app.use((req, res, next) => {
     res.header("Access-Control-Allow-Origin", "*");

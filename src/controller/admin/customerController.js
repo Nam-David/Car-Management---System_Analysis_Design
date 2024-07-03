@@ -40,12 +40,32 @@ const updateCustomer = async (req, res) => {
     }
 };
 
-const deleteCustomer = async (req, res) => {
+const deleteCustomer = async  (req, res) => {
     const id = req.params.id;
+        //console.log(resultTransactionID);
+
+        // IF DELETE CUSTOMER -> DELETE TRANSACTION and 
+        //db.pool.query('DELETE FROM dataACCOUNTING  WHERE Transaction_ID = $2', [resultTransactionID]);
+        //db.pool.query('DELETE FROM dataTransaction WHERE Transaction_ID = $3', [resultTransactionID]);
+        //db.pool.query('DELETE FROM dataCUSTOMER    WHERE Citizen_ID = $4', [id]);
     try {
-        db.pool.query('DELETE FROM dataCUSTOMER WHERE Citizen_ID = $1', [id]);
+        const resultID = await db.pool.query(
+            `SELECT Transaction_ID FROM dataTransaction WHERE Citizen_ID = $1`,
+            [id]
+        );        
+        const resultTransactionID = resultID.rows[0]; // Assuming single row
+        
+        // Re-enable transaction logic for deleting transactions
+        await db.pool.query('BEGIN');
+        await db.pool.query('DELETE FROM dataACCOUNTING WHERE Transaction_ID = $1', [resultTransactionID]);
+        await db.pool.query('DELETE FROM dataTransaction WHERE Transaction_ID = $1', [resultTransactionID]);
+        await db.pool.query('DELETE FROM dataCUSTOMER WHERE Citizen_ID = $1', [id]);
+        await db.pool.query('COMMIT'); // Commit transaction on success
+
+
         res.status(200).json({ message: 'Customer deleted successfully.' });
     } catch (error) {
+        await db.pool.query('ROLLBACK');
         res.status(500).json({ message: 'An error occurred while deleting the customer.', error });
     }
 };

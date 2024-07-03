@@ -80,6 +80,7 @@
                         <div class="disclaimer">Các thông tin sản phẩm có thể thay đổi mà không cần báo trước</div>
                     </div>
                     <button id="next-step-1"    class="btn btn-primary" disabled>Bước tiếp theo</button>
+
                 </div>
                 <div class="content" id="content2" style="display: none;">
                     <p class="not-complete-step" id="step1-warning" style="display: none;">
@@ -96,6 +97,11 @@
                                 </p>
                                 <div class="vf-form">
                                     <input type="hidden" name="campaign" value>
+
+                                    <!--luu o dong nay, cho dai 1 tag nao do type hidden-->
+                                    <input type="hidden" id="model_car_id" name="modelCarID" value="VINVFWG">
+
+
                                     <div class="row group-customer">
                                         <div class="col-12 group-title"><b>Thông tin chủ xe <br> <br></b></div>
                                         <div class="col-12 group-personal mb-4">
@@ -153,7 +159,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <button type = "submit" id="VINVFWG"  next-step-2  class="btn btn-primary">Bước tiếp theo</button>
+                                <button type = "submit" id="next-step-2" onclick = "postDatabase()" class="btn btn-primary ">Bước tiếp theo</button>
                                 <!-- Assign id for car as "id" -> then update to  -->
                                 <!-- button type = "submit " onclick= "postDatabase" next-step-2 class="btn btn-primary">Bước tiếp theo</button>--> 
 

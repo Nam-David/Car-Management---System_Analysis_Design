@@ -1,31 +1,24 @@
 
-function extractId() {
-    const buttonElement = document.querySelector("button[type='submit']"); // Assuming there's only one submit button
-    if (buttonElement) {
-      const id = buttonElement.id;
-       console.log("Extracted ID:", id); // Process or store the ID as 
 
-      return id;
-
-      // You can also perform actions based on the ID here
-    } else {
-      console.error("Submit button not found.");
-    }
-  }
 
   // Call the function after the DOM is loaded (ensure this script runs after the button is loaded):
 //window.addEventListener("DOMContentLoaded", extractId);
  
 
 function postDatabase() {
-    let customer_input_name = document.getElementById("CustomerName").value;
-    let customer_input_identitycard = document.getElementById("IdentityCard").value;
-    let customer_input_phone = document.getElementById("NumberPhone").value;
-    let customer_input_email = document.getElementById("Email").value;
-    let customer_input_address = document.getElementById("Address").value;
-    let buttonId = extractId();
-    console.log(buttonId); 
-    
+    let Customer_Name = document.getElementById("CustomerName").value;
+    let Citizen_ID = document.getElementById("IdentityCard").value;
+    let Phone_No = document.getElementById("NumberPhone").value;
+    let Email = document.getElementById("Email").value;
+    let Address = document.getElementById("Address").value;
+    let Model_Car_ID = document.getElementById("model_car_id").value;
+    // console.log(Customer_Name)
+    // console.log(Citizen_ID)
+    // console.log(Phone_No)
+    // console.log(Email)
+    // console.log(Address)
+    // console.log(Model_Car_ID )
+
     fetch('http://localhost:8989/fillCustomerInfo', {
             method: 'post',
 
@@ -34,22 +27,37 @@ function postDatabase() {
                 },
             body: JSON.stringify({
                 //username and password are parameters, which declared above
-                customer_input_identitycard: customer_input_identitycard,
-                customer_input_email: customer_input_email,
-                customer_input_name: customer_input_name,
-                customer_input_phone: customer_input_phone,
-                customer_input_address: customer_input_address,
+                Customer_Name: Customer_Name,
+                Citizen_ID: Citizen_ID,
+                Phone_No: Phone_No,
+                Email: Email,
+                Address: Address,
+                Model_Car_ID: Model_Car_ID
                 
             })
         })  
         .then(res => res.json()) //parse data send from BE to JSON format - the line that receives the data (JSON object) 
         .then(loginRespond => {
 
-            console.log(loginRespond.id);     
-        });  
+z        });  
         // loginRespond -> data after being parsed by JSON 
   
 }
+
+
+// function extractId() {
+//     const buttonElement = document.querySelector("button[type='submit']"); // Assuming there's only one submit button
+//     if (buttonElement) {
+//       const id = buttonElement.id;
+//        console.log("Extracted ID:", id); // Process or store the ID as 
+
+//       return id;
+
+//       // You can also perform actions based on the ID here
+//     } else {
+//       console.error("Submit button not found.");
+//     }
+//   }
 
 
 document.getElementById('deposit-nav').addEventListener('click', function(event) {

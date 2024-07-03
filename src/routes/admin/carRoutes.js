@@ -7,5 +7,6 @@ router.get('/', carController.getCars);
 router.get('/:id', carController.getCarById);
 router.put('/:id', carController.updateCar);
 router.delete('/:id', carController.deleteCar);
+router.get('/sales/:date', carController.getCarSalesByDate);
 
 module.exports = router;

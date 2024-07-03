@@ -26,15 +26,15 @@ function displayCarData(data) {
 
   data.forEach(car => {
     tableContent += `<tr>
-        <td data-field= "Model_Car_ID"> ${car.model_car_id}</td>  
-        <td data-field= "Model_Car_Name"> ${car.model_car_name}</td>
-        <td data-field= "Price"> ${car.price}</td>
-        <td data-field= "Color"> ${car.color}</td>
-        <td data-field= "Origin_Of_Car"> ${car.origin_of_car}</td> 
-        <td data-field= "Date_Of_Import"> ${car.date_of_import}</td>
-        <td data-field= "Car_Number_Availability">${car.car_number_availability}</td>
-        <td data-field= "Car_Sold"> ${car.car_sold}</td>
-        <td data-field= "Lauching_Year"> ${car.lauching_year}</td>
+        <td data-field="Model_Car_ID"> ${car.model_car_id}</td>  
+        <td data-field="Model_Car_Name"> ${car.model_car_name}</td>
+        <td data-field="Price"> ${car.price}</td>
+        <td data-field="Color"> ${car.color}</td>
+        <td data-field="Origin_Of_Car"> ${car.origin_of_car}</td> 
+        <td data-field="Date_Of_Import"> ${car.date_of_import}</td>
+        <td data-field="Car_Number_Availability">${car.car_number_availability}</td>
+        <td data-field="Car_Sold"> ${car.car_sold}</td>
+        <td data-field="Lauching_Year"> ${car.lauching_year}</td>
        
         
         <td>
@@ -58,6 +58,7 @@ function displayCarData(data) {
         }
     });
 }
+
 /*
 function makeCellEditable(event) {
     const editButton = event.target;
