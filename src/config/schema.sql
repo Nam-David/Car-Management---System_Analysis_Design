@@ -1,10 +1,9 @@
--- Drop Existing Tables
--- DROP TABLE IF EXISTS dataACCOUTING;
--- DROP TABLE IF EXISTS dataTRANSACTION;
--- DROP TABLE IF EXISTS dataEMPLOYEE;
--- DROP TABLE IF EXISTS dataAGENCY;
--- DROP TABLE IF EXISTS dataCUSTOMER;
--- DROP TABLE IF EXISTS dataCAR;
+DROP TABLE dataEMPLOYEE;
+DROP TABLE dataAGENCY;
+DROP TABLE dataCUSTOMER CASCADE;
+DROP TABLE dataCAR CASCADE;
+DROP TABLE dataTRANSACTION CASCADE;
+DROP TABLE dataACCOUTING;
 
 -- Create dataCAR table
 CREATE TABLE dataCAR (
@@ -16,7 +15,7 @@ CREATE TABLE dataCAR (
 	Date_Of_Import DATE NOT NULL,
 	Car_Number_Availability INT NOT NULL, 
 	Car_Sold INT NOT NULL,
-	Lauching_Year INT NOT NULL,
+	Launching_Year INT NOT NULL,
 	PRIMARY KEY (Model_Car_ID)
 );
 
@@ -26,12 +25,24 @@ CREATE TABLE dataCUSTOMER  (
 	Email VARCHAR (255) NOT NULL UNIQUE, 
 	Customer_Name VARCHAR (255) NOT NULL,
 	Phone_No VARCHAR (10) NOT NULL UNIQUE,
-	Address VARCHAR (255) NOT NULL UNIQUE,
+	Address VARCHAR (255) NOT NULL,
 	Number_Transaction INT NOT NULL,
 	PRIMARY KEY (Citizen_ID)
 );
--- DELETE FROM users WHERE citizen_id = '0123456';
--- DELETE FROM dataCUSTOMER WHERE Citizen_ID = '0123456';
+
+-- Create dataTRANSACTION table
+CREATE TABLE dataTRANSACTION (
+    Transaction_ID VARCHAR (255) PRIMARY KEY, 
+    Citizen_ID VARCHAR (255) NOT NULL, --remove Unique,customers can buy multiple
+    Model_Car_ID VARCHAR (255) NOT NULL,
+    Transaction_Date DATE NOT NULL,
+    Payment_Date DATE NOT NULL,
+    Warranty_Valid_Date DATE NOT NULL,
+    Status_Of_Purchasing VARCHAR (255) , --deposited, paid, canceled
+    FOREIGN KEY (Citizen_ID) REFERENCES dataCUSTOMER(Citizen_ID),
+    FOREIGN KEY (Model_Car_ID) REFERENCES dataCAR(Model_Car_ID)
+);
+-- tam thoi de   Transaction_Date  Payment_Date Warranty_Valid_Date Status_Of_Purchasing - NULL 
 
 -- Create dataAGENCY table
 CREATE TABLE dataAGENCY  (
@@ -45,6 +56,14 @@ CREATE TABLE dataAGENCY  (
 );
 
 -- Create dataEMPLOYEE table
+CREATE TABLE dataACCOUNTING (
+    Transaction_ID VARCHAR (255), 
+	Transaction_Price FLOAT NOT NULL,
+	Deposit_Price FLOAT NOT NULL,
+	PRIMARY KEY (Transaction_ID),        -- Set Transaction_ID as primary key
+	FOREIGN KEY (Transaction_ID) REFERENCES dataTRANSACTION(Transaction_ID)
+);
+
 CREATE TABLE dataEMPLOYEE  (
 	Employee_CitizenID  VARCHAR (255),
 	Employee_Name VARCHAR (255) NOT NULL, 
@@ -55,41 +74,3 @@ CREATE TABLE dataEMPLOYEE  (
 	Role_Title VARCHAR (255) NOT NULL,   
 	PRIMARY KEY (Employee_CitizenID)
 );
-
--- Create dataTRANSACTION table
-CREATE TABLE dataTRANSACTION (
-    Transaction_ID VARCHAR (255) PRIMARY KEY, 
-    Citizen_ID VARCHAR (255) NOT NULL, --remove Unique,customers can buy multiple
-    Model_Car_ID VARCHAR (255) NOT NULL,
-    Transaction_Date DATE NOT NULL,
-    Payment_Date DATE NOT NULL,
-    Warranty_Valid_Date DATE NOT NULL,
-    Status_Of_Purchasing VARCHAR (255) NOT NULL, --deposited, paid, canceled
-    FOREIGN KEY (Citizen_ID) REFERENCES dataCUSTOMER(Citizen_ID),
-    FOREIGN KEY (Model_Car_ID) REFERENCES dataCAR(Model_Car_ID)
-);
-
--- Create dataACCOUTING table
-CREATE TABLE dataACCOUTING (
-	Transaction_ID VARCHAR (255),
-	Transaction_Price FLOAT NOT NULL,
-	Deposit_Price FLOAT NOT NULL,
-	PRIMARY KEY (Transaction_ID),        -- Set Transaction_ID as primary key
-	FOREIGN KEY (Transaction_ID) REFERENCES dataTRANSACTION(Transaction_ID),
-);
-CREATE VIEW TransactionDashboard AS
-SELECT
-    T.Transaction_ID AS "Transaction ID",
-    T.Citizen_ID AS "Citizen ID",
-    T.Model_Car_ID AS "Car Model ID",
-    T.Transaction_Date AS "Transaction Date",
-    T.Payment_Date AS "Payment Date",
-    T.Warranty_Valid_Date AS "Warranty Expiry",
-    T.Status_Of_Purchasing AS "Status"
-FROM dataTRANSACTION T; 
-
---SELECT * FROM TransactionDashboard;
---SELECT * FROM dataEMPLOYEE;
---Select * from dataCUSTOMER;
--- DELETE FROM dataCUSTOMER;
--- TRUNCATE TABLE dataCUSTOMER;
