@@ -1,3 +1,4 @@
+// src\controller\client\fillCustomerInfoController.js
 const database = require('../../config/db');
 const validator = require('validator');
 
@@ -5,11 +6,29 @@ exports.saveCustomerInfo = async (req, res) => {
     const client = await database.pool.connect();
 
     try {
-        await client.query('BEGIN'); // Bắt đầu giao dịch
-        //const { Citizen_ID, Phone_No, Email, Customer_Name, Address, Model_Car_ID, Transaction_Date, Payment_Date, Warranty_Valid_Date, Status_Of_Purchasing } = req.body;
-        const { Citizen_ID, Phone_No, Email, Customer_Name, Address, Car_ID} = req.body;
+        await client.query('BEGIN');
+        const {
+            Citizen_ID,
+            Phone_No,
+            Email,
+            Customer_Name,
+            Address,
+            Model_Car_ID  // Lấy Model_Car_ID từ req.body
+        } = req.body;
 
-        // ... (Phần kiểm tra dữ liệu đầu vào)
+        // --- Kiểm tra dữ liệu đầu vào ---
+        if (!Citizen_ID || !Phone_No || !Email || !Customer_Name || !Address || !Model_Car_ID) {
+            return res.status(400).json({ error: 'Vui lòng nhập đầy đủ thông tin' });
+        }
+
+        if (!validator.isEmail(Email)) {
+            return res.status(400).json({ error: 'Email không hợp lệ' });
+        }
+
+        if (!validator.isMobilePhone(Phone_No, 'vi-VN')) {
+            return res.status(400).json({ error: 'Số điện thoại không hợp lệ' });
+        }
+        // --- Kết thúc kiểm tra ---
 
         // Kiểm tra xem Citizen_ID đã tồn tại chưa
         const existingCustomerResult = await client.query(
@@ -18,59 +37,59 @@ exports.saveCustomerInfo = async (req, res) => {
         const existingCustomer = existingCustomerResult.rows[0];
 
         if (existingCustomer) {
-            // Nếu Citizen_ID đã tồn tại, cập nhật số lượng giao dịch
             await client.query(
-                'UPDATE dataCUSTOMER SET Number_Transaction = Number_Transaction + 1 WHERE Citizen_ID = $1', 
-                [Citizen_ID]
+                'UPDATE dataCUSTOMER SET Number_Transaction = Number_Transaction + 1 WHERE Citizen_ID = $1', [Citizen_ID]
             );
         } else {
-            // Nếu Citizen_ID chưa tồn tại, thêm khách hàng mới
             await client.query(
                 'INSERT INTO dataCUSTOMER (Citizen_ID, Customer_Name, Phone_No, Email, Address, Number_Transaction) VALUES ($1, $2, $3, $4, $5, 1)',
                 [Citizen_ID, Customer_Name, Phone_No, Email, Address]
             );
         }
 
-        
-        // Tạo giao dịch mới
+        // --- Tạo giao dịch mới ---
+        // Lấy ngày hiện tại
+        const currentDate = new Date();
 
-        // const transactionResult = await database.pool.query({
+        // Payment_Date là ngày hiện tại:
+        const paymentDate = currentDate;
 
-        //     text: `CREATE TRIGGER auto_generate_transaction_id
-    
-        //     BEFORE INSERT ON dataTRANSACTION  
-        //     BEGIN
-        //     DECLARE new_id VARCHAR(8) 
-        //     SET new_id = CONCAT('T', LPAD(CAST(COALESCE(MAX(SUBSTRING(Transaction_ID, 2)), 0) AS UNSIGNED) + 1, 3, '0'))
+        // Tính Warranty_Valid_Date (cộng thêm 2 năm)
+        const warrantyValidDate = new Date(currentDate);
+        warrantyValidDate.setFullYear(warrantyValidDate.getFullYear() + 2);
 
-        //     IF new_id IS NULL THEN
-        //         SET new_id = 'T001'
-        //     END IF
+        // Tạo Transaction_ID (có thể sử dụng UUID hoặc logic tạo ID riêng)
+        const transactionId = 'T' + Date.now(); // Ví dụ: T1699999999999
 
-        //     SET NEW.Transaction_ID = new_id 
-        //     END
-        
-            
-        //     INSERT INTO dataTRANSACTION (Transaction_ID, Citizen_ID, Model_Car_ID, Transaction_Date,
-        //          Payment_Date, Warranty_Valid_Date, Status_Of_Purchasing) VALUES ($1, $2, $3, $4, $5, $6) RETURNING Transaction_ID'`,
-            
-        //     values: [ Customer_Name, Phone_No, Email, Address, Car_ID]
+        // Thêm dữ liệu vào dataTRANSACTION (sử dụng transactionId, Model_Car_ID, và currentDate)
+        await client.query(
+            'INSERT INTO dataTRANSACTION (Transaction_ID, Citizen_ID, Model_Car_ID, Transaction_Date, Payment_Date, Warranty_Valid_Date, Status_Of_Purchasing) VALUES ($1, $2, $3, $4, $5, $6, $7)',
+            [transactionId, Citizen_ID, Model_Car_ID, currentDate, paymentDate, warrantyValidDate, 'deposited'] // Giả sử trạng thái ban đầu là 'deposited'
+        );
+        // --- Kết thúc tạo giao dịch ---
 
-        // });
+        // --- Thêm data vào bảng dataACCOUNTING ---
+        // Lấy giá trị đặt cọc (ví dụ: 10% giá xe) - Cần logic xác định giá trị đặt cọc dựa trên Model_Car_ID
+        const depositPrice = 5000
 
-        //const transactionId = transactionResult.rows[0].transaction_id;
+        // Lấy giá xe từ dataCAR:
+        const carPrice = (await client.query('SELECT Price FROM dataCAR WHERE Model_Car_ID = $1', [Model_Car_ID])).rows[0].price - depositPrice;
 
-        // ... (Phần thêm data vào bảng dataACCOUTING, sử dụng transactionId)
-        await client.query('COMMIT'); // Xác nhận toàn bộ giao dịch
+        // **Sửa đổi ở đây:** Thay đổi tên bảng từ dataEMPLOYEE thành dataACCOUNTING
+        await client.query(
+            'INSERT INTO dataACCOUNTING (Transaction_ID, Transaction_Price, Deposit_Price) VALUES ($1, $2, $3)',
+            [transactionId, carPrice, depositPrice]
+        );
+        // --- 
 
-        //res.status(201).json({ Transaction_ID: transactionId }); 
-        res.status(201).json({ Citizen_ID: Citizen_ID  }); 
-    
+        await client.query('COMMIT');
+        res.status(201).json({ Transaction_ID: transactionId });
+
     } catch (err) {
-        await client.query('ROLLBACK'); // Hoàn tác giao dịch nếu có lỗi
+        await client.query('ROLLBACK');
         console.error('Error:', err);
         res.status(500).json({ error: 'Đã có lỗi xảy ra' });
     } finally {
-        client.release(); // Giải phóng kết nối client
+        client.release();
     }
 };
