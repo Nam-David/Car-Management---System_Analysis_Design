@@ -1,5 +1,4 @@
 const database = require('../../config/db'); // Import the database object
-
 const getDashboardData = async (req, res) => {
   try {
     // Use database.pool to access the pool
@@ -11,11 +10,7 @@ const getDashboardData = async (req, res) => {
     const totalRevenue = totalRevenueResult.rows[0].total_revenue;
     const totalCarsInStock = totalCarsInStockResult.rows[0].total_cars_in_stock;
 
-<<<<<<< HEAD
-    const transactionDataResult = await database.pool.query('SELECT * FROM dataTransaction');
-=======
     const transactionDataResult = await database.pool.query('SELECT * FROM dataTransaction ORDER BY Transaction_Date DESC LIMIT 5');
->>>>>>> 50fd85bee2a3f88c678e5c31c0bcfdd4ad6f0889
     const transactionData = transactionDataResult.rows;
 
     res.json({ totalRevenue, totalCarsInStock, transactionData });
@@ -25,5 +20,4 @@ const getDashboardData = async (req, res) => {
     console.log(database.pool); // Log the pool object for debugging
   }
 };
-
 module.exports = { getDashboardData };

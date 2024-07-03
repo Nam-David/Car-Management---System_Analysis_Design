@@ -1,4 +1,4 @@
-/*document.addEventListener('DOMContentLoaded', async function () {
+document.addEventListener('DOMContentLoaded', async function () {
     const transactionTable = document.querySelector('.table tbody');
     const errorMessageElement = document.createElement('div');
     errorMessageElement.classList.add('error-message');
@@ -52,45 +52,45 @@
     }
     // Initial Data Load
     getDashboardData(); 
-  }); */
+  });
 
   const dashboardTable = document.getElementById('dashboard');
 
-// GET - Func GET data from BACK END & Display
-async function getTransactionData() {
-  try {
-    const response = await fetch('http://localhost:8989/dashboard');
-    if (!response.ok) {
-      throw new Error(`Error fetching data: ${response.status}`);
-    }
-    const dashboardData = await response.json();
-    console.log(dashboardData); 
-    displayDashBoardData(dashboardData.transactionData); // Call display function here
-  } catch (error) {
-    console.error('Error fetching employee data:', error);
-  }
-}
+// // GET - Func GET data from BACK END & Display
+// async function getTransactionData() {
+//   try {
+//     const response = await fetch('http://localhost:8989/dashboard');
+//     if (!response.ok) {
+//       throw new Error(`Error fetching data: ${response.status}`);
+//     }
+//     const dashboardData = await response.json();
+//     console.log(dashboardData); 
+//     displayDashBoardData(dashboardData.transactionData); // Call display function here
+//   } catch (error) {
+//     console.error('Error fetching employee data:', error);
+//   }
+// }
 
-function displayDashBoardData(data) {
-  let tableContent = '';
+// function displayDashBoardData(data) {
+//   let tableContent = '';
 
-  //inside <td> attribute must lowercase - same as what Backend return JSON file
+//   //inside <td> attribute must lowercase - same as what Backend return JSON file
 
-  data.forEach(dashboard => {
-    tableContent += `<tr>
-        <td> ${dashboard.transaction_id}</td>  
-        <td> ${dashboard.citizen_id}</td>
-        <td> ${dashboard.model_car_id}</td>
-        <td> ${dashboard.transaction_date}</td>
-        <td> ${dashboard.payment_date}</td> 
-        <td >${dashboard.warranty_valid_date}</td>
-        <td> ${dashboard.status_of_purchasing}</td>
-    </tr>`;
-    // data-car-id: will store ID for each row 
-  });
+//   data.forEach(dashboard => {
+//     tableContent += `<tr>
+//         <td> ${dashboard.transaction_id}</td>  
+//         <td> ${dashboard.citizen_id}</td>
+//         <td> ${dashboard.model_car_id}</td>
+//         <td> ${dashboard.transaction_date}</td>
+//         <td> ${dashboard.payment_date}</td> 
+//         <td >${dashboard.warranty_valid_date}</td>
+//         <td> ${dashboard.status_of_purchasing}</td>
+//     </tr>`;
+//     // data-car-id: will store ID for each row 
+//   });
 
-    tableContent += '</tbody>'; // Close table body tag
+//     tableContent += '</tbody>'; // Close table body tag
 
-    dashboardTable.innerHTML = tableContent;
+//     dashboardTable.innerHTML = tableContent;
     
-}
+// }
